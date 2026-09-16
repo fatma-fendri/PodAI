@@ -1,0 +1,635 @@
+[
+  {
+    "id": "plantar_fasciitis",
+    "title": "Plantar Fasciitis",
+    "category": "Inflammatory / degenerative condition",
+    "overview": "Plantar fasciitis is pain at the site where the plantar fascia attaches to the calcaneus (heel bone), sometimes called calcaneal enthesopathy, with or without pain along the medial band of the fascia. It is the most common cause of heel pain.",
+    "pathophysiology": "Despite its name, plantar fasciitis usually shows no true inflammation; 'plantar fasciosis' is the more accurate term, reflecting a degenerative process from repetitive microtrauma rather than an inflammatory one. The plantar fascia is a band of tissue connecting the heel bone to the base of the toes, and repeated strain leads to micro-tearing and degeneration at its origin.",
+    "symptoms": [
+      "Heel pain that is worse with the first steps in the morning or after periods of rest",
+      "Pain that often improves somewhat with continued activity, then worsens again later in the day",
+      "Pain along the medial (inner) band of the plantar fascia in some cases"
+    ],
+    "causes": [
+      "Tightness or contracture of the Achilles tendon and plantar fascia",
+      "Repetitive strain from prolonged standing, walking, or running on hard surfaces"
+    ],
+    "risk_factors": [
+      "Sedentary lifestyle or occupation requiring prolonged standing",
+      "Very high or very low (flat) arches",
+      "Frequent wear of high-heeled shoes",
+      "Obesity",
+      "Runners and dancers",
+      "Associated conditions such as rheumatoid arthritis or reactive arthritis (bilateral symptoms should raise suspicion of an inflammatory cause)"
+    ],
+    "diagnosis": "Diagnosis is mainly clinical, based on history and physical examination; imaging is occasionally used to rule out other causes of heel pain.",
+    "differential_diagnosis": [
+      "Calcaneal stress fracture",
+      "Inferior calcaneal bursitis (sharper, more acute pain)",
+      "Fat pad syndrome",
+      "S1 radiculopathy from an L5 disk herniation (pain radiating from the low back to the heel)"
+    ],
+    "treatment": [
+      "Activity modification: shorter steps, avoiding barefoot walking and high-impact activities such as jogging",
+      "Achilles tendon and plantar fascia stretching exercises",
+      "In-shoe heel cushioning and arch-supporting orthotics",
+      "Night splints that keep the Achilles tendon and fascia stretched during sleep",
+      "Physical therapy, started early, to build a consistent daily stretching routine",
+      "Occasionally, glucocorticoid injections for persistent pain"
+    ],
+    "when_to_see_a_doctor": "If heel pain persists despite stretching, footwear changes, and rest, or if the pain is present in both feet (which may suggest an underlying inflammatory condition).",
+    "source": {
+      "name": "MSD Manuals (Consumer Version)",
+      "url": "https://www.msdmanuals.com/home/bone-joint-and-muscle-disorders/foot-and-ankle-problems/plantar-fasciitis"
+    },
+    "source_professional": {
+      "name": "MSD Manuals (Professional Version)",
+      "url": "https://www.msdmanuals.com/professional/musculoskeletal-and-connective-tissue-disorders/foot-and-ankle-disorders/plantar-fasciitis"
+    }
+  },
+  {
+    "id": "hallux_valgus",
+    "title": "Bunion (Hallux Valgus)",
+    "category": "Bony deformity",
+    "overview": "A bunion is a prominence of the medial portion of the head of the first metatarsal bone, associated with a lateral deviation of the big toe (hallux valgus).",
+    "pathophysiology": "The cause is often a combination of genetic predisposition and biomechanical factors affecting the position of the first metatarsal bone or big toe. Laxity at the first tarsometatarsal joint allows the metatarsal to rotate in the frontal plane, causing the hallux to deform in the transverse plane and angulate laterally. Joint misalignment leads to secondary osteoarthritis with cartilage erosion and bone spur (exostosis) formation, which can progressively limit joint motion (hallux limitus) or eliminate it entirely (hallux rigidus). An adventitious bursa can develop medial to the joint prominence and become painful, swollen, and inflamed.",
+    "symptoms": [
+      "Pain at the joint prominence, initially triggered by certain shoes",
+      "Tenderness of the joint capsule at any stage",
+      "Painful, warm, reddened, fluctuant swelling located medially (adventitious bursitis) in later stages",
+      "Swelling and mild inflammation affecting the whole joint",
+      "Restricted passive joint motion, dorsolateral tenderness, and increased dorsiflexion of the distal phalanx in hallux limitus/rigidus"
+    ],
+    "causes": [
+      "Genetic predisposition",
+      "Excessive foot pronation",
+      "Wearing tight, narrow, or pointed-toe shoes",
+      "Trauma (occasionally)"
+    ],
+    "risk_factors": [
+      "More common in women",
+      "Family history",
+      "Frequent use of narrow or high-heeled shoes"
+    ],
+    "diagnosis": "Diagnosis is clinical and usually straightforward on physical examination; the lateral sesamoid may be visible in the intermetatarsal space on imaging, and in severe deformity the hallux may overlap or underlap the second toe.",
+    "differential_diagnosis": [
+      "Osteoarthritis of the first metatarsophalangeal joint",
+      "Freiberg disease",
+      "Hallux rigidus",
+      "Interdigital (Morton's) neuroma"
+    ],
+    "treatment": [
+      "Shoes with a wide toe box",
+      "Protective pads and orthotics",
+      "Glucocorticoid injection for bursitis or synovitis",
+      "Oral NSAIDs for joint pain",
+      "For hallux limitus/rigidus: orthotics or shoes that reduce motion or stress at the joint",
+      "Surgical intervention (e.g., osteotomy, arthrodesis) for refractory pain or difficulty walking"
+    ],
+    "when_to_see_a_doctor": "If pain, swelling, or joint stiffness interferes with walking or persists despite shoe changes and orthotics.",
+    "source": {
+      "name": "MSD Manuals (Consumer Version)",
+      "url": "https://www.msdmanuals.com/home/bone-joint-and-muscle-disorders/foot-and-ankle-problems/bunion"
+    },
+    "source_professional": {
+      "name": "MSD Manuals (Professional Version)",
+      "url": "https://www.msdmanuals.com/professional/musculoskeletal-and-connective-tissue-disorders/foot-and-ankle-disorders/bunion"
+    }
+  },
+  {
+    "id": "achilles_tendinopathy",
+    "title": "Achilles Tendinopathy",
+    "category": "Tendon disorder",
+    "overview": "Achilles tendinopathy is a painful condition of the Achilles tendon, the tough band of tissue connecting the calf muscles to the heel bone. It is very common among runners.",
+    "pathophysiology": "During running, the calf muscles assist the lift-off phase of gait. Repetitive forces from running, combined with insufficient recovery time, can injure the Achilles tendon. Use of fluoroquinolone antibiotics increases the risk of tendinopathy and tendon rupture, particularly in people over age 60.",
+    "symptoms": [
+      "Pain in the lower calf and back of the heel, usually the first symptom",
+      "Pain that increases when exercise begins and often lessens as exercise continues",
+      "Pain that worsens with continued activity over time"
+    ],
+    "causes": [
+      "Repetitive strain from running or similar high-impact activity",
+      "Insufficient recovery time between training sessions"
+    ],
+    "risk_factors": [
+      "Running and other high-impact sports",
+      "Use of fluoroquinolone antibiotics, especially in people over 60",
+      "Tight calf muscles or limited ankle flexibility"
+    ],
+    "diagnosis": "Usually based on symptoms and physical examination; imaging (ultrasound or MRI) is sometimes needed to confirm the diagnosis or assess severity.",
+    "treatment": [
+      "Ice and NSAIDs to relieve pain and inflammation",
+      "Avoiding running and cycling while pain persists",
+      "Stretching and strengthening exercises for the calf muscles, started as soon as they can be performed without pain",
+      "Resistance (eccentric) exercise to help prevent future injury",
+      "Shoes with flexible soles or heel lifts to reduce tension on the tendon"
+    ],
+    "when_to_see_a_doctor": "If heel and calf pain persists despite rest and stretching, or worsens progressively, especially in people over 60 taking fluoroquinolone antibiotics.",
+    "source": {
+      "name": "MSD Manuals (Consumer Version)",
+      "url": "https://www.msdmanuals.com/home/bone-joint-and-muscle-disorders/foot-and-ankle-problems/achilles-tendinopathy"
+    },
+    "source_professional": {
+      "name": "MSD Manuals (Professional Version)",
+      "url": "https://www.msdmanuals.com/professional/musculoskeletal-and-connective-tissue-disorders/foot-and-ankle-disorders/achilles-tendinopathy"
+    }
+  },
+  {
+    "id": "hammer_toe",
+    "title": "Hammer Toe Deformity",
+    "category": "Bony deformity",
+    "overview": "Hammer toe deformity results from an imbalance of the digital extensor and flexor tendons, typically causing a contracture at the proximal interphalangeal joint of a toe (usually the second).",
+    "pathophysiology": "The tendon imbalance leads to misalignment of the joint surfaces. As the deformity becomes more rigid, the altered function of the toe creates a retrograde buckling force at the metatarsal head, causing excessive plantar pressure during walking. This progresses to a fixed, Z-shaped deformity that can lead to dorsal subluxation and eventual dislocation at the metatarsophalangeal joint.",
+    "symptoms": [
+      "Pain while wearing shoes, especially those with low or narrow toe boxes",
+      "Sometimes accompanying metatarsalgia (pain in the ball of the foot)",
+      "Visible fixed Z-shaped bend of the toe"
+    ],
+    "causes": [
+      "Tendon imbalance leading to joint surface misalignment",
+      "Often associated with bunions or other forefoot deformities"
+    ],
+    "risk_factors": [
+      "Coexistent arthritis (e.g., rheumatoid arthritis)",
+      "Tight or narrow footwear"
+    ],
+    "diagnosis": "Diagnosis is clinical; weight-bearing radiographs help determine the severity of the deformity. Joints should be examined for coexistent arthritis.",
+    "treatment": [
+      "Shoes with a wide toe box",
+      "Taping or splinting the toe in plantarflexion to temporarily reduce the deformity",
+      "Toe pads and orthotics",
+      "Surgical correction considered for refractory symptoms"
+    ],
+    "when_to_see_a_doctor": "If toe pain persists despite footwear changes, or if the deformity becomes rigid and interferes with walking.",
+    "source": {
+      "name": "MSD Manuals (Consumer Version)",
+      "url": "https://www.msdmanuals.com/home/bone-joint-and-muscle-disorders/foot-and-ankle-problems/hammer-toe"
+    },
+    "source_professional": {
+      "name": "MSD Manuals (Professional Version)",
+      "url": "https://www.msdmanuals.com/professional/musculoskeletal-and-connective-tissue-disorders/foot-and-ankle-disorders/hammer-toe-deformity"
+    }
+  },
+  {
+    "id": "plantar_nerve_compression",
+    "title": "Medial and Lateral Plantar Nerve Entrapment",
+    "category": "Nerve disorder",
+    "overview": "Medial and lateral plantar nerve entrapment is compression of a branch of the posterior tibial nerve at the inner part of the heel and the proximal arch of the foot.",
+    "pathophysiology": "Nerve branches become pinched between bone, ligaments, and connective tissue. Ankle movement and certain shoes or activities increase pressure on the already-compressed nerve, sustaining the pain.",
+    "symptoms": [
+      "Near-constant pain, present while walking as well as sitting",
+      "Difficulty simply standing",
+      "Chronic pain that is worsened by high-impact activity such as running",
+      "Usually no burning, numbness, or tingling (unlike other nerve entrapments)"
+    ],
+    "causes": [
+      "Mechanical entrapment of the nerve between bone, ligaments, and connective tissue",
+      "Repetitive ankle movement",
+      "Footwear or activities that increase pressure on the nerve"
+    ],
+    "risk_factors": [
+      "Running and repetitive-impact sports",
+      "Poorly fitted or overly tight footwear"
+    ],
+    "diagnosis": "Diagnosis is mainly clinical, based on history and foot examination.",
+    "differential_diagnosis": [
+      "Plantar fasciitis",
+      "Calcaneal spur pain",
+      "Tarsal tunnel syndrome (in which Tinel's sign is present, unlike in plantar nerve entrapment)"
+    ],
+    "diagnostic_signs": [
+      "Absence of other tarsal tunnel syndrome signs (e.g., Tinel's sign)",
+      "Symptoms reproducible by palpation proximal to the abductor hallucis and/or the plantar fascia origin at the medial calcaneal tuberosity",
+      "Medial nerve entrapment: pain in the proximal medial arch"
+    ],
+    "treatment": [
+      "Splints and orthotics to limit pressure on the nerve",
+      "Physical therapy",
+      "Footwear and activity modification",
+      "Immobilization in some cases"
+    ],
+    "when_to_see_a_doctor": "If pain while walking or sitting persists and does not improve with rest and footwear changes.",
+    "source": {
+      "name": "MSD Manuals (Consumer Version)",
+      "url": "https://www.msdmanuals.com/home/bone-joint-and-muscle-disorders/foot-and-ankle-problems/medial-and-lateral-plantar-nerve-entrapment"
+    },
+    "source_professional": {
+      "name": "MSD Manuals (Professional Version)",
+      "url": "https://www.msdmanuals.com/professional/musculoskeletal-and-connective-tissue-disorders/foot-and-ankle-disorders/medial-and-lateral-plantar-nerve-entrapment"
+    }
+  },
+  {
+    "id": "freiberg_disease",
+    "title": "Freiberg Disease",
+    "category": "Bone disorder",
+    "overview": "Freiberg disease is avascular necrosis of a metatarsal head, most often the second, resulting in progressive flattening of the metatarsal head.",
+    "pathophysiology": "The disease is caused by repetitive microtrauma to the metaphysis and growth plate. The resulting avascular necrosis progressively flattens the metatarsal head, and the metatarsal joint tends to collapse over time.",
+    "symptoms": [
+      "Weight-bearing forefoot pain at the affected metatarsal head",
+      "Pain particularly noticeable during push-off or when wearing high-heeled shoes",
+      "Possible swelling of the metatarsophalangeal joint",
+      "Painful limitation of passive joint motion"
+    ],
+    "causes": [
+      "Repetitive microtrauma to the metatarsal metaphysis and growth plate",
+      "Predisposing bone structure: a short first metatarsal or long second metatarsal, increasing stress on the second metatarsal head"
+    ],
+    "risk_factors": [
+      "Adolescence in girls, during rapid growth (puberty)",
+      "Dancing, jogging, and running, which repetitively stress the metatarsal joint and accelerate the process"
+    ],
+    "diagnosis": "Confirmed by radiographs; MRI may also be used to confirm the diagnosis.",
+    "treatment": [
+      "Shoe changes or orthotics as first-line treatment",
+      "Immobilization in some cases",
+      "Surgical excision of the metatarsal head considered for advanced or refractory cases"
+    ],
+    "when_to_see_a_doctor": "If forefoot pain persists in a growing adolescent, particularly if worsened by heeled shoes or intense sports activity.",
+    "source": {
+      "name": "MSD Manuals (Consumer Version)",
+      "url": "https://www.msdmanuals.com/home/bone-joint-and-muscle-disorders/foot-and-ankle-problems/freiberg-disease"
+    },
+    "source_professional": {
+      "name": "MSD Manuals (Professional Version)",
+      "url": "https://www.msdmanuals.com/professional/musculoskeletal-and-connective-tissue-disorders/foot-and-ankle-disorders/freiberg-disease"
+    }
+  },
+  {
+    "id": "plantar_fibromatosis",
+    "title": "Plantar Fibromatosis",
+    "category": "Benign tumor",
+    "overview": "Plantar fibromatosis is a benign (non-cancerous) proliferation of the connective tissue of the plantar fascia, presenting as fibrous nodules along the sole of the foot.",
+    "pathophysiology": "Fibrous nodules develop along the plantar fascia and are most easily seen when the foot is dorsiflexed against the leg. It is a benign proliferative process without a single clearly established causal mechanism.",
+    "symptoms": [
+      "Firm nodules under the sole of the foot, most visible when the foot is flexed upward",
+      "Pain or swelling of the foot",
+      "Sometimes inability to fully straighten the toes",
+      "Similar nodules often present in the palm of the hand (Dupuytren contracture)"
+    ],
+    "causes": [
+      "Benign proliferation of the plantar fascia's connective tissue; the precise mechanism is not fully understood"
+    ],
+    "risk_factors": [
+      "Reported, though possibly anecdotal, associations with diabetes, epilepsy, and alcohol use disorder"
+    ],
+    "diagnosis": "Diagnosis is based on clinical examination of the foot.",
+    "treatment": [
+      "No treatment needed if nodules are asymptomatic",
+      "Orthotics to redirect pressure away from the nodular lesions when weight-bearing pain occurs",
+      "Glucocorticoid injections directly into the nodule if needed"
+    ],
+    "complications": [
+      "Surgical excision usually leads to recurrence, and sometimes to painful scar tissue requiring further surgery",
+      "Excessive removal of the fascia can cause unintended foot instability"
+    ],
+    "when_to_see_a_doctor": "If the nodules become painful with weight-bearing or interfere with walking or toe extension.",
+    "source": {
+      "name": "MSD Manuals (Consumer Version)",
+      "url": "https://www.msdmanuals.com/home/bone-joint-and-muscle-disorders/foot-and-ankle-problems/plantar-fibromatosis"
+    },
+    "source_professional": {
+      "name": "MSD Manuals (Professional Version)",
+      "url": "https://www.msdmanuals.com/professional/musculoskeletal-and-connective-tissue-disorders/foot-and-ankle-disorders/plantar-fibromatosis"
+    }
+  },
+  {
+    "id": "posterior_tibial_tendinosis",
+    "title": "Tibialis Posterior Tendinosis and Tenosynovitis",
+    "category": "Tendon disorder",
+    "overview": "The tibialis posterior tendon helps maintain the normal arch of the foot. Its tendinosis is a chronic degenerative condition that can thicken the tendon and compromise muscle strength; tenosynovitis is inflammation of the synovial sheath surrounding the same tendon. Together, they are the most common causes of pain behind the medial malleolus.",
+    "pathophysiology": "Tendon degeneration results from long-standing biomechanical problems (excessive pronation, often in people who are obese; hindfoot valgus; chronic tenosynovitis). A tarsal coalition of the hindfoot can create a rigid flatfoot deformity and limit tendon function. Tenosynovitis begins with acute inflammation of the tendon sheath, sometimes linked to primary inflammatory diseases (rheumatoid arthritis, gout).",
+    "symptoms": [
+      "Occasional pain behind the inner ankle at first, triggered by activity",
+      "Pain that worsens over time, accompanied by swelling in the area",
+      "Progressive difficulty standing normally, walking, and rising on the toes",
+      "Inability to rise on the toes if the tendon is fully torn",
+      "Sudden flattening of the arch (arch collapse) if the tendon ruptures, with pain that can extend to the sole"
+    ],
+    "causes": [
+      "Excessive ongoing tension related to foot biomechanics (excessive pronation)",
+      "Pre-existing low arch",
+      "Hindfoot valgus",
+      "Chronic tenosynovitis",
+      "Tendon rupture in older adults or those with pre-existing chronic dysfunction"
+    ],
+    "risk_factors": [
+      "Obesity",
+      "A foot that turns outward when walking",
+      "Flat foot when standing",
+      "Inflammatory diseases (rheumatoid arthritis, gout)"
+    ],
+    "diagnosis": "Diagnosis is clinical; palpating the tendon during plantarflexion and inversion against resistance is usually painful.",
+    "differential_diagnosis": [
+      "Other causes of medial ankle pain and arch collapse"
+    ],
+    "treatment": [
+      "Orthotics to support the arch",
+      "Immobilization depending on severity",
+      "Anti-inflammatory treatment",
+      "Surgery for rupture or advanced disease"
+    ],
+    "complications": [
+      "Without rupture, the height of the medial arch gradually decreases in chronic forms",
+      "May progress to degenerative changes of the subtalar joint and eventual arthritis"
+    ],
+    "when_to_see_a_doctor": "As soon as persistent pain develops behind the inner ankle, before it worsens or leads to arch collapse.",
+    "source": {
+      "name": "MSD Manuals (Consumer Version)",
+      "url": "https://www.msdmanuals.com/home/bone-joint-and-muscle-disorders/foot-and-ankle-problems/tibialis-posterior-tendinosis-and-tibialis-posterior-tenosynovitis"
+    },
+    "source_professional": {
+      "name": "MSD Manuals (Professional Version)",
+      "url": "https://www.msdmanuals.com/professional/musculoskeletal-and-connective-tissue-disorders/foot-and-ankle-disorders/tibialis-posterior-tendinosis-and-tibialis-posterior-tenosynovitis"
+    }
+  },
+  {
+    "id": "metatarsophalangeal_joint_pain",
+    "title": "Metatarsophalangeal Joint Pain",
+    "category": "Joint disorder",
+    "overview": "Pain in the joints of the forefoot (metatarsophalangeal joints) can arise from the joints themselves and is a common cause of metatarsalgia.",
+    "pathophysiology": "Pain frequently results from misalignment of the joint surfaces with altered foot biomechanics, causing joint subluxation, plantar plate tears, capsular impingement, and cartilage destruction (osteoarthritis). The second metatarsophalangeal joint is often affected, developing collateral ligament laxity from tendon imbalance and hammer toe deformities. Functional hallux limitus (restricted motion of the first joint) can also be a cause, progressively leading to hallux rigidus with loss of joint mobility.",
+    "symptoms": [
+      "Pain and swelling of the affected joint",
+      "Pain with walking",
+      "Pain on dorsal and plantar palpation and with passive motion",
+      "Mild swelling with minimal warmth possible in osteoarthritis",
+      "Significant warmth, swelling, or redness suggesting inflammatory arthropathy or infection"
+    ],
+    "causes": [
+      "Misalignment of the joint surfaces compressing the joint lining",
+      "Rheumatoid arthritis or psoriatic arthritis causing joint inflammation",
+      "Hammer toes worsening pain and misalignment",
+      "Natural thinning of the protective fat pad under the forefoot with age",
+      "Functional hallux limitus progressing to hallux rigidus"
+    ],
+    "risk_factors": [
+      "Repetitive high-impact activity (running, extensive walking)",
+      "Abnormal foot pronation",
+      "Advanced age (fat pad thinning)"
+    ],
+    "diagnosis": "Based mainly on history and physical examination; infection or arthropathy should be excluded when inflammatory signs are present.",
+    "differential_diagnosis": [
+      "Interdigital (Morton's) neuroma, usually differentiated by the absence of burning, numbness, and interdigital tingling",
+      "Infection or inflammatory arthropathy when significant warmth/redness/swelling are present"
+    ],
+    "treatment": [
+      "Appropriate orthotics",
+      "Shoes with good cushioning and adequate forefoot room"
+    ],
+    "when_to_see_a_doctor": "If forefoot pain persists or is accompanied by visible swelling, warmth, or redness.",
+    "source": {
+      "name": "MSD Manuals (Consumer Version)",
+      "url": "https://www.msdmanuals.com/home/bone-joint-and-muscle-disorders/foot-and-ankle-problems/metatarsal-joint-pain"
+    },
+    "source_professional": {
+      "name": "MSD Manuals (Professional Version)",
+      "url": "https://www.msdmanuals.com/professional/musculoskeletal-and-connective-tissue-disorders/foot-and-ankle-disorders/metatarsophalangeal-joint-pain"
+    }
+  },
+  {
+    "id": "achilles_bursitis",
+    "title": "Achilles Tendon Bursitis",
+    "category": "Inflammatory condition",
+    "overview": "Achilles tendon bursitis is inflammation of a fluid-filled sac (bursa) at the heel. It is classified as posterior (between the skin and the Achilles tendon) or anterior/retrocalcaneal (in front of the tendon's insertion onto the calcaneus).",
+    "pathophysiology": "Posterior bursitis occurs in response to pressure from a shoe on a bursa that forms at the top edge of the heel counter, between the skin and the Achilles tendon. Anterior (retrocalcaneal) bursitis affects a deeper bursa in front of the tendon; swelling initially localizes just in front of the tendon and gradually extends medially and laterally.",
+    "symptoms": [
+      "Swelling, warmth, pain, and tenderness behind the heel",
+      "A small tender, erythematous or skin-colored nodule (posterior bursitis)",
+      "Pain on medial and lateral palpation of the tendon with the ankle in maximal dorsiflexion (anterior bursitis)",
+      "Pain when rising on the toes"
+    ],
+    "causes": [
+      "Repetitive pressure on the soft tissue at the back of the heel from a rigid shoe heel counter",
+      "Shoes that narrow toward the back of the heel (high heels, pumps)",
+      "A bony prominence of the calcaneus (Haglund deformity) contributing to posterior bursitis"
+    ],
+    "risk_factors": [
+      "Occurs mainly in young women, but can also affect men",
+      "Frequent wear of high-heeled shoes",
+      "Presence of a Haglund deformity"
+    ],
+    "diagnosis": "Based on symptoms and clinical examination, sometimes supplemented with imaging (radiographs).",
+    "differential_diagnosis": [
+      "Fracture of the posterolateral talar tubercle (pain in front of the tendon insertion)",
+      "Achilles tendon enthesopathy (pain mainly at the tendon insertion, without soft-tissue lesion)",
+      "Achilles tendon xanthoma (a pink, usually asymptomatic nodule, rare)"
+    ],
+    "treatment": [
+      "Shoe modification (low heels, well-fitted)",
+      "Anti-inflammatory treatment",
+      "Local glucocorticoid injection possible for anterior bursitis",
+      "Relief of pressure at the back of the heel"
+    ],
+    "when_to_see_a_doctor": "If pain, swelling, or warmth behind the heel persists despite shoe changes.",
+    "source": {
+      "name": "MSD Manuals (Consumer Version)",
+      "url": "https://www.msdmanuals.com/home/bone-joint-and-muscle-disorders/foot-and-ankle-problems/achilles-tendon-bursitis"
+    },
+    "source_professional": {
+      "name": "MSD Manuals (Professional Version)",
+      "url": "https://www.msdmanuals.com/professional/musculoskeletal-and-connective-tissue-disorders/foot-and-ankle-disorders/anterior-achilles-tendon-bursitis"
+    }
+  },
+  {
+    "id": "forefoot_pain_metatarsalgia",
+    "title": "Pain in the Ball of the Foot (Metatarsalgia)",
+    "category": "Symptom with multiple causes",
+    "overview": "Metatarsalgia is a general term for pain in the area of the metatarsophalangeal joints. It is not a single disease but a symptom that can have many different causes.",
+    "pathophysiology": "Developing one condition that causes forefoot pain often contributes to the development of another condition causing pain in the same area, creating an intertwined cycle of biomechanical, inflammatory, nerve-related, or degenerative causes.",
+    "symptoms": [
+      "Pain localized under the forefoot, with walking or weight-bearing"
+    ],
+    "causes": [
+      "Arthritis of the forefoot joints",
+      "Nerve compression between the toes (interdigital/Morton's neuroma)",
+      "Postural foot problems (excessive pronation, hallux limitus)",
+      "Sesamoiditis",
+      "Freiberg disease",
+      "Metatarsophalangeal joint pain (subluxation, osteoarthritis)"
+    ],
+    "risk_factors": [
+      "High-impact activities (running, dancing)",
+      "Thin-soled shoes or high heels",
+      "Advanced age (thinning of the plantar fat pad)"
+    ],
+    "diagnosis": "Based on clinical examination of the foot, with systematic search for the specific underlying cause among the many possible etiologies.",
+    "treatment": [
+      "Entirely dependent on the identified cause",
+      "Orthotics and appropriate footwear as a general measure",
+      "Specific treatment of the underlying condition once identified"
+    ],
+    "when_to_see_a_doctor": "If forefoot pain persists or worsens, to identify its precise cause rather than treating it blindly.",
+    "source": {
+      "name": "MSD Manuals (Consumer Version)",
+      "url": "https://www.msdmanuals.com/home/bone-joint-and-muscle-disorders/foot-and-ankle-problems/pain-in-the-ball-of-the-foot-metatarsalgia"
+    },
+    "source_professional": {
+      "name": "MSD Manuals (Professional Version)",
+      "url": "https://www.msdmanuals.com/professional/musculoskeletal-and-connective-tissue-disorders/foot-and-ankle-disorders/metatarsalgia"
+    }
+  },
+  {
+    "id": "tarsal_tunnel_syndrome",
+    "title": "Tarsal Tunnel Syndrome",
+    "category": "Nerve disorder",
+    "overview": "Tarsal tunnel syndrome (posterior tibial nerve neuralgia) is pain in the ankle, foot, and sometimes the toes, caused by compression or injury of the posterior tibial nerve within the tarsal tunnel, a fibrous canal near the ankle.",
+    "pathophysiology": "The posterior tibial nerve runs from the back of the calf to the heel and sole through the tarsal tunnel, where it divides into the medial and lateral plantar nerves. When tissues near the tunnel become inflamed, they swell and compress the nerve, causing pain.",
+    "symptoms": [
+      "Painful burning or tingling with walking or when wearing certain shoes",
+      "Pain that can extend into the foot and toes",
+      "Symptoms frequently reported to worsen at night",
+      "Possible Tinel's sign (radiating pain when the nerve is tapped)"
+    ],
+    "causes": [
+      "Fractures",
+      "Ankle swelling from heart failure or kidney failure",
+      "Hypothyroidism (perineural mucin deposition)",
+      "Gout or osteoarthritis causing joint inflammation",
+      "Flexor tendon synovitis, fibrosis, synovial cysts",
+      "Poor foot posture with excessive internal ankle rotation",
+      "No identifiable cause in about 20% of cases"
+    ],
+    "risk_factors": [
+      "Female sex",
+      "Diabetes",
+      "Rheumatoid arthritis",
+      "Metabolic conditions (hypothyroidism)"
+    ],
+    "diagnosis": "Clinical examination of the foot supplemented by nerve conduction studies.",
+    "differential_diagnosis": [
+      "Plantar fasciitis (sometimes mistaken for tarsal tunnel syndrome)",
+      "Medial and lateral plantar nerve entrapment (in which Tinel's sign is absent)"
+    ],
+    "treatment": [
+      "Steroid injections",
+      "Orthotics",
+      "Surgery in some refractory cases"
+    ],
+    "when_to_see_a_doctor": "If persistent pain, burning, or tingling in the ankle and foot occurs, especially if it worsens at night.",
+    "source": {
+      "name": "MSD Manuals (Consumer Version)",
+      "url": "https://www.msdmanuals.com/home/bone-joint-and-muscle-disorders/foot-and-ankle-problems/tarsal-tunnel-syndrome"
+    },
+    "source_professional": {
+      "name": "MSD Manuals (Professional Version)",
+      "url": "https://www.msdmanuals.com/professional/musculoskeletal-and-connective-tissue-disorders/foot-and-ankle-disorders/tarsal-tunnel-syndrome"
+    }
+  },
+  {
+    "id": "sesamoiditis",
+    "title": "Sesamoiditis",
+    "category": "Bone disorder",
+    "overview": "Sesamoiditis is pain affecting the two small, crescent-shaped sesamoid bones located beneath the head of the first metatarsal, where it meets the big toe, with or without associated inflammation or fracture.",
+    "pathophysiology": "The two sesamoid bones (the tibial sesamoid medially, the fibular sesamoid laterally) sit within the tendon of the flexor hallucis brevis and assist foot locomotion. Direct trauma or a change in sesamoid positioning due to structural changes in the foot (such as lateral deviation linked to hallux valgus) can make them painful.",
+    "symptoms": [
+      "Pain under the base of the big toe (under the first metatarsal head)",
+      "Pain worsened by walking, especially barefoot",
+      "Pain worsened by thin-soled, soft-soled, or high-heeled shoes",
+      "Area sometimes warm, swollen, with redness that may extend medially"
+    ],
+    "causes": [
+      "Repetitive injury to the sesamoid bones",
+      "Fracture of a sesamoid bone",
+      "Inflammation of the bones or adjacent tissue",
+      "Displacement of the sesamoids linked to structural changes of the foot (notably hallux valgus)"
+    ],
+    "risk_factors": [
+      "Dancing, running",
+      "High-arched (cavus) feet",
+      "Frequent wear of high heels",
+      "Presence of hallux valgus (many patients with a bunion also have tibial sesamoiditis)"
+    ],
+    "diagnosis": "Clinical examination of the foot.",
+    "differential_diagnosis": [
+      "Gout (can sometimes be clinically confused with sesamoiditis)"
+    ],
+    "treatment": [
+      "Orthotics",
+      "Offloading pads",
+      "Shoe changes"
+    ],
+    "when_to_see_a_doctor": "If pain under the big toe persists or is accompanied by swelling, warmth, or redness.",
+    "source": {
+      "name": "MSD Manuals (Consumer Version)",
+      "url": "https://www.msdmanuals.com/home/bone-joint-and-muscle-disorders/foot-and-ankle-problems/sesamoiditis"
+    },
+    "source_professional": {
+      "name": "MSD Manuals (Professional Version)",
+      "url": "https://www.msdmanuals.com/professional/musculoskeletal-and-connective-tissue-disorders/foot-and-ankle-disorders/sesamoiditis"
+    }
+  },
+  {
+    "id": "severs_disease",
+    "title": "Sever Disease (Calcaneal Apophysitis)",
+    "category": "Growth-related condition (children)",
+    "overview": "Sever disease (apophysitis of the calcaneus) is inflammation of the heel's growth cartilage, occurring in children around the time of puberty. It is a type of osteochondrosis, a growth-plate disorder that occurs when a child grows rapidly.",
+    "pathophysiology": "During a growth spurt, bones, muscles, and tendons develop at different rates. The calf muscle and Achilles tendon can tighten and pull on the growth cartilage where they attach at the heel, injuring and swelling the cartilage. The heel bone becomes fully solid by about age 15, after which the risk resolves.",
+    "symptoms": [
+      "Pain on the sides or top of the heel",
+      "Pain worsened by standing on tiptoe or running",
+      "Warmth and redness in some children",
+      "Limping or avoiding weight-bearing on the affected heel"
+    ],
+    "causes": [
+      "Rapid growth during which bones develop faster than muscles and tendons",
+      "Tension of the calf muscle and Achilles tendon on the heel's growth cartilage"
+    ],
+    "risk_factors": [
+      "Children in puberty (generally 9-14 years old) with intense sports activity",
+      "Shoes that do not raise the heel (track shoes, football cleats)"
+    ],
+    "diagnosis": "Based on symptoms; radiographs do not confirm the diagnosis but help rule out other causes of heel pain (bone cysts, stress fractures).",
+    "treatment": [
+      "Stretching the calf muscles and Achilles tendon before and after sports activity (prevention and relief)",
+      "Heel cups, pads, night splints",
+      "Sometimes a cast in more pronounced cases",
+      "Ice and rest"
+    ],
+    "prognosis": "Self-limiting condition: symptoms resolve once heel growth is complete, generally by around age 15.",
+    "when_to_see_a_doctor": "If a child complains of persistent heel pain, especially if limping or avoiding normal walking.",
+    "source": {
+      "name": "MSD Manuals (Consumer Version)",
+      "url": "https://www.msdmanuals.com/home/children-s-health-issues/bone-disorders-in-children/sever-disease"
+    },
+    "source_professional": {
+      "name": "MSD Manuals (Professional Version)",
+      "url": "https://www.msdmanuals.com/professional/musculoskeletal-and-connective-tissue-disorders/foot-and-ankle-disorders/apophysitis-of-the-calcaneus"
+    }
+  },
+  {
+    "id": "inferior_calcaneal_bursitis",
+    "title": "Inferior Calcaneal Bursitis",
+    "category": "Inflammatory condition",
+    "overview": "Inferior calcaneal bursitis is inflammation of the bursa located under the heel bone (calcaneus), near the insertion of the plantar fascia.",
+    "pathophysiology": "The bursa normally acts as a cushion and reduces friction in areas where skin, muscles, tendons, and ligaments rub against bone. Its inflammation under the calcaneus causes sharp, acute pain, distinct from the dull, chronic pain typical of plantar fasciitis.",
+    "symptoms": [
+      "Throbbing heel pain, especially when walking barefoot on hard surfaces",
+      "Heel that is mildly warm and swollen",
+      "Sharp, shooting pain that is most pronounced when the heel first strikes the ground while walking or running"
+    ],
+    "causes": [
+      "Inflammation of the bursa beneath the calcaneus, near the plantar fascia insertion"
+    ],
+    "risk_factors": [
+      "Frequent barefoot walking on hard surfaces"
+    ],
+    "diagnosis": "Diagnosis is mainly clinical, confirmed if needed by MRI (which can also exclude a calcaneal stress fracture).",
+    "differential_diagnosis": [
+      "Plantar fasciitis (dull, chronic pain, in contrast to the acute pain of bursitis)",
+      "Fat pad syndrome (more common in older patients, related to thinning of the heel fat pad)"
+    ],
+    "treatment": [
+      "Injection of an anesthetic and glucocorticoid mixture into the bursa",
+      "Soft-soled shoes with protective heel cushioning"
+    ],
+    "when_to_see_a_doctor": "If throbbing heel pain persists, especially when walking barefoot on hard surfaces.",
+    "source": {
+      "name": "MSD Manuals (Consumer Version)",
+      "url": "https://www.msdmanuals.com/home/bone-joint-and-muscle-disorders/foot-and-ankle-problems/inferior-calcaneal-bursitis"
+    },
+    "source_professional": {
+      "name": "MSD Manuals (Professional Version)",
+      "url": "https://www.msdmanuals.com/professional/musculoskeletal-and-connective-tissue-disorders/foot-and-ankle-disorders/inferior-calcaneal-bursitis"
+    }
+  }
+]
