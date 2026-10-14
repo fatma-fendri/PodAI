@@ -56,10 +56,37 @@ def ingest():
     # 5. print the number of documents stored
     print(collection.count())
 
-if __name__ == "__main__":
-    conditions = load_conditions()
-    for c in conditions: build_document(c)
-    ingest()
+def search(question, n_results=3):
     collection = get_collection()
-    print(collection.get(limit=2))
+    results = collection.query(
+        query_texts=[question],
+        n_results=n_results,
+    )
+
+    hits = []
+    for i in range(len(results["ids"][0])):
+        hits.append({
+            "title": results["metadatas"][0][i]["title"],
+            "source_url": results["metadatas"][0][i]["source_url"],
+            "distance": results["distances"][0][i],
+            "document": results["documents"][0][i],
+        })
+    return hits
+
+
+if __name__ == "__main__":
+    #conditions = load_conditions()
+    #for c in conditions: build_document(c)
+    ingest()
+    #collection = get_collection()
+    #print(collection.get(limit=2))
+    for q in [
+        "pain in the heel when I wake up",
+        "my big toe is bending sideways",
+        "numbness between my toes",
+        "how to bake bread",
+    ]:
+        print(q)
+        for hit in search(q):
+            print("  ", hit["title"], round(hit["distance"], 3))
 
