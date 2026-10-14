@@ -1,10 +1,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from app.rag import search
 
 class EchoRequest(BaseModel):
     message: str
    
+class SearchRequest(BaseModel):
+    question: str
 
 app = FastAPI()
 app.add_middleware(
@@ -22,3 +25,8 @@ async def health_check():
 @app.post("/echo")
 async def echo(request: EchoRequest):
     return {"message": request.message}
+
+@app.post("/search")
+def search_endpoint(request: SearchRequest):
+    hits = search(request.question)
+    return {"results": hits}
