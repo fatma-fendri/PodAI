@@ -2,6 +2,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from app.rag import search
+from app.llm import answer_question
+
+class AskRequest(BaseModel):
+    question: str
 
 class EchoRequest(BaseModel):
     message: str
@@ -30,3 +34,7 @@ async def echo(request: EchoRequest):
 def search_endpoint(request: SearchRequest):
     hits = search(request.question)
     return {"results": hits}
+
+@app.post("/ask")
+def ask_endpoint(request: AskRequest):
+    return answer_question(request.question)
