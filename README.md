@@ -17,15 +17,19 @@ General-purpose chatbots can hallucinate medical information and rarely cite ver
 ```
 User ──► Next.js frontend ──► FastAPI backend ──► ChromaDB (knowledge base)
                                     │
-                                    └──► Groq LLM (answer generation, in progress)
+                                    └──► Groq LLM (grounded answers with citations)
                                     └──► Tavily web search (planned)
 ```
 
-Current request flow for `POST /search`:
+Current request flow for `POST /ask`:
 
 1. The client sends a question.
-2. The backend queries ChromaDB for the closest documents (semantic search).
-3. The API returns the top results with title, source URL, distance and text.
+2. The backend retrieves the 3 closest documents from ChromaDB.
+3. Documents beyond a distance threshold are discarded. If none remain, the API answers that it has no information, without calling the LLM.
+4. The remaining documents are passed to the Groq LLM as numbered sources, with instructions to answer only from them and to cite them.
+5. The API returns the answer and only the sources the model actually cited.
+
+`POST /search` returns the raw retrieved documents and is kept for debugging.
 
 ## Tech stack
 
@@ -33,7 +37,7 @@ Current request flow for `POST /search`:
 | --- | --- |
 | Backend | Python, FastAPI, Pydantic, Uvicorn |
 | Knowledge base | ChromaDB, default embedding model `all-MiniLM-L6-v2` |
-| LLM | Groq API (integration in progress) |
+| LLM | Groq API  |
 | Frontend | Next.js (App Router), TypeScript, Tailwind CSS |
 | Planned | LangChain agent with tool-calling, Tavily, Docker, GitHub Actions CI/CD, Vercel and Render/Fly.io deployment |
 
@@ -45,7 +49,7 @@ PodAI/
 │   ├── app/
 │   │   ├── main.py        # FastAPI app and routes
 │   │   ├── rag.py         # ingestion and semantic search
-│   │   └── llm.py         # Groq client (in progress)
+│   │   └── llm.py         # Groq client (grounded answer generation)
 │   ├── data/
 │   │   └── podiatry_dataset.json   # 15 conditions
 │   ├── .env.example
@@ -113,6 +117,7 @@ The app runs on `http://localhost:3000`. `NEXT_PUBLIC_API_URL` in `.env.local` m
 | GET | `/health` | Health check |
 | POST | `/echo` | Echo test used to validate the frontend/backend connection |
 | POST | `/search` | Semantic search over the knowledge base, returns the 3 closest documents |
+| POST | `/ask` | Grounded answer from the knowledge base, with cited sources |
 
 Example:
 
@@ -154,7 +159,7 @@ These cases are the seed of a 30-question evaluation set.
 - [x] Frontend/backend integration (CORS, environment variables)
 - [x] Knowledge base ingestion into ChromaDB
 - [x] Semantic search endpoint (`POST /search`)
-- [ ] LLM answer generation grounded in retrieved sources, with citations
+- [x] LLM answer generation grounded in retrieved sources, with citations
 - [ ] Agent with tool-calling (knowledge base vs. Tavily web search)
 - [ ] Chat interface with sources and medical disclaimer
 - [ ] Evaluation set and metrics (hit@k, precision@k, RAGAS)
