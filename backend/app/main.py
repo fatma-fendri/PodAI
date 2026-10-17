@@ -1,6 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from groq import APIError
 from app.rag import search
 from app.agent import agent_answer
 
@@ -37,4 +38,10 @@ def search_endpoint(request: SearchRequest):
 
 @app.post("/ask")
 def ask_endpoint(request: AskRequest):
-    return agent_answer(request.question)
+    try:
+        return agent_answer(request.question)
+    except APIError:
+        raise HTTPException(
+            status_code=503,
+            detail="The assistant is temporarily unavailable. Please try again.",
+        )
