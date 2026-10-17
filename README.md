@@ -17,16 +17,18 @@ General-purpose chatbots can hallucinate medical information and rarely cite ver
 ```
 User ──► Next.js frontend ──► FastAPI backend ──► ChromaDB (knowledge base)
                                     │
-                                    └──► Groq LLM (grounded answers with citations)
-                                    └──► Tavily web search (planned)
+                                    └──► Groq LLM (agent with tool-calling, grounded answers with citations)
+                                    └──► Tavily web search (trusted medical domains only)
 ```
 
 Current request flow for `POST /ask`:
 
-1. The client sends a question.
-2. The backend retrieves the 3 closest documents from ChromaDB.
-3. Documents beyond a distance threshold are discarded. If none remain, the API answers that it has no information, without calling the LLM.
-4. The remaining documents are passed to the Groq LLM as numbered sources, with instructions to answer only from them and to cite them.
+1. The client sends a question, in any language.
+2. An agent (Groq LLM with tool-calling) decides which tool to use:
+   - `search_knowledge_base`: the query is translated to English, then ChromaDB returns the closest documents. Documents beyond a distance threshold are discarded.
+   - `search_web`: Tavily search restricted to trusted medical domains (MedlinePlus, NHS, NCBI, Mayo Clinic), used only when the knowledge base has no relevant information.
+3. Questions outside foot and ankle health are refused without calling any tool.
+4. The answer is written in the user's language, with numbered citations.
 5. The API returns the answer and only the sources the model actually cited.
 
 `POST /search` returns the raw retrieved documents and is kept for debugging.
@@ -39,7 +41,7 @@ Current request flow for `POST /ask`:
 | Knowledge base | ChromaDB, default embedding model `all-MiniLM-L6-v2` |
 | LLM | Groq API  |
 | Frontend | Next.js (App Router), TypeScript, Tailwind CSS |
-| Planned | LangChain agent with tool-calling, Tavily, Docker, GitHub Actions CI/CD, Vercel and Render/Fly.io deployment |
+| Planned | LangGraph (agent comparison), Docker, GitHub Actions CI/CD, Vercel and Render/Fly.io deployment |
 
 ## Project structure
 
@@ -49,13 +51,14 @@ PodAI/
 │   ├── app/
 │   │   ├── main.py        # FastAPI app and routes
 │   │   ├── rag.py         # ingestion and semantic search
-│   │   └── llm.py         # Groq client (grounded answer generation)
+│   │   └── llm.py         # RAG-only answers (baseline for evaluation)
+│   │   ├── agent.py       # tool-calling agent (knowledge base + trusted web search)
+│   │   ├── web_search.py  # Tavily search limited to trusted domains
 │   ├── data/
 │   │   └── podiatry_dataset.json   # 15 conditions
 │   ├── .env.example
 │   └── requirements.txt
 ├── frontend/              # Next.js app
-├── docs/
 └── README.md
 ```
 
@@ -152,6 +155,10 @@ These cases are the seed of a 30-question evaluation set.
 - One document per condition may dilute meaning; section-level chunking is planned.
 - No relevance threshold yet: out-of-scope questions still return documents.
 - Small corpus (15 documents).
+- The embedding model is English-only: non-English questions are translated before searching the knowledge base, which adds one LLM call.
+- The scope is strict (foot and ankle): related topics such as knee pain are refused.
+- Generated text sometimes contains missing spaces; this will be measured in the evaluation.
+- The agent costs 2 to 4 LLM calls per question, so it is slower than RAG alone.
 
 ## Roadmap
 
@@ -160,7 +167,7 @@ These cases are the seed of a 30-question evaluation set.
 - [x] Knowledge base ingestion into ChromaDB
 - [x] Semantic search endpoint (`POST /search`)
 - [x] LLM answer generation grounded in retrieved sources, with citations
-- [ ] Agent with tool-calling (knowledge base vs. Tavily web search)
+- [x] Agent with tool-calling (knowledge base vs. Tavily web search)
 - [ ] Chat interface with sources and medical disclaimer
 - [ ] Evaluation set and metrics (hit@k, precision@k, RAGAS)
 - [ ] Retrieval improvements: multilingual embeddings, hybrid search (BM25), reranking
