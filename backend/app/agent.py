@@ -45,7 +45,8 @@ TOOLS = [
         "type": "function",
         "function": {
             "name": "search_web",
-            "description": "Search trusted medical websites for foot and ankle health questions only. Use only if the knowledge base has no relevant information, or for recent information.",            "parameters": {
+            "description": "Search trusted medical websites for foot and ankle health questions only. Use only if the knowledge base has no relevant information, or for recent information.",            
+            "parameters": {
                 "type": "object",
                 "properties": {"query": {"type": "string", "description": "The search query"}},
                 "required": ["query"],
@@ -54,8 +55,23 @@ TOOLS = [
     },
 ]
 
+def to_english(text):
+    response = client.chat.completions.create(
+        model=MODEL,
+        temperature=0,
+        messages=[
+            {
+                "role": "system",
+                "content": "Translate the user's text to English. If it is already in English, return it unchanged. Output only the translation.",
+            },
+            {"role": "user", "content": text},
+        ],
+    )
+    return response.choices[0].message.content.strip()
+
 def search_knowledge_base(query, sources):
-    hits = [h for h in search(query) if h["distance"] <= MAX_DISTANCE]
+    english_query = to_english(query)
+    hits = [h for h in search(english_query) if h["distance"] <= MAX_DISTANCE]
     if not hits:
         return "No relevant document found in the knowledge base."
     parts = []
@@ -88,7 +104,8 @@ def agent_answer(question):
     sources = []
     messages = [
         {"role": "system", "content": AGENT_PROMPT},
-        {"role": "user", "content": f"{question}\n\n(Answer in the same language as this question.)"},    ]
+        {"role": "user", "content": f"{question}\n\n(Answer in the same language as this question.)"},    
+        ]
     for step in range(MAX_STEPS):
         response = client.chat.completions.create(
             model=MODEL,
@@ -121,7 +138,7 @@ def agent_answer(question):
 
 if __name__ == "__main__":
     for q in [
-    "douleur au talon le matin",
+        "douleur au talon le matin",
     ]:
         print(q)
         print(agent_answer(q))

@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from app.rag import search
-from app.llm import answer_question
+from app.agent import agent_answer
 
 class AskRequest(BaseModel):
     question: str
@@ -37,4 +37,4 @@ def search_endpoint(request: SearchRequest):
 
 @app.post("/ask")
 def ask_endpoint(request: AskRequest):
-    return answer_question(request.question)
+    return agent_answer(request.question)
