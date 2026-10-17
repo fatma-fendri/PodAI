@@ -2,7 +2,7 @@
 
 **A clinical podiatry assistant that answers from verified sources and cites them.**
 
-PodAI combines a curated knowledge base (RAG) with web search (planned) so that every answer about foot conditions is grounded in identified sources, instead of relying on a language model's memory alone.
+PodAI combines a curated knowledge base (RAG) with web search restricted to trusted medical sources, so that every answer about foot conditions is grounded in identified sources, instead of relying on a language model's memory alone.
 
 > **Status: work in progress.** This is a personal portfolio and learning project, built step by step. See [Roadmap](#roadmap) for what works today.
 
@@ -39,7 +39,8 @@ Current request flow for `POST /ask`:
 | --- | --- |
 | Backend | Python, FastAPI, Pydantic, Uvicorn |
 | Knowledge base | ChromaDB, default embedding model `all-MiniLM-L6-v2` |
-| LLM | Groq API  |
+| LLM | Groq API (model: openai/gpt-oss-20b)  |
+| Agent and web search | Hand-written tool-calling loop, Tavily with a domain allowlist |
 | Frontend | Next.js (App Router), TypeScript, Tailwind CSS |
 | Planned | LangGraph (agent comparison), Docker, GitHub Actions CI/CD, Vercel and Render/Fly.io deployment |
 
@@ -51,9 +52,9 @@ PodAI/
 │   ├── app/
 │   │   ├── main.py        # FastAPI app and routes
 │   │   ├── rag.py         # ingestion and semantic search
-│   │   └── llm.py         # RAG-only answers (baseline for evaluation)
+│   │   ├── llm.py         # RAG-only answers (baseline for evaluation)
 │   │   ├── agent.py       # tool-calling agent (knowledge base + trusted web search)
-│   │   ├── web_search.py  # Tavily search limited to trusted domains
+│   │   └── web_search.py  # Tavily search limited to trusted domainsdomains
 │   ├── data/
 │   │   └── podiatry_dataset.json   # 15 conditions
 │   ├── .env.example
@@ -80,11 +81,11 @@ venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-Create a `.env` file from the template and add your own Groq API key:
+Create a `.env` file from the template and add your own Groq and Tavily API keys:
 
 ```bash
 cp .env.example .env
-# then edit .env and set GROQ_API_KEY
+# then edit .env and set GROQ_API_KEY and TAVILY_API_KEY
 ```
 
 Build the knowledge base once (the first run downloads the embedding model):
@@ -120,7 +121,7 @@ The app runs on `http://localhost:3000`. `NEXT_PUBLIC_API_URL` in `.env.local` m
 | GET | `/health` | Health check |
 | POST | `/echo` | Echo test used to validate the frontend/backend connection |
 | POST | `/search` | Semantic search over the knowledge base, returns the 3 closest documents |
-| POST | `/ask` | Grounded answer from the knowledge base, with cited sources |
+| POST | `/ask` | Answer from the knowledge base or trusted medical websites, with cited sources |
 
 Example:
 
@@ -151,11 +152,10 @@ These cases are the seed of a 30-question evaluation set.
 
 ## Known limitations
 
-- The default embedding model is English-oriented, while the goal is FR/EN/DE support.
+- The embedding model is English-only while the goal is FR/EN/DE support: non-English questions are translated before searching the knowledge base, which adds one LLM call. Multilingual embeddings are planned.
 - One document per condition may dilute meaning; section-level chunking is planned.
-- No relevance threshold yet: out-of-scope questions still return documents.
+- The distance threshold filters out unrelated questions, but cannot separate in-domain questions that are missing from the knowledge base; reranking is planned.
 - Small corpus (15 documents).
-- The embedding model is English-only: non-English questions are translated before searching the knowledge base, which adds one LLM call.
 - The scope is strict (foot and ankle): related topics such as knee pain are refused.
 - Generated text sometimes contains missing spaces; this will be measured in the evaluation.
 - The agent costs 2 to 4 LLM calls per question, so it is slower than RAG alone.
