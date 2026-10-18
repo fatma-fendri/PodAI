@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from groq import Groq
 from app.rag import search
 from app.web_search import web_search
+from groq import BadRequestError
 
 load_dotenv(override=True)
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
@@ -102,25 +103,43 @@ def run_tool(name, args, sources):
 
 def agent_answer(question):
     sources = []
+    trace = [] 
     messages = [
         {"role": "system", "content": AGENT_PROMPT},
         {"role": "user", "content": f"{question}\n\n(Answer in the same language as this question.)"},    
         ]
     for step in range(MAX_STEPS):
-        response = client.chat.completions.create(
-            model=MODEL,
-            temperature=0,
-            messages=messages,
-            tools=TOOLS,
-            tool_choice="auto" if step < MAX_STEPS - 1 else "none",
-        )
+        last = step == MAX_STEPS - 1
+        kwargs = {"model": MODEL, "temperature": 0, "messages": messages}
+        if last:         
+            messages.append({
+                "role": "user",
+                "content": "You cannot call any more tools. Write your final answer now, "
+                           "using only the information already retrieved, and cite it as [n].",
+            })
+        else:                                  
+            kwargs["tools"] = TOOLS                                         
+            kwargs["tool_choice"] = "auto" 
+        try:
+            response = client.chat.completions.create(**kwargs)
+        except BadRequestError:
+            if last :
+                break
+            raise
         message = response.choices[0].message
         if not message.tool_calls:
             break
         messages.append(message)
         for call in message.tool_calls:
             args = json.loads(call.function.arguments)
+            before = len(sources)  
             result = run_tool(call.function.name, args, sources)
+            trace.append({                                                 
+                "tool": call.function.name,
+                "query": args.get("query"),
+                "results": len(sources) - before,
+                "titles": [s["title"] for s in sources[before:]],
+            })
             messages.append({"role": "tool", "tool_call_id": call.id, "content": result})
 
     answer = message.content or "I could not complete the search."
@@ -132,8 +151,8 @@ def agent_answer(question):
     for i in cited:
         if 1 <= i <= len(sources):
             final_sources.append(sources[i - 1])
-
-    return {"answer": answer, "sources": final_sources}
+    
+    return {"answer": answer, "sources": final_sources, "trace": trace}
 
 
 if __name__ == "__main__":
