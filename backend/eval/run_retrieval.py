@@ -48,7 +48,7 @@ def run():
         elif MODE == "multi_en":
             results = search_multi(QUERY_EN.get(q["id"], q["question"]))
         elif MODE == "enriched":
-        results = search_enriched(QUERY_EN.get(q["id"], q["question"]))
+            results = search_enriched(QUERY_EN.get(q["id"], q["question"]))
         else:
             results = search(QUERY_EN.get(q["id"], q["question"]))
         titles = [r["title"] for r in results]
