@@ -4,6 +4,9 @@ from pydantic import BaseModel
 from groq import APIError
 from app.rag import search
 from app.agent import agent_answer
+import logging
+
+logger = logging.getLogger("podai")
 
 class AskRequest(BaseModel):
     question: str
@@ -40,8 +43,9 @@ def search_endpoint(request: SearchRequest):
 def ask_endpoint(request: AskRequest):
     try:
         return agent_answer(request.question)
-    except APIError:
+    except APIError as e:
+        logger.exception("Agent call failed")
         raise HTTPException(
             status_code=503,
             detail="The assistant is temporarily unavailable. Please try again.",
-        )
+        ) from e
