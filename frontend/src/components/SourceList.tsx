@@ -12,6 +12,7 @@ export default function SourceList({ sources }: { sources: Source[] }) {
             <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
               {s.title}
             </a>
+            <span className="ml-2 text-sm text-gray-500">({s.origin})</span>
           </li>
         ))}
       </ol>

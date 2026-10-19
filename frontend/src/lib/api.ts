@@ -1,4 +1,4 @@
-export type Source = { title: string; url: string };
+export type Source = { title: string; url: string; origin: string  };
 export type AskResponse = { answer: string; sources: Source[] };
 
 export async function askQuestion(question: string): Promise<AskResponse> {
