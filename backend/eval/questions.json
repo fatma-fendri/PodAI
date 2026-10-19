@@ -28,5 +28,11 @@
 {"id":"q27","category":"multilingual","language":"fr","question":"Comment faire du pain maison ?","expected_behavior":"refuse","expected_ids":[]},
 {"id":"q28","category":"multilingual","language":"de","question":"Ich habe Schmerzen hinter der Ferse, die beim Laufen schlimmer werden, und die Stelle ist verdickt.","expected_behavior":"kb","expected_ids":["achilles_tendinopathy","achilles_bursitis"]},
 {"id":"q29","category":"multilingual","language":"de","question":"Ich habe beim Gehen einen brennenden Schmerz im Fußballen.","expected_behavior":"kb","expected_ids":["forefoot_pain_metatarsalgia","metatarsophalangeal_joint_pain"]},
-{"id":"q30","category":"multilingual","language":"de","question":"Wie behandelt man einen eingewachsenen Zehennagel?","expected_behavior":"web","expected_ids":[]}
+{"id":"q30","category":"multilingual","language":"de","question":"Wie behandelt man einen eingewachsenen Zehennagel?","expected_behavior":"web","expected_ids":[]},
+{"id":"q31","category":"in_kb","language":"en","question":"I am 15, I run cross-country, and it hurts under the front of my foot just behind my second toe every time I push off.","expected_behavior":"kb","expected_ids":["freiberg_disease"]},
+{"id":"q32","category":"in_kb","language":"en","question":"The inside of my ankle has become swollen and sore, my foot seems to roll inwards, and I can no longer stand on my tiptoes.","expected_behavior":"kb","expected_ids":["posterior_tibial_tendinosis"]},
+{"id":"q33","category":"in_kb","language":"en","question":"I am 68 and the joint at the base of one of my toes is swollen and hurts when I walk and when I press on it.","expected_behavior":"kb","expected_ids":["metatarsophalangeal_joint_pain"]},
+{"id":"q34","category":"in_kb","language":"en","question":"I wear pumps for work and I have a tender reddish bump on the back of my heel where the shoe rubs.","expected_behavior":"kb","expected_ids":["achilles_bursitis"]},
+{"id":"q35","category":"in_kb","language":"en","question":"The inner side of my heel aches almost all the time, even when I sit, and standing is hard, but I have no tingling or numbness.","expected_behavior":"kb","expected_ids":["plantar_nerve_compression"]},
+{"id":"q36","category":"in_kb","language":"en","question":"Walking barefoot on hard floors gives me a throbbing pain right under my heel, and the heel feels slightly warm and puffy.","expected_behavior":"kb","expected_ids":["inferior_calcaneal_bursitis"]}
 ]
