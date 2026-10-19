@@ -1,0 +1,90 @@
+{
+  "plantar_fasciitis": [
+    "heel pain with the first steps in the morning",
+    "heel pain after sitting or resting that eases as I keep moving",
+    "heel pain in runners, dancers or people who stand all day",
+    "pain on the inner side of the sole near the heel"
+  ],
+  "hallux_valgus": [
+    "bump on the inside of the big toe joint",
+    "big toe leaning toward the other toes",
+    "painful big toe joint with tight or narrow shoes",
+    "red, swollen bump at the base of the big toe"
+  ],
+  "achilles_tendinopathy": [
+    "pain in the lower calf and back of the heel",
+    "pain at the start of running that eases as I warm up",
+    "painful Achilles tendon in runners",
+    "back of the heel pain that gets worse over time with activity"
+  ],
+  "hammer_toe": [
+    "second toe bent in a fixed Z shape",
+    "toe pain in shoes with a low or narrow toe box",
+    "toe that stays bent and will not straighten",
+    "pain in the ball of the foot together with a bent toe"
+  ],
+  "plantar_nerve_compression": [
+    "constant pain inside the heel and arch, both walking and sitting",
+    "heel pain that is present even at rest",
+    "difficulty standing because of inner heel pain",
+    "inner heel pain from running, without burning or tingling"
+  ],
+  "freiberg_disease": [
+    "pain under the ball of the foot behind the second toe",
+    "forefoot pain when pushing off or wearing high heels",
+    "teenage girl with forefoot pain during a growth spurt",
+    "pain and swelling in the joint at the base of the second toe"
+  ],
+  "plantar_fibromatosis": [
+    "firm lumps under the sole of the foot",
+    "nodules along the sole that are most visible when the foot is flexed up",
+    "toes that cannot fully straighten",
+    "lumps in the foot and also in the palm of the hand"
+  ],
+  "posterior_tibial_tendinosis": [
+    "pain and swelling behind the inner ankle bone",
+    "difficulty rising on the toes",
+    "arch of the foot that is flattening or collapsing",
+    "inner ankle pain that gets worse with activity"
+  ],
+  "metatarsophalangeal_joint_pain": [
+    "pain and swelling in a joint at the base of a toe",
+    "forefoot joint pain when walking",
+    "joint at the base of the toes that hurts to press and to move",
+    "ball of the foot pain in older adults with a thinning fat pad"
+  ],
+  "achilles_bursitis": [
+    "swollen, painful lump at the back of the heel",
+    "back of the heel pain from the rigid back of a shoe or from high heels",
+    "pain behind the heel when rising on the toes",
+    "bony bump at the back of the heel"
+  ],
+  "forefoot_pain_metatarsalgia": [
+    "pain under the ball of the foot when walking",
+    "ball of the foot pain from thin-soled shoes or high heels",
+    "forefoot pain in runners and dancers",
+    "ball of the foot pain in older adults"
+  ],
+  "tarsal_tunnel_syndrome": [
+    "burning or tingling in the ankle and foot when walking",
+    "nerve pain that spreads into the foot and toes",
+    "foot pain that gets worse at night"
+  ],
+  "sesamoiditis": [
+    "pain under the base of the big toe",
+    "pain under the big toe joint when walking barefoot",
+    "pain under the big toe in dancers and runners",
+    "pain under the big toe from thin-soled or high-heeled shoes"
+  ],
+  "severs_disease": [
+    "heel pain in a growing child",
+    "child limping or avoiding putting weight on the heel",
+    "heel pain after running or sports in children aged 9 to 14",
+    "pain on the sides of the heel when standing on tiptoe"
+  ],
+  "inferior_calcaneal_bursitis": [
+    "throbbing heel pain when walking barefoot on hard floors",
+    "sharp, shooting pain when the heel hits the ground",
+    "warm, swollen heel under the heel bone"
+  ]
+}

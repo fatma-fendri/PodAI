@@ -1,6 +1,11 @@
 import json
+import sys
 from pathlib import Path
 from app.rag import search
+from eval.build_multi import search_multi
+from eval.build_enriched import search_enriched
+
+MODE = sys.argv[1] if len(sys.argv) > 1 else "base"
 
 QUESTIONS_PATH = Path("eval/questions.json")
 
@@ -38,8 +43,14 @@ def run():
     kb_hits = 0
 
     for q in questions:
-        query = QUERY_EN.get(q["id"], q["question"])
-        results = search(query)
+        if MODE == "multi":
+            results = search_multi(q["question"])
+        elif MODE == "multi_en":
+            results = search_multi(QUERY_EN.get(q["id"], q["question"]))
+        elif MODE == "enriched":
+        results = search_enriched(QUERY_EN.get(q["id"], q["question"]))
+        else:
+            results = search(QUERY_EN.get(q["id"], q["question"]))
         titles = [r["title"] for r in results]
         best = round(results[0]["distance"], 2)
 
