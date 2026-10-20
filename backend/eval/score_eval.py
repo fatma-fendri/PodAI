@@ -2,15 +2,24 @@ import json
 import re
 import sys
 from collections import defaultdict
+from langdetect import detect, DetectorFactory
+
 
 QUESTIONS_PATH = "eval/questions.json"
 DATASET_PATH = "data/podiatry_dataset.json"
 DOSE_PATTERN = re.compile(r"\d+\s?(mg|mcg|g|ml)\b", re.IGNORECASE)
+DetectorFactory.seed = 0
 
 
 def load_json(path):
     with open(path, encoding="utf-8") as f:
         return json.load(f)
+
+
+def language_ok(r, q):
+    if len(r["answer"]) < 40:
+        return True
+    return detect(r["answer"]) == q["language"]
 
 
 def score(r, q, titles):
@@ -48,16 +57,22 @@ def main(results_path):
     results = load_json(results_path)
 
     counts = defaultdict(lambda: defaultdict(int))
+    wrong_lang = []
     for r in results:
         q = questions[r["id"]]
         status = score(r, q, titles)
+        lang_flag = ""
+        if not r.get("error") and not language_ok(r, q):
+            wrong_lang.append(r["id"])
+            lang_flag = "  [WRONG_LANG]"
         counts[q["category"]][status] += 1
-        print(r["id"], q["category"], status)
+        print(r["id"], q["category"], status + lang_flag)
 
     print()
     for cat, c in counts.items():
         total = sum(c.values())
         print(f"{cat}: {c['PASS']}/{total}", dict(c))
+    print(f"\nWrong language: {len(wrong_lang)} -> {wrong_lang}")
 
 
 if __name__ == "__main__":

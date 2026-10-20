@@ -6,12 +6,18 @@ from groq import Groq
 from app.rag import search
 from app.web_search import web_search
 from groq import BadRequestError
+from langdetect import detect, DetectorFactory
+
 
 load_dotenv(override=True)
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 MODEL = "openai/gpt-oss-20b"
 MAX_STEPS = 4
 MAX_DISTANCE = 1.3
+DetectorFactory.seed = 0
+
+LANGUAGE_NAMES = {"en": "English", "fr": "French", "de": "German"}
+
 
 AGENT_PROMPT = """You are PodAI, an educational assistant about foot conditions.
 
@@ -62,6 +68,7 @@ def to_english(text):
     response = client.chat.completions.create(
         model=MODEL,
         temperature=0,
+        seed=0,
         messages=[
             {
                 "role": "system",
@@ -125,20 +132,30 @@ def finalize(answer, sources):
     answer = re.sub(r"\[(\d+)\]", renumber, answer)
     return answer, [sources[old - 1] for old in cited]
 
+
+def question_language(question):
+    try:
+        code = detect(question)
+    except Exception:
+        return "English"
+    return LANGUAGE_NAMES.get(code, "English")
+
+
 def agent_answer(question):
     sources = []
     trace = []
+    language = question_language(question)
     messages = [
         {"role": "system", "content": AGENT_PROMPT},
-        {"role": "user", "content": f"{question}\n\n(Answer in the same language as this question.)"},
+        {"role": "user", "content": f"{question}\n\n(Write your final answer in {language}.)"},
     ]
     for step in range(MAX_STEPS):
         last = step == MAX_STEPS - 1
-        kwargs = {"model": MODEL, "temperature": 0, "messages": messages}
+        kwargs = {"model": MODEL, "temperature": 0, "seed": 0, "messages": messages}
         if last:
             messages.append({
                 "role": "user",
-                "content": "You cannot call any more tools. Write your final answer now, "
+                "content": f"You cannot call any more tools. Write your final answer now in {language}, "
                            "using only the information already retrieved, and cite it as [n].",
             })
         else:
@@ -175,7 +192,7 @@ def agent_answer(question):
             "content": "Rewrite your answer using only the retrieved sources and cite them as [n]. "
                        "If they do not answer the question, say that you do not have this information.",
         })
-        retry = client.chat.completions.create(model=MODEL, temperature=0, messages=messages)
+        retry = client.chat.completions.create(model=MODEL, temperature=0, seed=0, messages=messages)
         answer, final_sources = finalize(retry.choices[0].message.content or answer, sources)
 
         if not final_sources:

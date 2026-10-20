@@ -1,18 +1,27 @@
 import json
+import sys
 import time
 from pathlib import Path
 
 from app.agent import agent_answer
 
 QUESTIONS_PATH = Path("eval/questions.json")
-RESULTS_PATH = Path("eval/results_agent.json")
+RESULTS_PATH = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("eval/results_agent_v3.json")
 
 
 def run():
     questions = json.loads(QUESTIONS_PATH.read_text(encoding="utf-8"))
     results = []
 
+    results = []
+    if RESULTS_PATH.exists():
+        results = json.loads(RESULTS_PATH.read_text(encoding="utf-8"))
+        results = [r for r in results if not r["error"]]
+    done = {r["id"] for r in results}
+
     for q in questions:
+        if q["id"] in done:
+            continue
         print(f"{q['id']} ...")
         start = time.time()
         try:
@@ -22,6 +31,10 @@ def run():
             output = {"answer": "", "sources": [], "trace": []}
             error = str(e)
         duration = round(time.time() - start, 1)
+
+        if error and "429" in error:
+            print("Rate limit reached, stopping. Run the same command later to resume.")
+            break
 
         results.append({
             "id": q["id"],
@@ -33,12 +46,12 @@ def run():
             "error": error,
             "duration_s": duration,
         })
-        time.sleep(2)   
+        RESULTS_PATH.write_text(
+            json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        time.sleep(2)
 
-    RESULTS_PATH.write_text(
-        json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8"
-    )
-    print(f"Done: {len(results)} results saved to {RESULTS_PATH}")
+    print(f"Done: {len(results)} results in {RESULTS_PATH}")
 
 
 if __name__ == "__main__":
