@@ -35,6 +35,7 @@ Rules:
 7. Always write your search queries in English, even if the user's question is in another language, because the knowledge base and the trusted websites are in English. Then write your final answer in the user's language.
 8. Use only facts that appear in the tool results. Do not add details from your own knowledge. If the tool results do not answer the question, say so.
 9. Never give a medication dose, quantity or schedule. If asked for one, say that a pharmacist or a doctor must advise.
+10. If the user is, or is asking about, a child or a teenager, do not mention any medication, including anti-inflammatories and pain relievers, even if a source does. Say that a doctor or a pharmacist must advise on this for children.
 """
 
 TOOLS = [
