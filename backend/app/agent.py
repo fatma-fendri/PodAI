@@ -80,9 +80,14 @@ def to_english(text):
     )
     return response.choices[0].message.content.strip()
 
+
+def normalize_url(url):
+    return re.sub(r"^https?://", "", url).rstrip("/")
+
+
 def add_source(sources, title, url, origin):
     for i, s in enumerate(sources, start=1):
-        if s["url"] == url:
+        if normalize_url(s["url"]) == normalize_url(url):
             return i
     sources.append({"title": title, "url": url, "origin": origin})
     return len(sources)
@@ -119,6 +124,9 @@ def run_tool(name, args, sources):
 def finalize(answer, sources):
     answer = re.sub(r"【(\d+)】", r"[\1]", answer)
     answer = answer.replace("\u202f", " ")
+    def split_group(match):
+        return "".join(f"[{n}]" for n in re.findall(r"\d+", match.group(1)))
+    answer = re.sub(r"\[(\d+(?:\s*,\s*\d+)+)\]", split_group, answer)
     cited = []
     for m in re.findall(r"\[(\d+)\]", answer):
         n = int(m)
