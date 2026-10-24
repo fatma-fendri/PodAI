@@ -10,7 +10,13 @@ from langdetect import detect, DetectorFactory
 
 
 load_dotenv(override=True)
-client = Groq(api_key=os.getenv("GROQ_API_KEY"), max_retries=5)
+_client = None
+
+def get_client():
+    global _client
+    if _client is None:
+        _client = Groq(api_key=os.getenv("GROQ_API_KEY"), max_retries=5)
+    return _client
 MODEL = "openai/gpt-oss-20b"
 MAX_STEPS = 4
 MAX_DISTANCE = 1.3
@@ -73,7 +79,7 @@ FALLBACKS = {
 
 
 def to_english(text):
-    response = client.chat.completions.create(
+    response = get_client().chat.completions.create(
         model=MODEL,
         temperature=0,
         seed=0,
@@ -182,7 +188,7 @@ def agent_answer(question):
             kwargs["tools"] = TOOLS
             kwargs["tool_choice"] = "auto"
         try:
-            response = client.chat.completions.create(**kwargs)
+            response = get_client().chat.completions.create(**kwargs)
         except BadRequestError:
             if last:
                 break
@@ -212,7 +218,7 @@ def agent_answer(question):
             "content": "Rewrite your answer using only the retrieved sources and cite them as [n]. "
                        "If they do not answer the question, say that you do not have this information.",
         })
-        retry = client.chat.completions.create(model=MODEL, temperature=0, seed=0, messages=messages)
+        retry = get_client().chat.completions.create(model=MODEL, temperature=0, seed=0, messages=messages)
         answer, final_sources = finalize(retry.choices[0].message.content or answer, sources)
 
         if not final_sources:
