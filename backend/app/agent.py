@@ -65,6 +65,13 @@ TOOLS = [
     },
 ]
 
+FALLBACKS = {
+    "English": "I could not find reliable information about this in my sources. Please consult a healthcare professional.",
+    "French": "Je n’ai pas trouvé d’information fiable à ce sujet dans mes sources. Veuillez consulter un professionnel de santé.",
+    "German": "Ich konnte dazu keine verlässlichen Informationen in meinen Quellen finden. Bitte konsultieren Sie medizinisches Fachpersonal.",
+}
+
+
 def to_english(text):
     response = client.chat.completions.create(
         model=MODEL,
@@ -105,7 +112,7 @@ def search_knowledge_base(query, sources):
 
 
 def search_web(query, sources):
-    results = web_search(query)
+    results = web_search(to_english(query))
     if not results:
         return "No result found on trusted websites."
     parts = []
@@ -148,6 +155,10 @@ def question_language(question):
     except Exception:
         return "English"
     return LANGUAGE_NAMES.get(code, "English")
+
+
+def fallback_message(language):
+    return FALLBACKS.get(language, FALLBACKS["English"])
 
 
 def agent_answer(question):
@@ -205,8 +216,7 @@ def agent_answer(question):
         answer, final_sources = finalize(retry.choices[0].message.content or answer, sources)
 
         if not final_sources:
-            answer = ("I could not find reliable information about this in my sources. "
-                      "Please consult a healthcare professional.")
+            answer = fallback_message(language)
 
     return {"answer": answer, "sources": final_sources, "trace": trace}
     
