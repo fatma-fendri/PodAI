@@ -10,7 +10,7 @@ from langdetect import detect, DetectorFactory
 
 
 load_dotenv(override=True)
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+client = Groq(api_key=os.getenv("GROQ_API_KEY"), max_retries=5)
 MODEL = "openai/gpt-oss-20b"
 MAX_STEPS = 4
 MAX_DISTANCE = 1.3
@@ -94,7 +94,7 @@ def add_source(sources, title, url, origin):
 
 def search_knowledge_base(query, sources):
     english_query = to_english(query)
-    hits = [h for h in search(english_query) if h["distance"] <= MAX_DISTANCE]
+    hits = [h for h in search(english_query, n_results=5) if h["distance"] <= MAX_DISTANCE]    
     if not hits:
         return "No relevant document found in the knowledge base."
     parts = []
