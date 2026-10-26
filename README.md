@@ -200,13 +200,13 @@ What I learned:
 | v3 | Baseline agent, 3 documents per search | 31/36 | q04, q05, q09, q26, q31 |
 | v4 | Answer language enforced, no medication advice for children | 31/36 | q04, q09, q11, q26, q31 |
 | v5 | 5 documents per search instead of 3 | 31/36 | q09, q11, q14, q30, q31 |
+| v6 | Web queries translated to English, lazy Groq client; 3 questions replayed after a network error | 32/36 | q04, q09, q11, q31 |
 
 What I learned:
 
 - A rank check of the expected condition among all 15 showed that several misses were close: hit@3 is 16/21 and hit@5 is 19/21. Only Freiberg disease stays out of reach (rank 7 and 15). Part of this gain comes from the small corpus, since 5 documents out of 15 is a third of the base, and I chose k=5 after seeing the ranks, so the gain may not carry over to a larger corpus.
-- The score stayed at 31/36 in all three runs, but the failed questions changed each time. With one question worth about 3 points on 36, a difference of one or two questions is within noise, so these runs show no real improvement.
+- - The score was 31/36 in v3, v4 and v5 and 32/36 in v6, but the failed questions changed from run to run: q09 and q31 (Freiberg disease) fail every time, q11 in the last three runs, and q04 in two of four. With one question worth about 3 points, the gap of one question is within noise. The stable failures matter more than the total.
 - Question q14 shows a limit of the citation guard: the agent states facts that are not in the retrieved documents and still cites them. With more documents returned, it also answered from the knowledge base instead of searching the web. The scorer cannot see this, which is why a faithfulness measure comes next.
-- Changes made after v5 (web queries translated to English, answers in the user's language when the fallback message is used) are tested on single questions but not yet in a full run.
 
 ## Known limitations
 
