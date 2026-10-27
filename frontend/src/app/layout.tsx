@@ -2,7 +2,8 @@ import "./globals.css";
 
 export const metadata = {
   title: "PodAI",
-  description: "Clinical podiatry assistant",
+    description:
+    "Educational information about foot and ankle conditions, based on verified medical sources.",
 };
 
 export default function RootLayout({
