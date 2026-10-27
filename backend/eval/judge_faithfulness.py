@@ -1,7 +1,7 @@
 import json
 
 from app.rag import build_document
-from app.agent import MODEL, get_client
+from app.agent import get_client
 
 
 with open("data/podiatry_dataset.json", encoding="utf-8") as f:
@@ -13,6 +13,8 @@ def source_text(url):
         if fiche["source"]["url"] == url:
             return build_document(fiche)
     return None
+
+JUDGE_MODEL = "openai/gpt-oss-120b"
 
 JUDGE_PROMPT = """You check whether an answer is supported by source documents.
 
@@ -26,8 +28,16 @@ and give each one a label:
 Rules:
 - Judge only against the SOURCES, never against your own knowledge, even if
   the sentence is true.
-- Skip sentences that make no medical claim, such as "consult a healthcare
-  professional".
+- Skip a sentence only if it contains no factual claim at all, such as
+  "consult a doctor", "see a podiatrist" or "ask a pharmacist". Never skip a
+  sentence that names a treatment, a cause or a symptom, even when it also
+  advises seeing a professional.
+- If a sentence lists several items (treatments, causes, symptoms), judge it
+  by its weakest items: if one listed item is not in the sources, the label is
+  PARTIAL at best, and NO if most of the listed items are not in the sources.
+- Do not label a sentence PARTIAL only because it uses a different word for
+  the same thing (for example "puffiness" and "swelling"). PARTIAL needs a
+  fact, a number, a time or a cause that is missing from the sources.
 - Reply with JSON only: a list with one object per sentence, each object
   having the keys "sentence", "label" (OK, PARTIAL or NO) and "reason"
   (one short line).
@@ -50,11 +60,17 @@ def judge(answer, urls):
         f"[{i}] {t}" for i, t in enumerate(texts, start=1) if t
     )
     prompt = JUDGE_PROMPT.format(sources=sources, answer=answer)
-    response = get_client().chat.completions.create(
-        model=MODEL,
-        temperature=0,
-        seed=0,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    content = response.choices[0].message.content
-    return json.loads(content)
+    for attempt in range(2):
+        response = get_client().chat.completions.create(
+            model=JUDGE_MODEL,
+            temperature=0,
+            seed=0,
+            max_completion_tokens=4000,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        content = response.choices[0].message.content or ""
+        try:
+            return json.loads(content)
+        except json.JSONDecodeError:
+            continue
+    raise ValueError("judge returned invalid JSON twice")
