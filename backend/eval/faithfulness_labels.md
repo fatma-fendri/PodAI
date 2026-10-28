@@ -1,4 +1,4 @@
-# Hand labels for faithfulness (v6 answers)
+# Hand labels for faithfulness (v6 and v7 answers)
 
 Each sentence of an agent answer is compared with the cited knowledge-base documents.
 
@@ -31,6 +31,24 @@ These labels are the reference used to check the automatic judge.
 | 5 | Modify activity to avoid high-impact movements | NO | The document only says activity triggers the pain; it does not recommend changing it. |
 | 6 | In advanced cases, immobilization or surgery | OK | "Immobilization depending on severity", "Surgery for rupture or advanced disease" |
 
+## q32 (Tibialis Posterior Tendinosis and Tenosynovitis), v7 answer
+
+| # | Sentence | Label | Why |
+| --- | --- | --- | --- |
+| 1 | The symptoms are typical of tibialis posterior tendinosis and tenosynovitis | PARTIAL | "Inward rolling of the foot" is not a symptom in the document (pronation is listed as a cause), and "typical of" is stronger than "most common causes of pain behind the medial malleolus". |
+| 2 | The condition involves inflammation of the tendon and its synovial sheath, causing swelling, difficulty walking and rising on the toes | NO | The document says tendinosis is degenerative and only tenosynovitis is inflammation of the sheath: the mechanism is wrong. Also "severely damaged" instead of "fully torn". |
+| 3 | Orthotic support, immobilization, anti-inflammatory measures and, in refractory cases, surgery | PARTIAL | The four treatments are in the document, but surgery is for "rupture or advanced disease", not "refractory cases". |
+
+## q34 (Achilles Tendon Bursitis), v7 answer
+
+| # | Sentence | Label | Why |
+| --- | --- | --- | --- |
+| 1 | Most consistent with posterior Achilles tendon bursitis, irritated by pressure from a high-heeled shoe | OK | Posterior bursa and pressure from heels are in the document ("most consistent with" is diagnostic wording). |
+| 2 | The swelling is tender, warm, may appear reddish, especially where the shoe rubs | PARTIAL | Swelling, warmth, tenderness and an erythematous nodule are in the document. "Especially where the shoe rubs" is not. |
+| 3 | Caused by pressure from a rigid heel counter or shoes narrowing toward the back of the heel | OK | Taken almost word for word from the causes. |
+| 4 | Lower heel or more cushioned heel counter, heel pad or cushion, avoid pumps for a while | PARTIAL | "Low heels, well-fitted" and "relief of pressure" are in the document. "More cushioned", "heel pad or cushion" and "for a while" are added (grey zone: strictly a NO under rule 11). |
+| 5 | Anti-inflammatory approach or a local glucocorticoid injection | NO | The document says the injection is possible "for anterior bursitis"; the answer just concluded posterior bursitis and drops the restriction. |
+
 ## Summary
 
-13 sentences: 5 OK, 6 PARTIAL, 3 NO. Both answers were scored PASS by `score_eval.py`.
+21 sentences: 6 OK, 10 PARTIAL, 5 NO. The answers of q06 and q10 come from the v6 run, those of q32 and q34 from the v7 run. All four answers were scored PASS by `score_eval.py`: citing the right source does not guarantee a faithful answer.

@@ -42,6 +42,10 @@ Rules:
 8. Use only facts that appear in the tool results. Do not add details from your own knowledge. If the tool results do not answer the question, say so.
 9. Never give a medication dose, quantity or schedule. If asked for one, say that a pharmacist or a doctor must advise.
 10. If the user is, or is asking about, a child or a teenager, do not mention any medication, including anti-inflammatories and pain relievers, even if a source does. Say that a doctor or a pharmacist must advise on this for children.
+11. Only mention treatments, exercises and self-care measures that appear in the
+    documents or search results you received. Do not add advice from your own
+    knowledge, even if it is common medical advice or seems obvious. You may still tell the person to see a healthcare
+    professional.
 """
 
 TOOLS = [

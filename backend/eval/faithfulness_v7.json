@@ -1,0 +1,598 @@
+{
+  "q01": [
+    {
+      "sentence": "The description of sharp heel pain that is worst with the first steps after a period of rest and that improves after walking is classic for plantar fasciitis.",
+      "label": "OK",
+      "reason": "Source lists heel pain worse with first steps after rest and improves with activity as hallmark symptoms."
+    },
+    {
+      "sentence": "It is the most common cause of heel pain and is usually related to tightness or repetitive strain of the plantar fascia and Achilles tendon.",
+      "label": "OK",
+      "reason": "Source states it is the most common cause and cites tightness/contracture of Achilles tendon and plantar fascia and repetitive strain as causes."
+    },
+    {
+      "sentence": "Typical self‑care measures include:",
+      "label": "OK",
+      "reason": "Source enumerates self‑care treatments (stretching, orthotics, night splints, activity modification)."
+    },
+    {
+      "sentence": "Stretching of the calf muscles and plantar fascia before getting out of bed and throughout the day.",
+      "label": "PARTIAL",
+      "reason": "Source mentions stretching exercises but does not specify timing \"before getting out of bed\"."
+    },
+    {
+      "sentence": "In‑shoe heel cushioning or arch‑supporting orthotics to reduce pressure on the heel.",
+      "label": "OK",
+      "reason": "Source lists in‑shoe heel cushioning and arch‑supporting orthotics as treatment."
+    },
+    {
+      "sentence": "Night splints that keep the Achilles tendon and fascia gently stretched while you sleep.",
+      "label": "OK",
+      "reason": "Source describes night splints that keep the Achilles tendon and fascia stretched during sleep."
+    },
+    {
+      "sentence": "Activity modification such as avoiding barefoot walking on hard surfaces and limiting high‑impact activities.",
+      "label": "OK",
+      "reason": "Source recommends activity modification, avoiding barefoot walking on hard surfaces and high‑impact activities."
+    }
+  ],
+  "q02": [
+    {
+      "sentence": "The bump you’re describing is most consistent with a bunion (hallux valgus), which is a medial prominence of the first metatarsal head that often pulls the big toe toward the other toes and can be irritated by tight shoes.",
+      "label": "PARTIAL",
+      "reason": "Source describes the medial prominence and lateral deviation, and lists tight shoes as a cause, but does not state that tight shoes irritate the bunion."
+    },
+    {
+      "sentence": "Common symptoms include pain at the joint, tenderness, and sometimes swelling or redness around the bump.",
+      "label": "OK",
+      "reason": "Source lists pain, tenderness, swelling and reddening as typical symptoms."
+    },
+    {
+      "sentence": "Treatment options range from wearing shoes with a wide toe box and using protective pads or orthotics to reduce pressure, to glucocorticoid injections for inflammation, and, if conservative measures fail, surgical correction may be considered.",
+      "label": "OK",
+      "reason": "All listed treatments (wide toe box shoes, protective pads/orthotics, glucocorticoid injections, and surgery for refractory cases) are mentioned in the source."
+    }
+  ],
+  "q03": [
+    {
+      "sentence": "A permanently bent second toe at the middle joint is commonly called a hammer toe.",
+      "label": "OK",
+      "reason": "Source defines hammer toe as a contracture at the proximal interphalangeal joint, usually the second toe."
+    },
+    {
+      "sentence": "It often causes the toe to rub against the shoe, leading to a corn on the top of the foot.",
+      "label": "NO",
+      "reason": "Source mentions pain while wearing shoes but does not mention corn formation."
+    },
+    {
+      "sentence": "Wear shoes with a wide, roomy toe box to reduce pressure [1].",
+      "label": "OK",
+      "reason": "Source lists shoes with a wide toe box as a treatment."
+    },
+    {
+      "sentence": "Use toe pads or orthotic inserts to cushion the area and redirect pressure [1].",
+      "label": "OK",
+      "reason": "Source includes toe pads and orthotics as treatment options."
+    },
+    {
+      "sentence": "Taping or splinting the toe in a slightly plantar‑flexed position can temporarily lessen the deformity and protect the corn [1].",
+      "label": "PARTIAL",
+      "reason": "Source mentions taping/splinting in plantarflexion to reduce deformity, but does not mention protecting a corn."
+    },
+    {
+      "sentence": "If the corn is painful or infected, a podiatrist can safely trim or remove it; self‑removal is not recommended [1].",
+      "label": "NO",
+      "reason": "Source does not discuss corn removal or podiatrist intervention."
+    },
+    {
+      "sentence": "If conservative measures do not relieve symptoms, surgical correction may be considered, but this should be discussed with a foot‑care professional.",
+      "label": "PARTIAL",
+      "reason": "Source notes surgical correction for refractory symptoms, but does not include the advice to discuss it with a professional."
+    }
+  ],
+  "q04": [
+    {
+      "sentence": "The pain behind the heel in a child who plays football can be due to a few common conditions.",
+      "label": "OK",
+      "reason": "Sources list Achilles tendinopathy and Sever disease as common causes of heel pain in active children."
+    },
+    {
+      "sentence": "Achilles tendinopathy is a painful inflammation of the tendon that attaches the calf muscles to the heel.",
+      "label": "PARTIAL",
+      "reason": "Sources describe it as a painful condition, but do not explicitly call it an \"inflammation\"."
+    },
+    {
+      "sentence": "It often starts with pain that worsens when activity begins and may improve slightly as the activity continues, then get worse again later in the day.",
+      "label": "PARTIAL",
+      "reason": "Sources mention pain increases at start of exercise and lessens, then worsens with continued activity, but do not specify a later‑in‑the‑day pattern."
+    },
+    {
+      "sentence": "Stretching the calf and Achilles tendon, using supportive shoes, and allowing rest can help reduce symptoms.",
+      "label": "OK",
+      "reason": "Sources list stretching, supportive footwear, and rest as part of treatment."
+    },
+    {
+      "sentence": "Ice and avoiding high‑impact activity while the pain persists are also recommended.",
+      "label": "OK",
+      "reason": "Sources recommend ice and avoiding running/cycling while pain persists."
+    },
+    {
+      "sentence": "Sever’s disease (calcaneal apophysitis) is inflammation of the growth cartilage in the heel that occurs in children who are growing rapidly.",
+      "label": "OK",
+      "reason": "Sources describe Sever disease as inflammation of the heel’s growth cartilage in rapidly growing children."
+    },
+    {
+      "sentence": "Pain is usually worse after running or standing on tiptoe, and stretching the calf muscles before and after sports can provide relief.",
+      "label": "OK",
+      "reason": "Sources list pain worsened by running or tiptoe and recommend calf stretching before/after activity."
+    },
+    {
+      "sentence": "Heel cups, pads, or night splints may be useful, and rest or a brief period of reduced activity can help.",
+      "label": "OK",
+      "reason": "Sources include heel cups, pads, night splints, and rest as treatment options."
+    }
+  ],
+  "q05": [
+    {
+      "sentence": "The pain you describe can be due to irritation of the sesamoid bones under the first metatarsal head or to general forefoot stress (metatarsalgia).",
+      "label": "OK",
+      "reason": "Sources describe sesamoid irritation (sesamoiditis) and forefoot stress (metatarsalgia) as causes of pain."
+    },
+    {
+      "sentence": "Common causes include repetitive push‑off movements, tight or high‑heeled shoes, or abnormal foot mechanics such as over‑pronation or a bunion.",
+      "label": "PARTIAL",
+      "reason": "Repetitive push‑off, high‑heeled shoes, over‑pronation, and bunion (hallux valgus) are mentioned, but \"tight shoes\" is not covered by the sources."
+    },
+    {
+      "sentence": "Typical self‑care measures are: wearing supportive shoes or orthotic inserts, using off‑loading pads over the sesamoids, taking short rest periods, and avoiding high‑impact or repetitive push‑off activity until the pain improves.",
+      "label": "PARTIAL",
+      "reason": "Orthotics, supportive footwear, and off‑loading pads are supported; rest periods and activity avoidance are not mentioned in the sources."
+    },
+    {
+      "sentence": "If the discomfort persists, a podiatrist can evaluate for specific conditions and may recommend further interventions such as custom orthotics or targeted exercises.",
+      "label": "NO",
+      "reason": "Sources do not mention consulting a podiatrist or prescribing targeted exercises; only orthotics are noted."
+    }
+  ],
+  "q06": [
+    {
+      "sentence": "It sounds like you may have an issue with the Achilles tendon or the bursa that sits just behind it.",
+      "label": "NO",
+      "reason": "The statement is a speculative diagnosis about the user, which is not mentioned in the sources."
+    },
+    {
+      "sentence": "Achilles tendinopathy is a common runner’s problem where the tendon that connects the calf muscles to the heel becomes painful, stiff, and can feel thickened.",
+      "label": "PARTIAL",
+      "reason": "Sources confirm it is common among runners and painful, but do not mention stiffness or thickening."
+    },
+    {
+      "sentence": "The pain usually starts when you begin running and may lessen as you continue, but can worsen with continued activity.",
+      "label": "OK",
+      "reason": "Exact description of pain pattern is provided in source [1]."
+    },
+    {
+      "sentence": "Causes include repetitive strain and insufficient recovery time.",
+      "label": "OK",
+      "reason": "Both causes are listed in source [1]."
+    },
+    {
+      "sentence": "Treatment options include ice, avoiding running while pain persists, calf‑strengthening and eccentric exercises, and footwear with flexible soles or heel lifts to reduce tension on the tendon.",
+      "label": "OK",
+      "reason": "All treatment elements are described in source [1]."
+    },
+    {
+      "sentence": "Achilles tendon bursitis is inflammation of the fluid‑filled sac that lies between the skin and the Achilles tendon.",
+      "label": "OK",
+      "reason": "Source [2] defines bursitis as inflammation of a fluid‑filled sac located between the skin and the tendon."
+    },
+    {
+      "sentence": "It can cause swelling, warmth, and tenderness behind the heel, especially when the ankle is dorsiflexed.",
+      "label": "PARTIAL",
+      "reason": "Swelling, warmth, and tenderness are listed in source [2], but the link to dorsiflexion is not specified for those symptoms."
+    },
+    {
+      "sentence": "Causes include repetitive pressure from rigid shoes or a narrow heel counter.",
+      "label": "OK",
+      "reason": "These causes are explicitly mentioned in source [2]."
+    },
+    {
+      "sentence": "Treatment involves shoe modification, anti‑inflammatory measures, and sometimes a local steroid injection.",
+      "label": "OK",
+      "reason": "All treatment measures are covered in source [2]."
+    }
+  ],
+  "q07": [
+    {
+      "sentence": "The symptoms you describe—burning and tingling that starts inside the ankle and radiates to the sole of the foot, especially getting worse at night—are characteristic of tarsal tunnel syndrome.",
+      "label": "OK",
+      "reason": "Source lists burning/tingling pain extending to foot/toes and worsening at night."
+    },
+    {
+      "sentence": "This condition occurs when the posterior tibial nerve is compressed within the tarsal tunnel, a fibrous canal just behind the ankle.",
+      "label": "OK",
+      "reason": "Source states the syndrome is caused by compression of the posterior tibial nerve within the tarsal tunnel, a fibrous canal near the ankle."
+    },
+    {
+      "sentence": "Common causes include ankle swelling, fractures, or structural foot problems that narrow the tunnel, and it can also happen without an obvious trigger in about 20 % of cases.",
+      "label": "OK",
+      "reason": "Source lists fractures, ankle swelling, poor foot posture (structural issues), and notes no identifiable cause in ~20% of cases."
+    },
+    {
+      "sentence": "Typical treatments involve steroid injections, custom orthotics to relieve pressure, and in some refractory cases, surgical release of the tunnel.",
+      "label": "OK",
+      "reason": "Source mentions steroid injections, orthotics, and surgery for refractory cases."
+    }
+  ],
+  "q08": [
+    {
+      "sentence": "The firm lump you’re describing in the arch could be a plantar fibroma (plantar fibromatosis).",
+      "label": "PARTIAL",
+      "reason": "Source mentions nodules under the sole but does not specify the arch location."
+    },
+    {
+      "sentence": "These are benign, fibrous nodules that develop in the plantar fascia and can grow over time while remaining painless or only mildly uncomfortable.",
+      "label": "OK",
+      "reason": "All attributes (benign, fibrous nodules, plantar fascia origin, possible painless course) are stated in the source."
+    },
+    {
+      "sentence": "If the nodule is not causing pain or functional problems, no treatment is usually required; however, orthotic devices can help redistribute pressure, and in some cases a glucocorticoid injection into the nodule may be considered.",
+      "label": "OK",
+      "reason": "Matches source statements on asymptomatic management, orthotics, and glucocorticoid injections."
+    }
+  ],
+  "q10": [
+    {
+      "sentence": "The symptoms you describe—gradual flattening of the foot arch, pain along the inner side of the ankle, and an outward tilt of the heel—are commonly associated with tibialis posterior tendinosis or tenosynovitis.",
+      "label": "PARTIAL",
+      "reason": "Source mentions flattening of arch and medial ankle pain, but does not mention an outward tilt of the heel."
+    },
+    {
+      "sentence": "This tendon helps maintain the arch, and when it becomes weakened or inflamed it can lead to arch collapse and medial ankle pain.",
+      "label": "OK",
+      "reason": "Source states the tendon maintains the arch and that weakening/inflammation can cause arch collapse and medial ankle pain."
+    },
+    {
+      "sentence": "Treatment options that are often recommended include arch‑supporting orthotics, immobilization depending on severity, anti‑inflammatory measures, and surgery for advanced disease or rupture.",
+      "label": "OK",
+      "reason": "Source lists orthotics, immobilization, anti‑inflammatory treatment, and surgery for rupture or advanced disease."
+    }
+  ],
+  "q11": [
+    {
+      "sentence": "The sensations you describe—numbness and burning between the toes—can occur when a nerve in the foot is compressed or irritated.",
+      "label": "OK",
+      "reason": "Sources state that nerve compression/irritation (e.g., tarsal tunnel, Morton’s neuroma) causes burning or tingling in the foot/toes."
+    },
+    {
+      "sentence": "Two common foot‑related causes are:",
+      "label": "NO",
+      "reason": "Sources do not identify these two conditions as the only or primary common causes."
+    },
+    {
+      "sentence": "Tarsal tunnel syndrome – compression of the posterior tibial nerve near the ankle can produce burning or tingling that may extend into the toes.",
+      "label": "OK",
+      "reason": "Source 1 describes compression of the posterior tibial nerve near the ankle causing burning/tingling that can extend to the toes."
+    },
+    {
+      "sentence": "Treatment options include orthotics, steroid injections, or, in refractory cases, surgery.",
+      "label": "OK",
+      "reason": "Source 1 lists orthotics, steroid injections, and surgery for refractory tarsal tunnel syndrome."
+    },
+    {
+      "sentence": "Morton’s (interdigital) neuroma – a thickening of the nerve tissue between the toes can cause a “pebble‑like” burning sensation.",
+      "label": "PARTIAL",
+      "reason": "Source 2 mentions nerve compression between toes (Morton’s neuroma) causing pain, but does not describe thickening of nerve tissue or a “pebble‑like” sensation."
+    },
+    {
+      "sentence": "Orthotics and appropriate footwear are often recommended as a first‑line approach.",
+      "label": "OK",
+      "reason": "Source 2 recommends orthotics and appropriate footwear as general first‑line measures for foot nerve problems."
+    }
+  ],
+  "q14": [
+    {
+      "sentence": "The symptoms you describe—sudden redness, heat and intense pain in the big‑toe joint that worsens at night—can be seen when an inflammatory or infectious process affects the metatarsophalangeal joint.",
+      "label": "PARTIAL",
+      "reason": "Sources confirm redness, heat and inflammation in the joint, but do not mention worsening at night."
+    },
+    {
+      "sentence": "Inflammatory arthropathies or infection can cause significant warmth, swelling and redness of the joint, and pain may increase during the night [1].",
+      "label": "PARTIAL",
+      "reason": "Warmth, swelling and redness are supported; the claim that pain increases at night is not in the sources."
+    },
+    {
+      "sentence": "Tarsal tunnel syndrome can also produce pain that worsens at night, though it is usually related to nerve compression rather than joint inflammation [2].",
+      "label": "OK",
+      "reason": "Source states TTS pain often worsens at night and is due to nerve compression."
+    },
+    {
+      "sentence": "I do not have additional specific information from the retrieved sources.",
+      "label": "NO",
+      "reason": "The statement is not found in any source."
+    }
+  ],
+  "q21": [
+    {
+      "sentence": "I’m not a medical professional, but the symptoms you describe—heel pain that is worse in the morning and mild swelling—are commonly seen in a few foot conditions.",
+      "label": "OK",
+      "reason": "Sources describe heel pain worse after rest for plantar fasciitis and swelling for inferior calcaneal bursitis, matching the claim."
+    },
+    {
+      "sentence": "Plantar fasciitis – pain at the heel where the plantar fascia attaches to the calcaneus, often worse with the first steps after rest, and sometimes accompanied by mild swelling or warmth.",
+      "label": "PARTIAL",
+      "reason": "Source confirms location and pain pattern, but does not mention mild swelling or warmth."
+    },
+    {
+      "sentence": "Inferior calcaneal bursitis – inflammation of the bursa under the heel bone, which can cause throbbing heel pain, swelling, and tenderness, especially when walking barefoot on hard surfaces.",
+      "label": "PARTIAL",
+      "reason": "Source confirms inflammation, throbbing pain, swelling, and barefoot aggravation, but does not specifically mention tenderness."
+    }
+  ],
+  "q24": [
+    {
+      "sentence": "La douleur au talon le matin est souvent due à la fasciite plantaire, une inflammation de la bande de tissu qui relie le talon aux orteils.",
+      "label": "PARTIAL",
+      "reason": "Source describes plantar fasciitis and its symptoms but does not call it an inflammation nor state that morning heel pain is often due to it."
+    },
+    {
+      "sentence": "Elle se manifeste généralement par une douleur aiguë lors des premières foulées après le réveil, qui s’atténue légèrement avec l’activité mais peut réapparaître plus tard dans la journée.",
+      "label": "OK",
+      "reason": "Exactly matches the symptom description in the source."
+    },
+    {
+      "sentence": "Les mesures de prise en charge courantes comprennent des étirements du fascia plantaire et du tendon d’Achille, l’utilisation de semelles orthopédiques ou de coussinets de talon, ainsi que des attelles nocturnes qui maintiennent le tendon tendu pendant le sommeil.",
+      "label": "OK",
+      "reason": "All listed treatments (stretching, orthotics, night splints) are mentioned in the source."
+    },
+    {
+      "sentence": "Si la douleur persiste, il est conseillé de consulter un professionnel de santé spécialisé en podologie pour un examen plus approfondi et un traitement adapté.",
+      "label": "NO",
+      "reason": "Source does not mention consulting a podiatrist or similar specialist."
+    }
+  ],
+  "q25": [
+    {
+      "sentence": "Le gros orteil qui dévie vers l’intérieur avec une bosse douloureuse à sa base est typiquement un bunion (hallux valgus).",
+      "label": "NO",
+      "reason": "Source describes a lateral (outward) deviation of the big toe, not an inward deviation."
+    },
+    {
+      "sentence": "Les causes courantes incluent la génétique, la pronation excessive du pied, le port de chaussures étroites ou pointues, et parfois un traumatisme.",
+      "label": "OK",
+      "reason": "All listed causes are explicitly mentioned in the source."
+    },
+    {
+      "sentence": "Les traitements non chirurgicaux comprennent des chaussures à embout large, des coussinets protecteurs, des orthèses plantaires, et, dans certains cas, des injections de corticoïdes pour réduire l’inflammation.",
+      "label": "OK",
+      "reason": "Each non‑surgical treatment matches items described in the source."
+    },
+    {
+      "sentence": "Si la douleur persiste ou s’aggrave, une intervention chirurgicale (ostéotomie, arthrodèse, etc.) peut être envisagée.",
+      "label": "OK",
+      "reason": "Surgical options listed correspond to those given in the source."
+    }
+  ],
+  "q26": [
+    {
+      "sentence": "Le mal‑talon chez un garçon de 12 ans après le sport est souvent lié à la disease de Sever (apophysite du calcanéum) [1].",
+      "label": "OK",
+      "reason": "Source states Sever disease causes heel pain in children around puberty, matching the claim."
+    },
+    {
+      "sentence": "Cette inflammation du cartilage de croissance du talon se produit quand la croissance osseuse dépasse la capacité des tendons et des muscles à s’adapter [1].",
+      "label": "OK",
+      "reason": "Source attributes the condition to rapid bone growth outpacing muscles/tendons."
+    },
+    {
+      "sentence": "Douleur sur le côté ou le dessus du talon, aggravée par la course, le saut ou la montée sur la pointe des pieds [1].",
+      "label": "PARTIAL",
+      "reason": "Source mentions pain worsened by running and tiptoe, but does not mention jumping."
+    },
+    {
+      "sentence": "Sensation de chaleur ou de rougeur dans certains cas [1].",
+      "label": "OK",
+      "reason": "Source lists warmth and redness as possible symptoms."
+    },
+    {
+      "sentence": "Difficulté à supporter le poids sur le talon affecté [1].",
+      "label": "OK",
+      "reason": "Source notes limping or avoiding weight‑bearing on the affected heel."
+    },
+    {
+      "sentence": "Étirements doux du mollet et de l’Achille avant et après l’activité [1].",
+      "label": "OK",
+      "reason": "Source recommends stretching calf muscles and Achilles before and after sports."
+    },
+    {
+      "sentence": "Utilisation de coussinets ou de semelles de soutien pour amortir le talon [1].",
+      "label": "OK",
+      "reason": "Source mentions heel cups and pads as supportive devices."
+    },
+    {
+      "sentence": "Repos et glace après l’effort pour réduire l’inflammation [1].",
+      "label": "OK",
+      "reason": "Source advises ice and rest to reduce inflammation."
+    }
+  ],
+  "q28": [
+    {
+      "sentence": "Die Schmerzen hinter der Ferse, die beim Laufen stärker werden und bei denen die Stelle verdickt erscheint, können auf eine Entzündung der Achillessehne oder der darunter liegenden Bursa hinweisen.",
+      "label": "PARTIAL",
+      "reason": "Sources describe swelling and pain behind the heel for both conditions, but do not mention a thickened (verdickt) area."
+    },
+    {
+      "sentence": "Häufige Ursachen sind wiederholter Druck durch harte Oberflächen oder schlecht sitzende Schuhe, was zu einer Achillessehnen‑Bursitis oder Achillessehnen‑Tendinopathie führen kann.",
+      "label": "PARTIAL",
+      "reason": "Sources list pressure from rigid or narrow shoes as a cause, but do not mention hard surfaces."
+    },
+    {
+      "sentence": "Typische Symptome sind Schwellung, Wärmegefühl und ein dumpfer, stechender Schmerz, besonders beim ersten Schritt nach Ruhe oder beim Aufstehen auf die Zehen.",
+      "label": "PARTIAL",
+      "reason": "Sources note swelling and pain, and warmth for bursitis, but do not specify warmth feeling, dull‑stabbing quality, or pain specifically on the first step after rest."
+    },
+    {
+      "sentence": "Zur Linderung empfiehlt sich zunächst das Tragen von gut gedämpften Schuhen, das Vermeiden von Überlastung und das Einführen von Dehn- und Kräftigungsübungen für die Wade und die Achillessehne.",
+      "label": "OK",
+      "reason": "Sources recommend shoe modification, avoiding overload, and stretching/strengthening calf and Achilles tendon."
+    },
+    {
+      "sentence": "Bei anhaltender Schwellung oder Schmerzen kann ein Arzt eine lokale Injektion oder weitere Therapieoptionen vorschlagen.",
+      "label": "OK",
+      "reason": "Sources mention local glucocorticoid injection for anterior bursitis and allow for other medical treatments."
+    }
+  ],
+  "q29": [
+    {
+      "sentence": "Der brennende Schmerz im Fußballen kann auf Metatarsalgie hinweisen, also Schmerzen im Bereich der Metatarsophalangeal‑Gelenke.",
+      "label": "PARTIAL",
+      "reason": "Source confirms pain in the forefoot/MTP area indicates metatarsalgia, but does not specify the pain as \"brennend\"."
+    },
+    {
+      "sentence": "Ursachen können Arthritis, Nervenkompression (z. B. Mortons‑Neuroma), Fehlstellungen des Fußes, Sesamoiditis oder Freiberg‑Krankheit sein.",
+      "label": "OK",
+      "reason": "All listed causes are explicitly mentioned in the source."
+    },
+    {
+      "sentence": "Die Behandlung richtet sich nach der genauen Ursache und umfasst in der Regel orthopädische Einlagen, geeignete Schuhe und gezielte Übungen.",
+      "label": "PARTIAL",
+      "reason": "Source mentions orthotics and appropriate footwear, but does not include \"gezielte Übungen\"."
+    }
+  ],
+  "q31": [
+    {
+      "sentence": "Pain under the front of the foot just behind the second toe when you push off can be a sign of metatarsalgia, a common fore‑foot problem that causes pain in the metatarsophalangeal area during weight‑bearing activities such as running [1].",
+      "label": "PARTIAL",
+      "reason": "Source confirms metatarsalgia causes forefoot pain during weight‑bearing, but does not state it is common nor specify the location just behind the second toe."
+    },
+    {
+      "sentence": "Typical self‑care measures include resting the foot, applying ice, and wearing shoes with good arch support or orthotic inserts to reduce pressure on the metatarsal heads [1].",
+      "label": "PARTIAL",
+      "reason": "Source mentions orthotics and appropriate footwear, but does not mention resting the foot or applying ice."
+    },
+    {
+      "sentence": "Because the pain is persistent and occurs during running, it’s important to have a healthcare professional evaluate you to rule out other conditions such as a stress fracture or nerve irritation.",
+      "label": "NO",
+      "reason": "Source does not advise seeking professional evaluation nor list stress fracture or nerve irritation as differential diagnoses."
+    }
+  ],
+  "q32": [
+    {
+      "sentence": "The symptoms you describe—swelling and soreness on the inside of the ankle, inward rolling of the foot, and difficulty rising onto the toes—are typical of tibialis posterior tendinosis and tenosynovitis.",
+      "label": "PARTIAL",
+      "reason": "Source lists swelling and difficulty rising onto toes, but does not mention inward rolling of the foot as a symptom."
+    },
+    {
+      "sentence": "This condition involves inflammation of the tibialis posterior tendon and its synovial sheath, which can cause swelling behind the inner ankle, progressive difficulty standing, walking, and rising on the toes, and an inability to stand on tip‑toes if the tendon is severely damaged [1].",
+      "label": "PARTIAL",
+      "reason": "Source describes inflammation of the synovial sheath (tenosynovitis) but not inflammation of the tendon itself; other listed effects are supported."
+    },
+    {
+      "sentence": "Management options mentioned for this condition include orthotic support, immobilization, anti‑inflammatory measures, and, in refractory cases, surgical intervention [1].",
+      "label": "OK",
+      "reason": "All listed treatments are explicitly mentioned in the source."
+    }
+  ],
+  "q33": [
+    {
+      "sentence": "It could be sesamoiditis or metatarsophalangeal joint pain.",
+      "label": "NO",
+      "reason": "Sources list each condition but do not state they are possible diagnoses for a given case."
+    },
+    {
+      "sentence": "Sesamoiditis causes pain under the base of the big toe that worsens with walking and can be warm, swollen, and red when pressed.",
+      "label": "PARTIAL",
+      "reason": "Source mentions pain, worsening with walking, warmth, swelling, and redness, but does not specify that redness occurs when pressed."
+    },
+    {
+      "sentence": "Metatarsophalangeal joint pain also presents with swelling, pain during walking, and tenderness on palpation of the joint.",
+      "label": "OK",
+      "reason": "All three features are explicitly described in the source for metatarsophalangeal joint pain."
+    },
+    {
+      "sentence": "Both conditions are commonly treated with orthotics, off‑loading pads, and shoes that provide good cushioning and adequate fore‑foot room.",
+      "label": "PARTIAL",
+      "reason": "Orthotics and cushioned shoes are listed for both conditions, but off‑loading pads are only mentioned for sesamoiditis, not for metatarsophalangeal joint pain."
+    }
+  ],
+  "q34": [
+    {
+      "sentence": "The bump you’re describing is most consistent with posterior Achilles tendon bursitis—an inflammation of the bursa that sits just behind the Achilles tendon and can become irritated by repeated pressure from a high‑heeled shoe.",
+      "label": "OK",
+      "reason": "Source defines posterior bursitis as inflammation of a bursa behind the Achilles tendon and lists repeated pressure from high‑heeled shoes as a cause."
+    },
+    {
+      "sentence": "The swelling is often tender, warm, and may appear reddish, especially where the shoe rubs against the heel.",
+      "label": "OK",
+      "reason": "Source lists swelling, warmth, tenderness and erythema (redness) as symptoms of posterior bursitis."
+    },
+    {
+      "sentence": "This condition is caused by repetitive pressure on the soft tissue at the back of the heel from a rigid shoe heel counter or shoes that narrow toward the back of the heel, such as high heels or pumps [1].",
+      "label": "OK",
+      "reason": "Source cites repetitive pressure from a rigid heel counter and shoes that narrow toward the heel (high heels, pumps) as causes."
+    },
+    {
+      "sentence": "Treatment usually involves reducing the pressure on that area: wearing shoes with a lower heel or a more cushioned, well‑fitted heel counter, using a heel pad or cushion, and avoiding high‑heeled pumps for a while.",
+      "label": "PARTIAL",
+      "reason": "Source recommends shoe modification (low heels, well‑fitted shoes) but does not specifically mention heel pads/cushions."
+    },
+    {
+      "sentence": "If the inflammation persists, a healthcare professional may consider an anti‑inflammatory approach or a local glucocorticoid injection [1].",
+      "label": "PARTIAL",
+      "reason": "Anti‑inflammatory treatment is supported; glucocorticoid injection is noted only for anterior bursitis, not posterior."
+    }
+  ],
+  "q35": [
+    {
+      "sentence": "The pain you’re describing—constant aching on the inner side of the heel that persists even when you’re sitting and makes standing difficult, without tingling or numbness—fits the pattern of medial and lateral plantar nerve entrapment.",
+      "label": "OK",
+      "reason": "Source lists constant heel pain, present while sitting, difficulty standing, and no tingling/numbness as typical symptoms."
+    },
+    {
+      "sentence": "This condition occurs when a branch of the posterior tibial nerve is compressed near the heel, producing near‑constant pain that worsens with walking or standing but is usually not accompanied by burning or numbness.",
+      "label": "OK",
+      "reason": "Source describes compression of a posterior tibial nerve branch near the heel causing near‑constant pain, worsened by activity, without burning or numbness."
+    },
+    {
+      "sentence": "Typical causes include repetitive ankle motion, tight footwear, or activities that increase pressure on the nerve.",
+      "label": "PARTIAL",
+      "reason": "Source mentions repetitive ankle movement and footwear/activities that increase pressure, but does not specifically state \"tight\" footwear."
+    },
+    {
+      "sentence": "Management often involves:",
+      "label": "OK",
+      "reason": "Source lists multiple treatment modalities, confirming that management involves several interventions."
+    },
+    {
+      "sentence": "Orthotics or splints to reduce pressure on the nerve",
+      "label": "OK",
+      "reason": "Source recommends splints and orthotics to limit pressure on the nerve."
+    },
+    {
+      "sentence": "Physical therapy focused on stretching and strengthening",
+      "label": "PARTIAL",
+      "reason": "Source mentions physical therapy but does not specify that it is focused on stretching and strengthening."
+    },
+    {
+      "sentence": "Footwear and activity modifications (e.g., avoiding high‑impact shoes)",
+      "label": "PARTIAL",
+      "reason": "Source advises footwear and activity modification, but does not give the specific example of avoiding high‑impact shoes."
+    },
+    {
+      "sentence": "In some cases, immobilization or other interventions may be considered",
+      "label": "OK",
+      "reason": "Source includes immobilization as a treatment option in some cases."
+    }
+  ],
+  "q36": [
+    {
+      "sentence": "The symptoms you describe—throbbing pain just under the heel, mild warmth, and puffiness that worsens when walking barefoot on hard surfaces—are typical of inferior calcaneal bursitis, an inflammation of the bursa beneath the heel bone near the plantar fascia insertion.",
+      "label": "OK",
+      "reason": "All listed symptoms and the definition match the source description."
+    },
+    {
+      "sentence": "Treatment options include an injection of an anesthetic and glucocorticoid mixture into the bursa, wearing soft‑soled shoes with protective heel cushioning, and avoiding barefoot walking on hard floors.",
+      "label": "PARTIAL",
+      "reason": "Injection and soft‑soled shoes are in the source, but avoiding barefoot walking is not mentioned."
+    }
+  ]
+}
