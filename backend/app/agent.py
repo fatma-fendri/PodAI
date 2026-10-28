@@ -48,6 +48,23 @@ Rules:
     professional.
 """
 
+CLINICAL_PROMPT = """
+You rewrite a patient's foot-problem description as a search query for a podiatry knowledge base.
+
+Output the original text, followed by the anatomical and clinical terms that correspond to the patient's everyday words.
+Examples of the mapping:
+- "top of the foot" -> dorsum of the foot
+- "outer side of the ankle" -> lateral malleolus
+- "outer edge of the foot" -> lateral border of the foot, fifth metatarsal
+- "bottom of the foot" -> plantar surface
+
+Rules:
+- Keep all the patient's original words.
+- Add only anatomical locations and clinical descriptions of the symptoms (for example swelling, joint stiffness, pain on push-off).
+- Do NOT name any disease, condition or diagnosis.
+- Output only the query text, on a single line, with no introduction and no explanation.
+"""
+
 TOOLS = [
     {
         "type": "function",
@@ -101,6 +118,20 @@ def to_english(text):
 def normalize_url(url):
     return re.sub(r"^https?://", "", url).rstrip("/")
 
+def to_clinical(text):
+    try:
+        response = get_client().chat.completions.create(
+            model=MODEL,
+            temperature=0,
+            seed=0,
+            messages=[
+                {"role": "system", "content": CLINICAL_PROMPT},
+                {"role": "user", "content": text},
+            ],
+        )
+        return (response.choices[0].message.content or "").strip()
+    except Exception:
+        return ""
 
 def add_source(sources, title, url, origin):
     for i, s in enumerate(sources, start=1):
@@ -111,7 +142,9 @@ def add_source(sources, title, url, origin):
 
 def search_knowledge_base(query, sources):
     english_query = to_english(query)
-    hits = [h for h in search(english_query, n_results=5) if h["distance"] <= MAX_DISTANCE]    
+    clinical = to_clinical(english_query)
+    kb_query = english_query + " " + clinical if clinical else english_query
+    hits = [h for h in search(kb_query, n_results=5) if h["distance"] <= MAX_DISTANCE]   
     if not hits:
         return "No relevant document found in the knowledge base."
     parts = []
