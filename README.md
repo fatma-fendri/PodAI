@@ -60,12 +60,14 @@ PodAI/
 │   │   ├── agent.py       # tool-calling agent, citation guard, source handling
 │   │   └── web_search.py  # Tavily search limited to trusted domains
 │   ├── data/
-│   │   ├── podiatry_dataset.json   # 15 conditions
+│   │   ├── podiatry_dataset.json   # corpus v1: 15 conditions
+│   │   ├── podiatry_dataset_v2.json   # corpus v2: v1 plus 14 sheets
 │   │   └── search_hints.json       # patient-wording phrases per condition (experiment)
 │   ├── eval/
 │   │   ├── questions.json          # 36 evaluation questions
 │   │   ├── run_retrieval.py        # retrieval-only evaluation (hit@3, no LLM cost)
 │   │   ├── rank_check.py           # rank of the expected condition among all 15
+│   │   ├── compare_corpora.py      # hit@3 / hit@5 on corpus v1 or v2
 │   │   ├── run_eval.py             # full agent evaluation (resumable)
 │   │   ├── run_subset.py           # replay a few questions
 │   │   ├── score_eval.py           # automatic scoring of agent answers
@@ -166,6 +168,8 @@ The current dataset contains 15 foot conditions (plantar fasciitis, hallux valgu
 
 The content is written in English and rephrased from public medical references. **Licensing of the underlying sources is still being reviewed**; the plan is to move to openly licensed sources (for example MedlinePlus and open-access PMC articles) and to grow the corpus to 50–100 documents.
 
+**Corpus v2.** `data/podiatry_dataset_v2.json` adds 14 sheets (Morton's neuroma, fungal nail infection, ingrown toenail, plantar warts, athlete's foot, corn, callus, diabetic foot ulcer, diabetic neuropathy, gout, hallux rigidus, ankle sprain, metatarsal stress fracture, adult flat feet). Each is rewritten in my own words from a named page and reviewed by me as a podiatrist; some differential diagnoses and warning signs are my own additions. The MedlinePlus Medical Encyclopedia pages are provided by A.D.A.M. and are copyrighted, and the hallux rigidus source is an AAOS page, so rewriting does not remove the licensing question above.
+
 ## Evaluation
 
 The evaluation set (`backend/eval/questions.json`) has 36 questions: 16 in the knowledge base (English), 6 not in the knowledge base (web search expected), 4 out of scope, 3 safety (diagnosis request, medication dose, prompt injection) and 7 multilingual (French and German). 21 of them have an expected condition and are scored by retrieval, using hit@3 (the expected condition appears in the 3 retrieved documents). This costs no LLM call:
@@ -234,6 +238,49 @@ general gain.
   the web.
 - q31 fails: the reasoning model can use its whole output budget thinking and return an empty answer.
 - The extra call adds latency of a few seconds and extra tokens on every knowledge-base search.
+
+### Growing the corpus: what happens to retrieval
+
+Corpus v2 is corpus v1 plus 14 new sheets (29 in total), selected with the `PODAI_CORPUS` environment variable
+(`v1` by default). The 36 original questions stay frozen and are measured against v1, because adding sheets
+changes the meaning of some labels (for example q11, "not in the knowledge base", is now covered by a sheet).
+
+| Raw retrieval, 21 scored questions | hit@3 | hit@5 |
+| --- | --- | --- |
+| Corpus v1 (15 sheets) | 16/21 | 19/21 |
+| Corpus v2 (29 sheets) | 13/21 | 17/21 |
+
+Two causes. The two bunion questions (q02, q25) fell from rank 2 and 3 to rank 7 and 8, behind the new Ingrown
+Toenail, Athlete's Foot and Corn sheets: the embedding model matches shared words ("shoes rub", "toe", "bump")
+rather than clinical meaning, and the patient never says "bunion". Question q33 lost its top-3 place to Hallux
+Rigidus, which is a clinically plausible answer, so part of that drop is labels written for 15 sheets.
+This is the effect of corpus size that the earlier results warned about: the top 5 covered a third of the base,
+it now covers a sixth.
+
+Rule I kept: sheets are not rewritten to climb ranks on questions I already know. Fixes are tested on the
+development questions only.
+
+**Reranking.** A local cross-encoder (`ms-marco-MiniLM-L-12-v2` through `flashrank`) re-orders the 10 closest
+sheets and keeps 5. Measured on the 15 development questions (the 21 scored questions minus the six held-out
+q31-q36), corpus v2:
+
+| Setup | hit@3 | hit@5 |
+| --- | --- | --- |
+| No reranker | 10/15 | 12/15 |
+| Smaller model (TinyBERT) | 11/15 | 13/15 |
+| MiniLM-L-12 | 12/15 | 14/15 |
+| MiniLM-L-12 + rank fusion with the embedding order | 12/15 | 12/15 |
+| Reference: corpus v1, no reranker | 12/15 | 14/15 |
+
+The reranker brings corpus v2 back to the corpus v1 level. It fixes q02 (rank 7 to 4) and q25 (8 to 3) but breaks
+q08 (plantar fibromatosis, rank 1 to 4): a different set of questions fails. With 15 or 29 candidates instead of
+10, q09 (Freiberg disease) comes back into the top 5 but q08 falls to rank 7 and 11. Rank fusion kept q08 but lost
+the bunion questions, so it did not help.
+
+Caveats: 15 questions, so one or two questions are within noise; I compared two models and three candidate counts
+on the same questions; the held-out questions have not been used for this; the test uses English queries without the
+agent's translation and clinical enrichment. The reranker is in the code (`search_reranked`) but off by default
+until it has been evaluated end to end with the agent.
 
 ### Faithfulness
 
@@ -325,10 +372,11 @@ Real NO: 5 sentences in 5 answers out of 23 (22%).
 - [x] Full agent evaluation: 36 questions, automatic scorer (32/36 PASS in v7)
 - [x] Answer faithfulness measure (LLM judge, calibrated on hand labels; see the Faithfulness section)
 - [x] Clinical vocabulary enrichment of knowledge-base queries (q09 passes in v8)
+- [ ] Reranker evaluated end to end with the agent (retrieval-only test: restores hit@5 on corpus v2)
 - [ ] Retrieval improvements: hybrid search (BM25), reranking, query rewriting (section-level chunking was ruled out: documents are only 91 to 168 words)
 - [x] Tests and CI (pytest, GitHub Actions)
 - [ ] Docker and deployment
-- [ ] V2: MCP servers for tools, PostgreSQL history and feedback, Arabic with RTL support
+- [ ] Future work: MCP servers for tools, PostgreSQL history and feedback, Arabic with RTL support
 
 ## Author
 
