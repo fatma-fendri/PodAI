@@ -46,7 +46,8 @@ Current request flow for `POST /ask`:
 | Web search | Tavily, restricted to trusted domains |
 | Frontend | Next.js (App Router), TypeScript, Tailwind CSS, react-markdown |
 | Tests | pytest, GitHub Actions |
-| Planned | LangGraph (agent comparison), Docker, Vercel and Render/Fly.io deployment |
+| Containers | Docker, Docker Compose |
+| Planned | LangGraph (agent comparison), Vercel and Render/Fly.io deployment |
 
 ## Project structure
 
@@ -79,6 +80,7 @@ PodAI/
 │   └── requirements.txt
 ├── .github/workflows/     # CI: tests on every push
 ├── frontend/              # Next.js chat interface
+├── docker-compose.yml     # runs backend and frontend together
 └── README.md
 ```
 
@@ -132,6 +134,26 @@ npm run dev
 ```
 
 Open `http://localhost:3000` (use `localhost`, not the "Network" address that Next.js also prints). `NEXT_PUBLIC_API_URL` in `.env.local` must point to the backend (default `http://localhost:8000`). Variables starting with `NEXT_PUBLIC_` are visible in the browser, so no secret goes there.
+
+### Docker
+
+Both services run together with Docker Compose (Docker Desktop on Windows and macOS, Docker Engine on Linux):
+
+```bash
+cp backend/.env.example backend/.env   # then add your Groq and Tavily keys
+docker compose up --build
+```
+
+Open `http://localhost:3000`; the API is on `http://localhost:8000`. Tested locally with Docker Desktop on Windows.
+
+- The backend image installs only what the application runs (`requirements-docker.txt`, without the PyTorch
+  packages used by evaluation experiments). The ChromaDB knowledge base is built and the embedding and reranker
+  models are downloaded at build time, so the first start is fast. The corpus is v1 unless `PODAI_CORPUS=v2` is set.
+- The API address is written into the frontend at build time (the `NEXT_PUBLIC_API_URL` build argument in
+  `docker-compose.yml`, `http://localhost:8000`). To use another host, change it there and rebuild.
+- API keys are read from `backend/.env` when the container starts and are never written into an image.
+- `requirements-docker.txt` lists direct dependencies only, so transitive versions are resolved at build time and
+  can differ from `requirements.txt`.
 
 ### Tests
 
@@ -375,7 +397,8 @@ Real NO: 5 sentences in 5 answers out of 23 (22%).
 - [ ] Reranker evaluated end to end with the agent (retrieval-only test: restores hit@5 on corpus v2)
 - [ ] Retrieval improvements: hybrid search (BM25), reranking, query rewriting (section-level chunking was ruled out: documents are only 91 to 168 words)
 - [x] Tests and CI (pytest, GitHub Actions)
-- [ ] Docker and deployment
+- [x] Docker: backend and frontend images, Docker Compose
+- [ ] Deployment
 - [ ] Future work: MCP servers for tools, PostgreSQL history and feedback, Arabic with RTL support
 
 ## Author
