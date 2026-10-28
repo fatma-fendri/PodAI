@@ -1,9 +1,15 @@
 import json
 from pathlib import Path
 import chromadb
+import os
 
-#Path to the dataset file
-DATASET_PATH = Path(__file__).parent.parent / "data" / "podiatry_dataset.json"
+# Corpus version: "v1" (15 sheets, default) or "v2" (v1 + new sheets), chosen with PODAI_CORPUS
+CORPUS = os.getenv("PODAI_CORPUS", "v1")
+if CORPUS not in ("v1", "v2"):
+    raise ValueError(f"PODAI_CORPUS must be 'v1' or 'v2', got {CORPUS!r}")
+DATA_DIR = Path(__file__).parent.parent / "data"
+DATASET_PATH = DATA_DIR / ("podiatry_dataset.json" if CORPUS == "v1" else "podiatry_dataset_v2.json")
+COLLECTION_NAME = "podiatry" if CORPUS == "v1" else "podiatry_v2"
 CHROMA_PATH = Path(__file__).parent.parent / "chroma_db"
 
 def load_conditions():
@@ -27,7 +33,7 @@ def build_document(condition):
 
 def get_collection():
     client = chromadb.PersistentClient(path=str(CHROMA_PATH))
-    return client.get_or_create_collection(name="podiatry")
+    return client.get_or_create_collection(name=COLLECTION_NAME)
 
 def ingest():
     # 1. load the conditions and get the collection
@@ -73,6 +79,29 @@ def search(question, n_results=3):
         })
     return hits
 
+_ranker = None
+
+
+def get_ranker():
+    global _ranker
+    if _ranker is None:
+        from flashrank import Ranker
+        _ranker = Ranker(model_name="ms-marco-MiniLM-L-12-v2")
+    return _ranker
+
+
+def rerank(question, hits, n_results):
+    from flashrank import RerankRequest
+    if not hits:
+        return hits
+    passages = [{"id": i, "text": h["document"]} for i, h in enumerate(hits)]
+    out = get_ranker().rerank(RerankRequest(query=question, passages=passages))
+    return [hits[p["id"]] for p in out][:n_results]
+
+
+def search_reranked(question, n_results=5, n_candidates=10):
+    hits = search(question, n_results=max(n_candidates, n_results))
+    return rerank(question, hits, n_results)
 
 if __name__ == "__main__":
     #conditions = load_conditions()
