@@ -27,7 +27,7 @@ Current request flow for `POST /ask`:
 
 1. The client sends a question, in any language.
 2. An agent (Groq LLM with tool-calling) decides which tool to use:
-   - `search_knowledge_base`: the query is translated to English, then ChromaDB returns the 5 closest documents. Documents beyond a distance threshold are discarded.
+   - `search_knowledge_base`: the query is translated to English and enriched with the matching anatomical terms (never a diagnosis), then ChromaDB returns the 5 closest documents. Documents beyond a distance threshold are discarded.
    - `search_web`: Tavily search restricted to trusted medical domains (MedlinePlus, NHS, NCBI, Mayo Clinic), used only when the knowledge base has no relevant information. Web queries are also translated to English.
 3. Questions outside foot and ankle health are refused without calling any tool.
 4. The answer is written in the user's language, with numbered citations.
@@ -71,7 +71,7 @@ PodAI/
 │   │   ├── score_eval.py           # automatic scoring of agent answers
 │   │   ├── build_multi.py          # multilingual embeddings experiment
 │   │   └── build_enriched.py       # enriched documents experiment
-│   ├── tests/                      # pytest tests (citations, fallback)
+│   ├── tests/                      # pytest tests (citations, fallback, clinical query)
 │   ├── pytest.ini
 │   ├── .env.example
 │   └── requirements.txt
@@ -98,7 +98,7 @@ venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-Create a `.env` file from the template and add your own API keys (Groq and Tavily). Never commit this file.
+Create a `.env` file from the template and add your own API keys (Groq and Tavily). Never commit this file. `ALLOWED_ORIGINS` (comma-separated, default `http://localhost:3000`) lists the frontend addresses allowed by CORS.
 
 ```bash
 cp .env.example .env
@@ -201,14 +201,58 @@ What I learned:
 | v4 | Answer language enforced, no medication advice for children | 31/36 | q04, q09, q11, q26, q31 |
 | v5 | 5 documents per search instead of 3 | 31/36 | q09, q11, q14, q30, q31 |
 | v6 | Web queries translated to English, lazy Groq client; 3 questions replayed after a network error | 32/36 | q04, q09, q11, q31 |
+| v7 | Rule 11 added to the prompt (no facts beyond the sheets) | 32/36 | q09, q11, q14, q31 |
+| v8 | Clinical vocabulary added to knowledge-base queries | 32/35 (q36 pending) | q11, q14, q31 |
 
 What I learned:
 
-- A rank check of the expected condition among all 15 showed that several misses were close: hit@3 is 16/21 and hit@5 is 19/21. Only Freiberg disease stays out of reach (rank 7 and 15). Part of this gain comes from the small corpus, since 5 documents out of 15 is a third of the base, and I chose k=5 after seeing the ranks, so the gain may not carry over to a larger corpus.
-- - The score was 31/36 in v3, v4 and v5 and 32/36 in v6, but the failed questions changed from run to run: q09 and q31 (Freiberg disease) fail every time, q11 in the last three runs, and q04 in two of four. With one question worth about 3 points, the gap of one question is within noise. The stable failures matter more than the total.
+- A rank check of the expected condition among all 15 showed that several misses were close: hit@3 is 16/21 and hit@5 is 19/21. Only Freiberg disease stays out of reach (rank 7 and 15, before query enrichment). Part of this gain comes from the small corpus, since 5 documents out of 15 is a third of the base, and I chose k=5 after seeing the ranks, so the gain may not carry over to a larger corpus.
+- The score was 31/36 in v3, v4 and v5 and 32/36 in v6, but the failed questions changed from run to run: q09 and q31 (Freiberg disease) fail every time, q11 in the last three runs, and q04 in two of four. With one question worth about 3 points, the gap of one question is within noise. The stable failures matter more than the total.
 - Question q14 shows a limit of the citation guard: the agent states facts that are not in the retrieved documents and still cites them. With more documents returned, it also answered from the knowledge base instead of searching the web. The scorer cannot see this, which is why a faithfulness measure comes next.
 
-# Triage of the judge's NO sentences (v6 and v7)
+### Retrieval: the lay-versus-clinical vocabulary gap
+
+**Problem.** A patient says "top of the foot", the knowledge-base sheets say "dorsum". With all-MiniLM-L6-v2 this
+mismatch is costly: for question q09 (Freiberg's disease) the correct sheet ranked 15th for the patient's wording,
+outside the top 5 the agent reads. Retrieval is also fragile in general: one changed word can move a sheet by
+about eight ranks.
+
+**Fix tested.** Before searching the knowledge base, a second model call (`to_clinical`) keeps the patient's own
+words and appends the matching anatomical and clinical terms. It is instructed never to name a disease, so it
+cannot pre-diagnose. If the call fails or returns nothing, the search falls back to the original query.
+
+**How it was tested.** Developed on the dev questions, then run once on the held-out questions (q31-q36). The
+prompt examples were rewritten once because they had borrowed vocabulary from test questions, which is a leak.
+
+**Result (v8, 35 of 36 questions run).** 32/35. q09 now passes, the held-out questions q32-q35 are unchanged, and
+none of the questions that passed in v7 failed among the 35 run. This is one run per question, and q04 already
+flipped between runs in v7, so it shows the change does no harm and helps the target case. It does not prove a
+general gain.
+
+**Still open.**
+- q11 and q14 (symptoms matching conditions not in the knowledge base) are routed to the knowledge base instead of
+  the web.
+- q31 fails: the reasoning model can use its whole output budget thinking and return an empty answer.
+- The extra call adds latency of a few seconds and extra tokens on every knowledge-base search.
+
+### Faithfulness
+
+PASS only checks that the right source is cited. To check whether each sentence is supported by the cited sheet, an
+LLM judge (`gpt-oss-120b`) labels every sentence of a knowledge-base answer **OK** (supported), **PARTIAL**
+(supported in part or only in spirit) or **NO** (not supported by the cited sheet). Web answers are not judged,
+because the text of the web pages is not stored.
+
+| Run | Answers judged | Sentences | OK | PARTIAL | NO | Answers with a NO |
+| --- | --- | --- | --- | --- | --- | --- |
+| v6 | 23 | 83 | 38 (46%) | 36 (43%) | 9 (11%) | 7 |
+| v7 (rule 11) | 23 | 110 | 64 (58%) | 36 (33%) | 10 (9%) | 9 |
+
+The judge was checked against 21 sentences I labelled by hand as a podiatrist (6 OK, 10 PARTIAL, 5 NO). It is noisy:
+about 2 sentences out of 7 change label between two runs. It is lenient on fine clinical details, strict on sentences
+that list candidate conditions, and it flags "see a professional" sentences as NO, which are not unfaithful claims.
+The raw counts therefore overstate the problem, and the triage below classifies each NO by hand.
+
+#### Triage of the judge's NO sentences (v6 and v7)
 
 The automatic judge labels a sentence NO when the cited fiches do not support it. Reading these sentences by hand (by a podiatrist) shows that many NO are not unfaithful claims. Each NO was classified as:
 
@@ -217,7 +261,7 @@ The automatic judge labels a sentence NO when the cited fiches do not support it
 - **FALSE ALARM**: advice to consult a professional, disclaimer, meta sentence, or the answer listing candidate conditions.
 - **WORDING**: diagnostic phrasing, not a faithfulness problem (tracked separately by `diagnosis_phrases.py`).
 
-## v6 (9 NO sentences, 23 answers)
+#### v6 (9 NO sentences, 23 answers)
 
 | Question | Sentence (shortened) | Class |
 | --- | --- | --- |
@@ -233,7 +277,7 @@ The automatic judge labels a sentence NO when the cited fiches do not support it
 
 Real NO: 4 sentences in 3 answers out of 23 (13%).
 
-## v7 (10 NO sentences, 23 answers, rule 11 active)
+#### v7 (10 NO sentences, 23 answers, rule 11 active)
 
 | Question | Sentence (shortened) | Class |
 | --- | --- | --- |
@@ -250,7 +294,7 @@ Real NO: 4 sentences in 3 answers out of 23 (13%).
 
 Real NO: 5 sentences in 5 answers out of 23 (22%).
 
-## Reading
+#### Reading
 
 - The raw judge counts (9 NO in 7 answers for v6, 10 NO in 9 answers for v7) overstate the problem: 5 of 9 and 4 of 10 NO are false alarms.
 - After triage, the rate of answers with a real NO goes from 13% (v6) to 22% (v7). With 23 answers and a judge that changes about 2 sentences out of 7 between two runs, this difference is within the noise: rule 11 is neither shown to help nor to hurt on this measure.
@@ -258,9 +302,9 @@ Real NO: 5 sentences in 5 answers out of 23 (22%).
 
 ## Known limitations
 
-- Retrieval still misses some conditions whose clinical wording differs from patient language: hit@3 16/21, hit@5 19/21 on the scored questions. Freiberg disease stays out of reach (rank 7 and 15 of 15). Part of the hit@5 gain comes from the small corpus: 5 documents out of 15 is a third of the base.
+- Retrieval still misses some conditions whose clinical wording differs from patient language: hit@3 16/21, hit@5 19/21 on the scored questions. Freiberg disease was out of reach before query enrichment (rank 7 and 15 of 15); question q09 now passes, but in one run only. Part of the hit@5 gain comes from the small corpus: 5 documents out of 15 is a third of the base.
 - Embeddings ignore negation.
-- The citation guard checks that a source is cited, not that it supports each claim. In question q14 the agent states facts that are not in the retrieved documents and cites them anyway. Answer faithfulness is not measured yet.
+- The citation guard checks that a source is cited, not that it supports each claim. In question q14 the agent states facts that are not in the retrieved documents and cites them anyway. Faithfulness is measured by an LLM judge that is itself noisy (see the Faithfulness section).
 - Answers are not fully deterministic, even at temperature 0, because of the model and live web search.
 - The agent does not always pick the right tool: with 5 documents returned, it can answer from the knowledge base when the question is not covered, instead of going to the web.
 - No relevance threshold: out-of-scope questions still return documents from the knowledge base (they are filtered by the agent, not by retrieval).
@@ -278,8 +322,9 @@ Real NO: 5 sentences in 5 answers out of 23 (22%).
 - [x] Agent with tool-calling (knowledge base vs. Tavily web search)
 - [x] Chat interface with sources and medical disclaimer
 - [x] Evaluation set (36 questions) and retrieval metrics (hit@3)
-- [x] Full agent evaluation: 36 questions, automatic scorer (31/36 PASS)
+- [x] Full agent evaluation: 36 questions, automatic scorer (32/36 PASS in v7)
 - [x] Answer faithfulness measure (LLM judge, calibrated on hand labels; see the Faithfulness section)
+- [x] Clinical vocabulary enrichment of knowledge-base queries (q09 passes in v8)
 - [ ] Retrieval improvements: hybrid search (BM25), reranking, query rewriting (section-level chunking was ruled out: documents are only 91 to 168 words)
 - [x] Tests and CI (pytest, GitHub Actions)
 - [ ] Docker and deployment
