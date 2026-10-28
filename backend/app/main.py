@@ -5,6 +5,7 @@ from groq import APIError
 from app.rag import search
 from app.agent import agent_answer
 import logging
+import os
 
 logger = logging.getLogger("podai")
 
@@ -18,9 +19,10 @@ class SearchRequest(BaseModel):
     question: str
 
 app = FastAPI()
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"], 
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
