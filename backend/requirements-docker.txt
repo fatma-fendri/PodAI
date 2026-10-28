@@ -1,0 +1,9 @@
+fastapi==0.141.1
+uvicorn==0.53.0
+pydantic==2.13.5
+python-dotenv==1.2.3
+chromadb==1.5.9
+groq==1.7.0
+tavily-python==0.8.5
+flashrank==0.2.10
+langdetect==1.0.9
