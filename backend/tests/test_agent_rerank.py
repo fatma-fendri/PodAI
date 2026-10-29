@@ -1,4 +1,6 @@
 from app import agent
+from app.agent import AGENT_PROMPT
+
 
 HITS = [
     {"title": "A", "source_url": "u1", "distance": 0.5, "document": "doc A"},
@@ -7,6 +9,11 @@ HITS = [
 ]
 
 
+def test_urgent_rule_in_prompt():
+    assert "12. EXCEPTION" in AGENT_PROMPT
+    assert "emergency" in AGENT_PROMPT
+
+    
 def _patch(monkeypatch):
     monkeypatch.setattr(agent, "to_english", lambda q: q)
     monkeypatch.setattr(agent, "to_clinical", lambda q: "")

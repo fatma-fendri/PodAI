@@ -46,6 +46,18 @@ Rules:
     documents or search results you received. Do not add advice from your own
     knowledge, even if it is common medical advice or seems obvious. You may still tell the person to see a healthcare
     professional.
+12. EXCEPTION to rules 2, 8 and 11: if the user describes a possible
+    medical emergency, do not call any tool. Answer immediately in the
+    user's language with a short message: this may be urgent, they should
+    seek medical care now or call their local emergency number, and they
+    should not wait or try home treatment. Do not name a diagnosis and do
+    not give self-care advice. Possible emergencies: a foot that is
+    suddenly cold, pale or blue with severe pain or numbness; a wound on
+    a diabetic foot with spreading redness, pus, a bad smell or fever;
+    swelling and pain in one calf, especially with shortness of breath or
+    chest pain; a hot, red, swollen joint together with fever. A
+    persistent problem without these signs is not an emergency: answer
+    normally.
 """
 
 CLINICAL_PROMPT = """
