@@ -3,7 +3,7 @@ import re
 import json
 from dotenv import load_dotenv
 from groq import Groq
-from app.rag import search
+from app.rag import search, rerank
 from app.web_search import web_search
 from groq import BadRequestError
 from langdetect import detect, DetectorFactory
@@ -144,8 +144,12 @@ def search_knowledge_base(query, sources):
     english_query = to_english(query)
     clinical = to_clinical(english_query)
     kb_query = english_query + " " + clinical if clinical else english_query
-    hits = [h for h in search(kb_query, n_results=5) if h["distance"] <= MAX_DISTANCE]   
-    if not hits:
+    if os.getenv("PODAI_RERANK") == "1":
+        candidates = [h for h in search(kb_query, n_results=10) if h["distance"] <= MAX_DISTANCE]
+        hits = rerank(english_query, candidates, 5)
+    else:
+        hits = [h for h in search(kb_query, n_results=5) if h["distance"] <= MAX_DISTANCE]
+    if not hits: 
         return "No relevant document found in the knowledge base."
     parts = []
     for hit in hits:
