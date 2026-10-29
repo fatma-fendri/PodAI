@@ -46,7 +46,17 @@ export default function Home() {
             verified medical sources.
           </p>
         </header>
-
+        <details className="mb-6 rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700">
+          <summary className="cursor-pointer font-medium text-slate-800">
+            How does it work?
+          </summary>
+          <p className="mt-2">
+            PodAI first searches a knowledge base of foot and ankle
+            conditions and, when needed, trusted medical websites (MedlinePlus,
+            NHS, NCBI, Mayo Clinic). Every answer cites the sources it used, so
+            you can check them yourself.
+          </p>
+        </details>
         <form
           className="flex gap-2"
           onSubmit={(e) => {
@@ -137,6 +147,17 @@ export default function Home() {
         )}
 
         <Disclaimer />
+        <footer className="mt-6 text-center text-xs text-slate-500">
+          A portfolio project by Fatma Fendri ·{" "}
+          <a
+            href="https://github.com/fatma-fendri/PodAI"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-teal-800"
+          >
+            Source code
+          </a>
+        </footer>
       </div>
     </main>
   );

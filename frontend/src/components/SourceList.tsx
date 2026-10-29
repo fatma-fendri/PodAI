@@ -26,8 +26,17 @@ export default function SourceList({ sources }: { sources: Source[] }) {
               >
                 {s.title}
               </a>
-              <p className="text-sm text-slate-500">{s.origin}</p>
-            </div>
+              <span
+                className={
+                  s.origin === "Knowledge base"
+                    ? "mt-1 inline-block rounded-full bg-teal-50 px-2 py-0.5 text-xs font-medium text-teal-800"
+                    : "mt-1 inline-block rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-600"
+                }
+              >
+                {s.origin === "Knowledge base"
+                  ? "Verified knowledge base"
+                  : "Trusted website"}
+              </span>            </div>
           </li>
         ))}
       </ol>
