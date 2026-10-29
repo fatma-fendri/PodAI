@@ -10,6 +10,16 @@ PodAI combines a curated knowledge base (RAG) with web search restricted to trus
 
 > **Disclaimer:** PodAI is for educational and demonstration purposes only. It does not provide medical advice, diagnosis or treatment and does not replace a healthcare professional. No real health data is collected or stored.
 
+## Demo
+
+<p align="center">
+  <img src="docs/screenshot-en.png" alt="PodAI answering in English about heel pain" width="260">
+  <img src="docs/screenshot-fr.png" alt="PodAI answering in French about burning pain in the forefoot" width="260">
+  <img src="docs/screenshot-de.png" alt="PodAI answering in German about a tender heel" width="260">
+</p>
+
+Real answers from the running application, not edited. PodAI answers in the language of the question, cites each source and shows where it comes from: **Verified knowledge base** or **Trusted website**. Translated terminology is not always exact (see Known limitations).
+
 ## Why
 
 General-purpose chatbots can hallucinate medical information and rarely cite verifiable sources. PodAI addresses this reliability problem: the model is asked to answer from retrieved documents, and each answer points back to its source.
@@ -380,6 +390,7 @@ Setting `PODAI_RERANK=1` makes the agent fetch 10 candidates, drop those beyond 
 
 - Retrieval still misses some conditions whose clinical wording differs from patient language: hit@3 16/21, hit@5 19/21 on the scored questions. Freiberg disease was out of reach before query enrichment (rank 7 and 15 of 15); question q09 now passes, but in one run only. Part of the hit@5 gain comes from the small corpus: 5 documents out of 15 is a third of the base.
 - Embeddings ignore negation.
+- Answers in French and German rely on the model translating English sheets, so medical terminology can be wrong: one run wrote "Neuromat de Morton" and another "neuroma de Morton" (the French term is "nevrome de Morton"). The faithfulness judge only checks the English sentences.
 - The citation guard checks that a source is cited, not that it supports each claim. In question q14 the agent states facts that are not in the retrieved documents and cites them anyway. Faithfulness is measured by an LLM judge that is itself noisy (see the Faithfulness section).
 - Answers are not fully deterministic, even at temperature 0, because of the model and live web search.
 - The agent does not always pick the right tool: with 5 documents returned, it can answer from the knowledge base when the question is not covered, instead of going to the web.
