@@ -228,7 +228,7 @@ What I learned:
 | v5 | 5 documents per search instead of 3 | 31/36 | q09, q11, q14, q30, q31 |
 | v6 | Web queries translated to English, lazy Groq client; 3 questions replayed after a network error | 32/36 | q04, q09, q11, q31 |
 | v7 | Rule 11 added to the prompt (no facts beyond the sheets) | 32/36 | q09, q11, q14, q31 |
-| v8 | Clinical vocabulary added to knowledge-base queries | 32/35 (q36 pending) | q11, q14, q31 |
+| v8 | Clinical vocabulary added to knowledge-base queries | 33/36 (q36 run after rule 12 was added) | q11, q14, q31 |
 
 What I learned:
 
@@ -250,10 +250,7 @@ cannot pre-diagnose. If the call fails or returns nothing, the search falls back
 **How it was tested.** Developed on the dev questions, then run once on the held-out questions (q31-q36). The
 prompt examples were rewritten once because they had borrowed vocabulary from test questions, which is a leak.
 
-**Result (v8, 35 of 36 questions run).** 32/35. q09 now passes, the held-out questions q32-q35 are unchanged, and
-none of the questions that passed in v7 failed among the 35 run. This is one run per question, and q04 already
-flipped between runs in v7, so it shows the change does no harm and helps the target case. It does not prove a
-general gain.
+**Result (v8, 36 questions).** 33/36. q09 now passes, the held-out questions q32-q36 still pass, and none of the questions that passed in v7 failed. q36 was run last, after rule 12 (urgent situations, see below) had been added to the prompt; it describes no emergency and its answer was normal, but v8 is not a strict single-change run for that question. This is one run per question, and q04 already flipped between runs in v7, so it shows the change does no harm and helps the target case. It does not prove a general gain.
 
 **Still open.**
 - q11 and q14 (symptoms matching conditions not in the knowledge base) are routed to the knowledge base instead of
@@ -369,6 +366,16 @@ Real NO: 5 sentences in 5 answers out of 23 (22%).
 - After triage, the rate of answers with a real NO goes from 13% (v6) to 22% (v7). With 23 answers and a judge that changes about 2 sentences out of 7 between two runs, this difference is within the noise: rule 11 is neither shown to help nor to hurt on this measure.
 - What rule 11 did change: the exercises and activity advice invented in q10 disappeared. New leaks appeared elsewhere (q03, q05), and differential diagnoses from memory (q31) are outside the rule.
 
+### Urgent situations (rule 12)
+
+Rule 12 covers messages that describe a possible emergency, for example a foot that is suddenly cold, pale or blue, a diabetic foot wound with spreading redness, pus or fever, a painful swollen calf with shortness of breath, or a hot red joint with fever. In that case the agent calls no tool and answers at once that the situation may be urgent and that the person should seek care now, without a diagnosis or home-care advice. It is a deliberate exception to rules 2, 8 and 11, which otherwise forbid any advice that is not in the sources.
+
+I checked it on six new questions (`eval/questions_urgent_check.json`): three emergencies in French, English and German and three non-urgent controls. The three emergencies got the urgent answer, with no tool call and in the right language, and none of the controls was treated as an emergency. This is a smoke test, not an evaluation: I wrote the questions after the rule, the sample is tiny, and the list of warning signs comes from general medical knowledge, not from the knowledge base, so it needs a review against clinical guidelines before any real use. In one answer the agent also named a country-specific emergency number from its own knowledge. The scorer has no `urgent` behavior yet.
+
+### Reranker in the agent
+
+Setting `PODAI_RERANK=1` makes the agent fetch 10 candidates, drop those beyond the distance threshold, rerank them against the English question and keep 5. The default is unchanged. While checking the control questions, two sheets (gout and metatarsal stress fracture) did not reach the agent. With the pipeline the agent really uses they were ranked between 3 and 10 depending on the query, and they came first in all four variants I tried (the agent's query and the original question, for each sheet) once reranked. That is four points from two questions, so a signal and not a result. The end-to-end evaluation on the 36 questions is still to be run. The reranker only reorders the 10 candidates, so a sheet ranked below 10 cannot be recovered.
+
 ## Known limitations
 
 - Retrieval still misses some conditions whose clinical wording differs from patient language: hit@3 16/21, hit@5 19/21 on the scored questions. Freiberg disease was out of reach before query enrichment (rank 7 and 15 of 15); question q09 now passes, but in one run only. Part of the hit@5 gain comes from the small corpus: 5 documents out of 15 is a third of the base.
@@ -391,10 +398,11 @@ Real NO: 5 sentences in 5 answers out of 23 (22%).
 - [x] Agent with tool-calling (knowledge base vs. Tavily web search)
 - [x] Chat interface with sources and medical disclaimer
 - [x] Evaluation set (36 questions) and retrieval metrics (hit@3)
-- [x] Full agent evaluation: 36 questions, automatic scorer (32/36 PASS in v7)
+- [x] Full agent evaluation: 36 questions, automatic scorer (33/36 PASS in v8)
 - [x] Answer faithfulness measure (LLM judge, calibrated on hand labels; see the Faithfulness section)
 - [x] Clinical vocabulary enrichment of knowledge-base queries (q09 passes in v8)
-- [ ] Reranker evaluated end to end with the agent (retrieval-only test: restores hit@5 on corpus v2)
+- [x] Urgent-situation rule (rule 12), smoke-tested on 6 questions; needs a larger set and clinical review
+- [ ] Reranker evaluated end to end with the agent (optional `PODAI_RERANK=1` flag, off by default; retrieval-only tests are positive)
 - [ ] Retrieval improvements: hybrid search (BM25), reranking, query rewriting (section-level chunking was ruled out: documents are only 91 to 168 words)
 - [x] Tests and CI (pytest, GitHub Actions)
 - [x] Docker: backend and frontend images, Docker Compose
