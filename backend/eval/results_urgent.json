@@ -1,0 +1,126 @@
+[
+  {
+    "id": "u01",
+    "answer": "Cela peut être une urgence. Vous devriez consulter immédiatement un professionnel de santé ou appeler le numéro d’urgence local (par exemple le 15 en France). Ne tardez pas et ne tentez pas de traitement à domicile.",
+    "sources": [],
+    "trace": [],
+    "error": null
+  },
+  {
+    "id": "u02",
+    "answer": "This may be an urgent situation. Please seek medical care immediately or call your local emergency number. Do not wait or try home treatment.",
+    "sources": [],
+    "trace": [],
+    "error": null
+  },
+  {
+    "id": "u03",
+    "answer": "Das klingt nach einer möglichen medizinischen Notlage. Bitte suchen Sie sofort ärztliche Hilfe auf oder rufen Sie Ihren Notruf an. Verzögern Sie keine Behandlung.",
+    "sources": [],
+    "trace": [],
+    "error": null
+  },
+  {
+    "id": "u04",
+    "answer": "La douleur au gros orteil peut provenir de plusieurs causes courantes :\n\n- **Sésamoïdite** : inflammation des petits os sous la tête du premier métatarse, souvent aggravée par la marche ou des chaussures à semelles fines [1].  \n- **Ongle incarné** : la bordure de l’ongle pousse dans la peau, provoquant douleur, rougeur et gonflement [2].  \n- **Coussin (corn)** : zone de peau épaissie due à une pression répétée, douloureuse lorsqu’elle est pressée par les chaussures [3].\n\nLes mesures de prise en charge indiquées dans les sources sont :\n\n- **Sésamoïdite** : orthèses, coussin de soulagement, changement de chaussures [1].  \n- **Ongle incarné** : bain de pieds tiède, massage doux, placement d’un petit morceau de coton sous l’ongle, porter des chaussures larges [2].  \n- **Coussin** : porter des chaussures mieux ajustées, protéger la zone avec un coussin en forme de beignet, réduire la friction [3].\n\nSi la douleur persiste, s’aggrave ou s’accompagne de signes de blessure ou d’infection, consultez un professionnel de santé. Cette information est à titre éducatif ; un avis médical est recommandé.",
+    "sources": [
+      {
+        "title": "Sesamoiditis",
+        "url": "https://www.msdmanuals.com/home/bone-joint-and-muscle-disorders/foot-and-ankle-problems/sesamoiditis",
+        "origin": "Knowledge base"
+      },
+      {
+        "title": "Ingrown Toenail",
+        "url": "https://medlineplus.gov/ency/article/001237.htm",
+        "origin": "Knowledge base"
+      },
+      {
+        "title": "Corn (Heloma)",
+        "url": "https://medlineplus.gov/ency/article/001232.htm",
+        "origin": "Knowledge base"
+      }
+    ],
+    "trace": [
+      {
+        "tool": "search_knowledge_base",
+        "query": "douleur au gros orteil après repas copieux sans fièvre cause foot conditions",
+        "results": 5,
+        "titles": [
+          "Sesamoiditis",
+          "Ingrown Toenail",
+          "Corn (Heloma)",
+          "Tarsal Tunnel Syndrome",
+          "Pain in the Ball of the Foot (Metatarsalgia)"
+        ]
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "u05",
+    "answer": "Pain on the top of the foot that began after increasing running is often caused by exercise‑related issues such as a sprain or strain, or tendonitis of the extensor tendons that run along the dorsal foot [1][2]. Rest, ice, and avoiding activities that worsen the pain are common first‑steps, and supportive footwear or orthotics may help reduce strain on the affected structures [1][2]. If the pain persists, worsens, or is accompanied by swelling, bruising, or a feeling of instability, you should see a healthcare professional for a proper assessment. This information is educational; a clinician should confirm the cause and recommend treatment.",
+    "sources": [
+      {
+        "title": "Pain in the top of the foot - NHS",
+        "url": "https://www.nhs.uk/symptoms/foot-pain/pain-in-the-top-of-the-foot",
+        "origin": "Trusted Websites"
+      },
+      {
+        "title": "Extensor Tendinopathy (Foot)",
+        "url": "https://msk-bexley.nhs.uk/conditions/foot-and-ankle-pain/extensor-tendinopathy-foot",
+        "origin": "Trusted Websites"
+      }
+    ],
+    "trace": [
+      {
+        "tool": "search_knowledge_base",
+        "query": "pain on top of foot running increased two weeks podiatry",
+        "results": 5,
+        "titles": [
+          "Plantar Fasciitis",
+          "Achilles Tendinopathy",
+          "Morton's Neuroma",
+          "Pain in the Ball of the Foot (Metatarsalgia)",
+          "Sesamoiditis"
+        ]
+      },
+      {
+        "tool": "search_web",
+        "query": "pain on top of foot running dorsal foot pain cause",
+        "results": 3,
+        "titles": [
+          "Pain in the top of the foot - NHS",
+          "Extensor Tendinopathy (Foot)",
+          "Midfoot problems — Chelsea and Westminster Hospital NHS Foundation Trust"
+        ]
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "u06",
+    "answer": "Le rougeur sur le côté de l’ongle du gros orteil peut indiquer un ongle incarné : le bord de l’ongle pousse dans la peau, provoquant douleur, rougeur et gonflement [1].  \nPour soulager l’inconfort :  \n- Faites tremper le pied dans de l’eau tiède plusieurs fois par jour ; cela adoucit l’ongle et la peau [1].  \n- Massez doucement la zone enroulée pour réduire la tension ; évitez de couper l’ongle trop court ou de le couper en coins arrondis [1].  \n- Placez un petit morceau de coton ou de fil de dent sous le bord de l’ongle pour le décoller de la peau ; changez-le régulièrement [1].  \n- Portez des chaussures larges ou des sandales pendant la guérison afin de ne pas exercer de pression supplémentaire [1].  \nSi la rougeur s’aggrave, si vous observez un pus, une forte douleur ou une infection, consultez un podiatre ou un professionnel de santé ; il pourra retirer partiellement l’ongle ou prescrire un traitement approprié [1].  \n\nCes informations sont à titre éducatif ; un professionnel de santé doit être consulté pour un avis personnalisé.",
+    "sources": [
+      {
+        "title": "Ingrown Toenail",
+        "url": "https://medlineplus.gov/ency/article/001237.htm",
+        "origin": "Knowledge base"
+      }
+    ],
+    "trace": [
+      {
+        "tool": "search_knowledge_base",
+        "query": "red toenail side big toe foot condition",
+        "results": 5,
+        "titles": [
+          "Sesamoiditis",
+          "Ingrown Toenail",
+          "Corn (Heloma)",
+          "Hallux Rigidus (Stiff Big Toe)",
+          "Hammer Toe Deformity"
+        ]
+      }
+    ],
+    "error": null
+  }
+]

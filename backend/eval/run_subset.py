@@ -1,11 +1,10 @@
 import json
 import sys
 import time
-
+import os
 from app.agent import agent_answer
 
-QUESTIONS_PATH = "eval/questions.json"
-
+QUESTIONS_PATH = os.getenv("PODAI_QUESTIONS", "eval/questions.json")
 
 def main(output_path, ids):
     with open(QUESTIONS_PATH, encoding="utf-8") as f:
