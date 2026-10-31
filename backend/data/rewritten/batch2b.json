@@ -1,0 +1,53 @@
+[
+  {
+    "id": "plantar_nerve_compression",
+    "overview": "Medial and lateral plantar nerve entrapment is pressure on one of the two nerves that supply the sole of the foot, either on the inner side of the arch (medial plantar nerve) or on the heel and outer sole (lateral plantar nerve and its first branch). The result is pain, burning or tingling in the arch or heel, which is often mistaken for plantar fasciitis. It is more common in runners and people who stand or walk a lot.",
+    "pathophysiology": "Both nerves are branches of the tibial nerve that travel through the tarsal tunnel and then enter the sole through tight passages between muscles and fibrous bands. The medial plantar nerve can be pinched where tendons cross in the arch, particularly when the heel tilts inward. The first branch of the lateral plantar nerve, which supplies the muscle that moves the little toe and a sensory part of the heel, can be compressed between the abductor hallucis muscle and the quadratus plantae muscle, producing deep heel pain without much numbness.",
+    "symptoms": [
+      "Burning, aching or shooting pain in the inner arch that may spread to the big toe and the next toes (medial plantar nerve)",
+      "Deep pain on the inner side of the heel, often worse in the morning and after activity (first branch of the lateral plantar nerve)",
+      "Numbness or tingling in the sole, sometimes reaching the outer toes",
+      "Pain that increases with running, prolonged standing or walking on hard ground",
+      "Pain provoked by tight shoes or rigid arch supports",
+      "Tenderness over the nerve when pressed, with tingling that radiates when the nerve is tapped"
+    ],
+    "causes": [
+      "Foot posture that tilts the heel inward and stretches the nerve (overpronation) or flat feet",
+      "Enlarged or tight foot muscles, especially in runners",
+      "Tight footwear, rigid orthoses or arch supports that press on the nerve",
+      "Heel spurs, scarring or previous injury to the ankle or foot",
+      "Swelling from varicose veins, ganglia or benign tumours near the nerve",
+      "Nerve vulnerability from diabetes or other conditions that affect the nerves"
+    ],
+    "risk_factors": [
+      "Running and other repetitive weight-bearing sport",
+      "Flat feet or heel tilting inward",
+      "Occupations with long hours of standing or walking",
+      "Diabetes",
+      "Past ankle or foot trauma",
+      "Wearing rigid or ill-fitting orthoses"
+    ],
+    "diagnosis": "A clinician presses and taps along the course of the nerves, examines foot alignment and checks sensation and muscle strength. Nerve conduction studies and electromyography can confirm the nerve is affected. Ultrasound or MRI can reveal a cause of pressure such as a cyst, enlarged muscle or mass, and help exclude other causes of heel and arch pain.",
+    "differential_diagnosis": [
+      "Plantar fasciitis",
+      "Tarsal tunnel syndrome",
+      "Morton neuroma",
+      "Nerve root irritation from the lower back (S1)",
+      "Peripheral neuropathy, for example from diabetes",
+      "Heel fat pad syndrome",
+      "Stress fracture of the heel bone",
+      "Posterior tibial tendon problems"
+    ],
+    "treatment": [
+      "Reducing running, standing and other activities that provoke the pain for a time",
+      "Changing to roomier shoes and adjusting or removing rigid arch supports that press on the nerve",
+      "Well-fitted custom orthoses that control heel tilt without pressing on the painful point",
+      "Stretching of the calf and foot muscles and physiotherapy",
+      "Ice after activity",
+      "Pain relief medicines only if suitable for the person, as advised by a pharmacist or doctor",
+      "Corticosteroid injection near the nerve in selected cases, given by a specialist",
+      "Surgical release of the nerve if several months of conservative care have not helped"
+    ],
+    "when_to_see_a_doctor": "See a healthcare professional if heel or arch pain with burning or numbness lasts more than a few weeks, if the foot feels weak, or if the pain is waking you at night. Seek urgent care for sudden severe pain with swelling, redness and fever."
+  }
+]

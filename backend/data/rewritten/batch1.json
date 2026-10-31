@@ -1,0 +1,256 @@
+[
+  {
+    "id": "plantar_fasciitis",
+    "overview": "Plantar fasciitis is the most common cause of heel pain in adults. The plantar fascia is a thick band of tissue that runs from the heel bone to the base of the toes and supports the arch. Repeated overload irritates and degrades this band where it attaches to the heel, which causes pain under the heel that is typically worst with the first steps after rest. Most people recover with conservative care, although this can take many months.",
+    "pathophysiology": "Overload leads to small tears and degeneration of the fascia at its attachment on the inner side of the heel bone, rather than classic inflammation, which is why it is sometimes called plantar fasciopathy. Tight calf muscles and a stiff big toe increase the tension on the fascia during walking.",
+    "symptoms": [
+      "Sharp or stabbing pain under the heel, often toward the inner side",
+      "Worst with the first steps in the morning or after sitting for a while",
+      "Pain that eases after a few minutes of walking, then may return after long standing or walking",
+      "Tenderness when pressing on the underside of the heel",
+      "Usually one heel, sometimes both",
+      "Pain that appears after running rather than during it"
+    ],
+    "causes": [
+      "A sudden increase in walking, running or standing time",
+      "Tight calf muscles or Achilles tendon",
+      "Flat feet or high arches that change how load is spread across the foot",
+      "Hard floors and worn or unsupportive shoes",
+      "Extra body weight",
+      "Work that requires long hours on the feet"
+    ],
+    "risk_factors": [
+      "Age between about 40 and 60",
+      "Being overweight",
+      "Long periods standing on hard surfaces",
+      "Running or jumping sports",
+      "Limited ankle flexibility",
+      "Flat or high-arched feet"
+    ],
+    "diagnosis": "Diagnosis is clinical, based on the history and tenderness at the heel. Imaging is not usually needed. Ultrasound or X-ray are considered when the pain is atypical or does not improve, to look for other causes. A heel spur seen on X-ray is common and is not by itself the cause of the pain.",
+    "differential_diagnosis": [
+      "Heel fat pad syndrome",
+      "Stress fracture of the heel bone",
+      "Inferior calcaneal bursitis",
+      "Nerve entrapment at the inner heel or tarsal tunnel syndrome",
+      "Achilles tendinopathy when the pain is at the back of the heel",
+      "Inflammatory arthritis"
+    ],
+    "treatment": [
+      "Reduce the activities that provoke the pain without stopping all movement",
+      "Daily stretching of the calf muscles and of the plantar fascia",
+      "Supportive shoes with a cushioned heel, and avoiding walking barefoot on hard floors",
+      "Cushioned heel pads or arch supports, and custom orthoses when needed",
+      "A night splint in persistent cases",
+      "Strapping or taping for short-term relief",
+      "Ice after activity to ease the pain",
+      "Pain relief medicines only if suitable for the person, as advised by a pharmacist or doctor",
+      "Physiotherapy, and shockwave therapy or injections considered by a specialist when symptoms last several months; injections carry risks and are used cautiously",
+      "Surgery only rarely, after a long period without improvement"
+    ],
+    "when_to_see_a_doctor": "See a healthcare professional if heel pain lasts more than a few weeks despite rest and better shoes, if it is severe, if there is numbness or tingling, or if you cannot put weight on the foot. Seek urgent care for sudden severe pain after an injury, marked swelling or bruising, or redness and warmth with fever."
+  },
+  {
+    "id": "hallux_valgus",
+    "overview": "Hallux valgus, commonly called a bunion, is a deformity in which the big toe drifts toward the smaller toes and the first metatarsal bone angles away from the other foot bones, creating a bony bump on the inner side of the forefoot. It progresses slowly and is much more common in women.",
+    "pathophysiology": "The joint at the base of the big toe becomes unstable and misaligned. The first metatarsal drifts inward while the big toe deviates outward and often rotates. The tendons around the joint then pull in a way that increases the deformity, and the bump is irritated by shoes, sometimes with an inflamed bursa over it.",
+    "symptoms": [
+      "A bony bump on the inner side of the foot at the base of the big toe",
+      "Pain, redness or swelling over the bump, worse in tight or narrow shoes",
+      "A big toe angled toward the second toe, sometimes overlapping it",
+      "Burning or numbness from pressure on a small skin nerve",
+      "Corns or calluses where toes rub together or under the ball of the foot",
+      "Stiffness or reduced movement of the big toe in later stages",
+      "Difficulty finding comfortable shoes"
+    ],
+    "causes": [
+      "Inherited foot shape and ligament laxity",
+      "Narrow, pointed or high-heeled shoes that squeeze the forefoot",
+      "Flat or pronated feet",
+      "Inflammatory arthritis such as rheumatoid arthritis",
+      "Neuromuscular conditions",
+      "A previous foot injury"
+    ],
+    "risk_factors": [
+      "Female sex",
+      "A family history of bunions",
+      "Years of tight or high-heeled footwear",
+      "Flexible flat feet",
+      "Joint hypermobility",
+      "Rheumatoid arthritis"
+    ],
+    "diagnosis": "Diagnosis is clinical, by looking at the foot and testing joint movement. Weight-bearing X-rays measure the angles between the bones to grade severity and are used when surgery is being considered.",
+    "differential_diagnosis": [
+      "Hallux rigidus",
+      "Gout affecting the big toe joint",
+      "Septic or inflammatory arthritis of the joint",
+      "Sesamoiditis",
+      "Bursitis over the joint"
+    ],
+    "treatment": [
+      "Wide shoes with a deep, roomy toe box and a low heel",
+      "Padding or silicone shields over the bump",
+      "Toe spacers or splints for comfort; they do not correct the deformity",
+      "Orthoses to reduce overload of the joint",
+      "Pain relief as advised by a pharmacist or doctor",
+      "Treatment of related corns and calluses by a podiatrist",
+      "Surgery when pain limits daily life despite conservative care; the technique depends on the angle and the condition of the joint, and the deformity can come back"
+    ],
+    "when_to_see_a_doctor": "See a healthcare professional if the bump is painful and limits walking or footwear, if the toe becomes stiff, or if the skin over the bump breaks down. A joint that is suddenly red, hot and very painful needs prompt medical care, because it can mean infection or gout. People with diabetes or poor circulation should have any foot deformity checked early."
+  },
+  {
+    "id": "achilles_tendinopathy",
+    "overview": "Achilles tendinopathy is pain and thickening of the Achilles tendon, the strong tendon that joins the calf muscles to the heel bone. It results from overload and failed repair of the tendon rather than simple inflammation. The pain is felt either in the middle of the tendon, a few centimetres above the heel, or where it attaches to the heel bone.",
+    "pathophysiology": "Repeated loading beyond what the tendon can tolerate disrupts its collagen structure, makes it thicker and less organised, and makes its nerve endings more sensitive. The tendon can then hurt with activity even when there is no obvious inflammation.",
+    "symptoms": [
+      "Pain and stiffness at the back of the heel or just above it, worst on the first steps in the morning",
+      "Pain at the start of exercise that may ease and then return afterwards",
+      "A thickened, tender area or lump along the tendon",
+      "Pain when climbing stairs or hills, or when pushing off",
+      "Swelling around the tendon",
+      "Reduced calf strength or flexibility in long-standing cases"
+    ],
+    "causes": [
+      "A sudden increase in running, jumping or hill training",
+      "Not enough recovery between sessions",
+      "Tight or weak calf muscles",
+      "A change of footwear, or worn shoes",
+      "Foot posture that increases the strain, such as overpronation",
+      "Some medicines, in particular fluoroquinolone antibiotics and corticosteroids"
+    ],
+    "risk_factors": [
+      "Middle age",
+      "Sports with running and sudden changes of direction",
+      "Being overweight",
+      "Diabetes and other metabolic conditions",
+      "A previous tendon problem",
+      "Use of fluoroquinolone antibiotics or corticosteroids"
+    ],
+    "diagnosis": "Diagnosis is clinical: tenderness and thickening along the tendon and pain when rising on the toes. Ultrasound or MRI is used when the diagnosis is uncertain or a tear is suspected. A sudden snap with a pop and weakness suggests a rupture and needs urgent assessment.",
+    "differential_diagnosis": [
+      "Achilles tendon bursitis",
+      "Partial or complete rupture of the Achilles tendon",
+      "Haglund deformity",
+      "Plantar fasciitis",
+      "Posterior ankle impingement",
+      "Sever disease in growing children"
+    ],
+    "treatment": [
+      "Relative rest: keep moving but reduce the load that provokes the pain",
+      "Progressive calf strengthening with slow, heavy or eccentric exercises for at least three months, which is the main treatment",
+      "A gradual return to running and jumping",
+      "Heel lifts or cushioned shoes for short-term relief",
+      "A review of footwear and of the training plan",
+      "Pain relief as advised by a pharmacist or doctor",
+      "Shockwave therapy or other options considered by a specialist if symptoms persist",
+      "Corticosteroid injections into the tendon are generally avoided because of the risk of rupture",
+      "Surgery only rarely"
+    ],
+    "when_to_see_a_doctor": "See a healthcare professional if tendon or heel pain lasts more than a couple of weeks, if there is a lump or swelling, or if the pain keeps you from exercising or walking normally. Seek urgent care if you feel or hear a sudden snap at the back of the ankle, cannot rise on your toes, or have sudden severe pain and swelling."
+  },
+  {
+    "id": "forefoot_pain_metatarsalgia",
+    "overview": "Metatarsalgia is pain in the ball of the foot, under the heads of the metatarsal bones just behind the toes. It is a symptom with many possible causes rather than a single disease, and it usually comes from too much pressure on the forefoot.",
+    "pathophysiology": "Excess or poorly distributed pressure under the metatarsal heads irritates the fat pad, the joints, the tendons and the small nerves beneath them. Anything that shifts weight toward the forefoot, such as high arches, tight calf muscles, toe deformities or a thin fat pad, increases the load.",
+    "symptoms": [
+      "Aching, burning or sharp pain in the ball of the foot",
+      "A feeling of walking on a pebble or on a bunched-up sock",
+      "Pain that is worse when standing, walking barefoot or pushing off, and eased by rest",
+      "Pain that is worse in thin-soled or high-heeled shoes",
+      "Numbness or tingling in the toes",
+      "A callus under the metatarsal heads",
+      "Pain in one toe or in several toes"
+    ],
+    "causes": [
+      "High-impact sports such as running and jumping",
+      "High heels, or shoes with a narrow toe box or thin soles",
+      "High-arched feet or a long second metatarsal",
+      "Tight calf muscles or Achilles tendon",
+      "Hammer toes, bunions or other toe deformities",
+      "Weight gain",
+      "Thinning of the fat pad under the forefoot with age",
+      "Inflammatory arthritis or gout",
+      "A stress fracture"
+    ],
+    "risk_factors": [
+      "Increasing age",
+      "Being overweight",
+      "Running or jumping sports",
+      "Foot deformities",
+      "Poor footwear",
+      "Rheumatoid arthritis"
+    ],
+    "diagnosis": "Diagnosis is made from the history and examination: where exactly the pain is, which joints hurt on pressure, the shape of the foot and the way the person walks. X-ray, ultrasound or MRI are used when a stress fracture, joint disease or nerve problem is suspected.",
+    "differential_diagnosis": [
+      "Morton's neuroma",
+      "Stress fracture of a metatarsal",
+      "Freiberg disease",
+      "Sesamoiditis",
+      "Capsulitis or plantar plate injury",
+      "Gout or inflammatory arthritis",
+      "Peripheral neuropathy"
+    ],
+    "treatment": [
+      "Shoes with a wide toe box, cushioned soles and low heels",
+      "Metatarsal pads or insoles to offload the painful area",
+      "Custom orthoses where needed",
+      "Rest from high-impact activity, then a gradual return",
+      "Ice after activity",
+      "Stretching of the calf muscles",
+      "Treatment of calluses and toe deformities by a podiatrist",
+      "Pain relief as advised by a pharmacist or doctor",
+      "Weight management when relevant",
+      "Specialist review if symptoms persist"
+    ],
+    "when_to_see_a_doctor": "See a healthcare professional if the pain lasts more than a few weeks despite better shoes and rest, if it is severe or follows an injury, if you have numbness, burning or tingling, or if you have diabetes. Seek urgent care for a hot, red, swollen foot with fever."
+  },
+  {
+    "id": "hammer_toe",
+    "overview": "A hammer toe is a deformity in which one of the smaller toes, most often the second, bends at its middle joint so that it looks like a hook or a claw. At first the toe is flexible. With time it can become fixed in the bent position.",
+    "pathophysiology": "An imbalance between the tendons that straighten the toe and those that bend it, together with pressure from footwear, bends the middle joint of the toe. Over time the joint capsule and the tendons tighten and the toe stiffens in that position.",
+    "symptoms": [
+      "A toe bent downward at the middle joint, like a hook",
+      "A corn on top of the bent joint where it rubs against the shoe",
+      "A callus or soreness at the tip of the toe or under the ball of the foot",
+      "Pain, redness or swelling over the joint",
+      "Difficulty or pain when trying to straighten the toe",
+      "Difficulty wearing shoes comfortably",
+      "An open sore or broken skin on the toe in severe cases"
+    ],
+    "causes": [
+      "Shoes that are too short or too narrow, or high heels, which force the toes into a bent position",
+      "An inherited foot shape, such as a long second toe",
+      "A muscle and tendon imbalance",
+      "A bunion pushing the big toe against the second toe",
+      "Nerve or muscle conditions, including diabetic neuropathy",
+      "A previous injury to the toe",
+      "Arthritis"
+    ],
+    "risk_factors": [
+      "Female sex",
+      "A family history of toe deformities",
+      "Ill-fitting footwear",
+      "A bunion or flat feet",
+      "Diabetes with nerve damage",
+      "Rheumatoid arthritis"
+    ],
+    "diagnosis": "Diagnosis is clinical. The clinician checks whether the toe can still be straightened (flexible) or is fixed, and looks for calluses and pressure points. X-rays can show joint changes and help to plan treatment.",
+    "differential_diagnosis": [
+      "Mallet toe, where the bend is at the end joint",
+      "Claw toe, where several joints are bent, often with nerve disease",
+      "A bunion crowding the second toe",
+      "Capsulitis of the second toe joint",
+      "Arthritis of the toe joints"
+    ],
+    "treatment": [
+      "Shoes with a deep, roomy toe box and a low heel",
+      "Soft pads, sleeves or cushioning over corns",
+      "Toe splints or straps for flexible toes, which give comfort but no permanent correction",
+      "Insoles or orthoses to offload the ball of the foot",
+      "Toe stretching and strengthening exercises for flexible deformities",
+      "Podiatric care of corns and calluses",
+      "Surgery to straighten or fuse the toe when it is fixed and painful"
+    ],
+    "when_to_see_a_doctor": "See a healthcare professional if the toe is painful, if a corn or sore keeps coming back, or if shoes no longer fit comfortably. If you have diabetes or poor circulation, have any toe deformity, sore or skin change checked promptly, because pressure sores can become infected. Seek urgent care for a red, swollen, painful toe with pus or fever."
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "id": "achilles_bursitis",
+    "overview": "Achilles bursitis is inflammation of a small fluid-filled sac near the Achilles tendon. One bursa lies in front of the tendon, next to the heel bone (the retrocalcaneal bursa), and another sits under the skin over the tendon. Bursitis causes pain, swelling and tenderness behind the ankle, just above the heel bone, and is often related to shoe rubbing or overuse.",
+    "pathophysiology": "Bursae reduce friction between the tendon, bone and skin. Repeated pressure, rubbing or pinching of the bursa as the ankle moves leads to irritation, thickening and fluid build-up. A prominent bump on the back of the heel bone can squeeze the bursa against the tendon at each step.",
+    "symptoms": [
+      "Pain and swelling behind the ankle, just above the heel bone",
+      "Redness and warmth over the area",
+      "Pain when the ankle is flexed upward, going uphill or rising on the toes",
+      "Pain when the soft tissue on either side of the tendon, just above the heel bone, is squeezed",
+      "Pain where the rim of a shoe presses on the heel",
+      "A visible bump over the Achilles insertion"
+    ],
+    "causes": [
+      "Shoes with a stiff or poorly fitting back that rub the heel",
+      "A prominent bony bump on the rear of the heel bone (Haglund deformity)",
+      "Overuse in running or jumping sports, especially uphill",
+      "Tight calf muscles",
+      "Inflammatory conditions such as rheumatoid arthritis, or gout",
+      "A direct blow to the Achilles area"
+    ],
+    "risk_factors": [
+      "Running and jumping sports",
+      "High-arched feet or a heel that tilts inward",
+      "A bony prominence on the heel bone",
+      "Tight calves or Achilles tendon",
+      "Inflammatory joint disease or gout",
+      "Rigid shoes or high heels"
+    ],
+    "diagnosis": "The clinician presses both sides of the tendon just above the heel bone and looks for swelling, warmth and a bony bump. X-rays can show a prominent heel bone or calcification. Ultrasound or MRI shows fluid in the bursa and can assess the Achilles tendon at the same time.",
+    "differential_diagnosis": [
+      "Achilles tendinopathy at its attachment on the heel bone",
+      "Haglund deformity",
+      "Stress fracture of the heel bone",
+      "Sever disease in a growing child",
+      "Partial tear of the Achilles tendon",
+      "Infection of the bursa",
+      "Gout or inflammatory arthritis"
+    ],
+    "treatment": [
+      "Rest and reduced running or jumping while symptoms are acute",
+      "Open-back shoes or shoes with a soft, cushioned back, and avoiding a rigid heel counter",
+      "Heel pads or a small heel lift to relieve tension on the tendon",
+      "Calf stretching and physiotherapy",
+      "Ice after activity",
+      "Pain relief medicines only if suitable for the person, as advised by a pharmacist or doctor",
+      "Treating the underlying inflammatory condition or gout when present",
+      "Steroid injections near the tendon are generally avoided because of the risk of rupture",
+      "Surgery to remove the bursa or reshape the heel bone only for persistent cases"
+    ],
+    "when_to_see_a_doctor": "See a healthcare professional if pain above the heel bone lasts more than a few weeks or if you cannot rise on your toes. Seek urgent care for a hot, red, swollen heel with fever, or for sudden severe pain with a popping feeling, as an Achilles tendon tear or infection must be ruled out."
+  }
+]

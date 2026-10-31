@@ -1,0 +1,239 @@
+[
+  {
+    "id": "plantar_fibromatosis",
+    "overview": "Plantar fibromatosis, also called Ledderhose disease, is a benign condition in which firm, slow-growing nodules form within the plantar fascia, the band of tissue under the arch. The nodules are not cancerous and do not spread, but they can become painful when they are pressed by body weight and shoes. The course is unpredictable: some lumps stay stable for years, others slowly enlarge.",
+    "pathophysiology": "Fibroblasts in the plantar fascia multiply and lay down excess collagen, forming dense nodules or thickened cords, most often in the central or inner part of the fascia. The cause is not fully understood. It is related to Dupuytren contracture of the hand, and the two conditions often occur together.",
+    "symptoms": [
+      "One or more firm lumps felt in the arch of the sole, usually on the inner or central side",
+      "Lumps that grow slowly over months or years",
+      "Pain or a feeling of pressure when standing or walking, especially barefoot or in firm shoes",
+      "A lump that feels fixed to the deeper tissue and does not move freely",
+      "Both feet affected in a sizeable minority of people",
+      "Toe curling is uncommon, unlike the hand condition"
+    ],
+    "causes": [
+      "The exact cause is unknown",
+      "An inherited tendency, as it often runs in families",
+      "Overgrowth of fibrous tissue in the plantar fascia",
+      "Possible link with earlier injury or repeated pressure on the sole"
+    ],
+    "risk_factors": [
+      "Male sex and middle or older age",
+      "Northern European ancestry",
+      "Dupuytren contracture of the hand",
+      "Diabetes",
+      "Heavy alcohol use or liver disease",
+      "Long-term use of some anti-seizure medicines",
+      "Family history of the condition"
+    ],
+    "diagnosis": "Diagnosis is mostly clinical: the examiner finds firm nodules in the sole that are fixed to the fascia. Ultrasound or MRI can confirm the location and size when the picture is unclear. A biopsy is kept for lumps that grow quickly or look unusual, to rule out a malignant soft tissue tumour.",
+    "differential_diagnosis": [
+      "Plantar fasciitis",
+      "Ganglion or other cyst",
+      "Foreign body granuloma",
+      "Plantar wart",
+      "Soft tissue sarcoma, which is rare",
+      "Fibroma or other benign soft tissue tumour"
+    ],
+    "treatment": [
+      "Watchful waiting when the lumps cause little trouble",
+      "Shoes with plenty of room and a cushioned sole",
+      "Soft insoles with a relief cut-out under the nodule to reduce pressure",
+      "Calf and foot stretching and physiotherapy for comfort",
+      "Corticosteroid injection into the nodule in selected painful cases, given by a specialist",
+      "Shockwave therapy or low-dose radiotherapy considered by specialists in persistent cases",
+      "Surgery only as a last resort, because the lumps often return and healing of the sole can be difficult"
+    ],
+    "when_to_see_a_doctor": "See a healthcare professional for any new lump in the sole, and sooner if it grows quickly, bleeds, breaks the skin or becomes very painful. People with diabetes should have any lump or sore on the foot checked promptly."
+  },
+  {
+    "id": "freiberg_disease",
+    "overview": "Freiberg disease is a condition in which the rounded end of a metatarsal bone, most often the second, loses part of its blood supply and the joint surface becomes flattened and damaged. It usually appears in adolescence and early adulthood, more often in girls and young women, and is frequently linked to sport. The pain is felt in the ball of the foot, at the joint at the base of the affected toe.",
+    "pathophysiology": "The growing end of the metatarsal is relatively fragile and has a limited blood supply. Repeated stress, especially on the longer second metatarsal during push-off, can interrupt this supply, so the bone beneath the joint cartilage weakens and collapses. Over time the joint can become stiff and develop arthritis.",
+    "symptoms": [
+      "Pain in the ball of the foot at the base of the second toe, sometimes the third",
+      "Pain that increases with weight bearing, running, jumping or pushing off",
+      "Swelling and tenderness over the affected joint",
+      "Stiffness and reduced movement of the toe joint",
+      "A limp or a tendency to walk on the outer edge of the foot",
+      "Sometimes a grinding feeling when the toe is moved"
+    ],
+    "causes": [
+      "Repeated stress on the head of the second metatarsal",
+      "A reduced blood supply to the growing end of the bone",
+      "A second metatarsal that is longer than its neighbours",
+      "A single injury to the joint in some cases"
+    ],
+    "risk_factors": [
+      "Age between about 10 and 20",
+      "Female sex",
+      "High-impact or jumping sports",
+      "Frequent wearing of high-heeled shoes",
+      "A long second metatarsal",
+      "A previous injury to the forefoot"
+    ],
+    "diagnosis": "A clinician examines the joint for tenderness, swelling and limited movement. X-rays can look normal early on; later they show a flattened, dense or fragmented metatarsal head and widening of the joint space. MRI can detect changes sooner and shows how much bone is affected.",
+    "differential_diagnosis": [
+      "Stress fracture of a metatarsal",
+      "Morton neuroma",
+      "Synovitis or capsulitis of the toe joint",
+      "Metatarsalgia from overload",
+      "Joint infection or inflammatory arthritis",
+      "Plantar plate injury"
+    ],
+    "treatment": [
+      "Relative rest and avoiding the activities that cause pain",
+      "A stiff-soled shoe, rocker-sole shoe or walking boot to offload the forefoot",
+      "A metatarsal pad or custom orthoses to redistribute pressure",
+      "Short-term immobilisation in a cast or boot in more painful cases",
+      "Pain relief medicines only if suitable for the person, as advised by a pharmacist or doctor",
+      "Physiotherapy to keep the joint moving as symptoms settle",
+      "Surgery for persistent pain or advanced joint damage, for example removing loose bone or reshaping the bone"
+    ],
+    "when_to_see_a_doctor": "See a healthcare professional if forefoot pain at the base of a toe lasts more than a couple of weeks, especially in a growing young person who plays sport, or if the toe becomes stiff or swollen. Seek urgent care for severe pain after an injury, or redness, warmth and fever."
+  },
+  {
+    "id": "plantar_nerve_compression",
+    "overview": "Plantar nerve compression happens when a nerve running to the toes is squeezed in the front part of the sole. The most common form is Morton neuroma, a thickening of tissue around a nerve between two metatarsal heads, usually between the third and fourth toes. It causes burning pain in the ball of the foot and tingling in the toes, often provoked by tight shoes.",
+    "pathophysiology": "A common plantar digital nerve passes under the ligament that links the metatarsal heads. Repeated pinching of the nerve, particularly when the forefoot is squeezed or the toes are forced upward, irritates it and leads to scarring and thickening of the surrounding tissue. The enlarged nerve then becomes more sensitive to pressure.",
+    "symptoms": [
+      "Burning or sharp pain in the ball of the foot, often spreading into two neighbouring toes",
+      "Tingling or numbness between the toes",
+      "A feeling of standing on a pebble or on a folded sock",
+      "Pain that is worse in narrow or high-heeled shoes",
+      "Relief when the shoe is removed and the forefoot is massaged",
+      "Pain that increases with walking, running or standing on tiptoe"
+    ],
+    "causes": [
+      "Tight, narrow or pointed shoes that squeeze the forefoot",
+      "High heels that push weight onto the ball of the foot",
+      "Repeated forefoot pressure from running or jumping sports",
+      "Foot deformities such as bunions, hammer toes, flat feet or high arches",
+      "Previous injury or scarring in the forefoot"
+    ],
+    "risk_factors": [
+      "Female sex, with a peak between about 40 and 60 years",
+      "Regular use of high heels or narrow shoes",
+      "High-impact sports",
+      "Foot deformities",
+      "Work that involves kneeling or squatting on the toes"
+    ],
+    "diagnosis": "Diagnosis is mainly clinical. Pressing the space between the metatarsal heads, or squeezing the forefoot from the sides, reproduces the pain, and a click may be felt. Ultrasound or MRI can show the thickened nerve and help exclude other causes. Nerve tests are sometimes used when numbness is widespread.",
+    "differential_diagnosis": [
+      "Inflammation of the toe joint at the base of a toe",
+      "Stress fracture of a metatarsal",
+      "Metatarsalgia",
+      "Freiberg disease",
+      "Tarsal tunnel syndrome",
+      "Peripheral neuropathy, for example from diabetes",
+      "Nerve root irritation from the lower back"
+    ],
+    "treatment": [
+      "Wider shoes with a roomy toe box and a low heel",
+      "A metatarsal pad placed just behind the painful area to spread the metatarsal heads",
+      "Custom or off-the-shelf orthoses to reduce forefoot pressure",
+      "Reducing activities that provoke the pain for a time",
+      "Pain relief medicines only if suitable for the person, as advised by a pharmacist or doctor",
+      "Corticosteroid or other injections given by a specialist when simple measures fail",
+      "Surgery to release the pressure or remove the nerve segment if symptoms persist, with permanent numbness between the toes as an expected result of removal"
+    ],
+    "when_to_see_a_doctor": "See a healthcare professional if burning pain or numbness in the forefoot lasts more than a few weeks, if it is waking you at night, or if both feet and several toes are affected. Seek urgent care for sudden severe pain with swelling, redness and fever."
+  },
+  {
+    "id": "posterior_tibial_tendinosis",
+    "overview": "Posterior tibial tendinosis is wear and degeneration of the tendon that runs behind the inner ankle bone and holds up the arch of the foot. As the tendon weakens, the arch can gradually flatten and the heel tilts outward, which is why it is also called adult-acquired flatfoot. It is most common in middle-aged and older adults, particularly women.",
+    "pathophysiology": "The posterior tibial tendon works against the pull of other muscles to keep the arch raised during walking. Repeated load, poor blood supply in part of the tendon and often excess body weight lead to degeneration, thickening and tearing. As the tendon fails, nearby ligaments stretch and the foot progressively flattens.",
+    "symptoms": [
+      "Pain and swelling along the inner side of the ankle, behind and below the bony bump",
+      "Pain that worsens with walking, standing for long periods or on uneven ground",
+      "A gradually flattening arch",
+      "The heel tilting outward when seen from behind, with more toes visible on the outer side",
+      "Difficulty or inability to rise onto the toes on one foot",
+      "In later stages, pain on the outer side of the ankle"
+    ],
+    "causes": [
+      "Long-term overload of the tendon from standing or walking",
+      "Age-related degeneration",
+      "Excess body weight",
+      "Previous injury to the inner ankle",
+      "Inflammatory joint disease"
+    ],
+    "risk_factors": [
+      "Age over 40 and female sex",
+      "Obesity",
+      "Diabetes and high blood pressure",
+      "Inflammatory arthritis",
+      "Previous steroid injections near the tendon",
+      "Pre-existing flat feet"
+    ],
+    "diagnosis": "A clinician checks the shape of the foot while standing, tests whether a single-leg heel rise is possible, and presses along the tendon. Weight-bearing X-rays show the arch and alignment. Ultrasound or MRI shows the condition of the tendon and whether it is torn.",
+    "differential_diagnosis": [
+      "Ankle sprain",
+      "Tarsal tunnel syndrome",
+      "Arthritis of the ankle or hindfoot joints",
+      "Spring ligament injury",
+      "Stress fracture of a bone on the inner side of the foot",
+      "Other tendon problems around the ankle"
+    ],
+    "treatment": [
+      "Rest and reduced weight-bearing during painful flares, sometimes with a walking boot",
+      "Supportive shoes with a firm sole",
+      "Arch supports or custom orthoses, and sometimes an ankle brace",
+      "Physiotherapy with calf stretching and strengthening of the muscles around the ankle",
+      "Weight management when relevant",
+      "Pain relief medicines only if suitable for the person, as advised by a pharmacist or doctor",
+      "Steroid injection around the tendon is generally avoided because it can weaken it",
+      "Surgery in advanced or non-responding cases, to repair the tendon or realign the foot"
+    ],
+    "when_to_see_a_doctor": "See a healthcare professional if you have pain along the inner ankle that lasts more than a couple of weeks, if one arch is visibly flattening, or if you cannot rise onto your toes on one foot. Treatment is more effective when started early."
+  },
+  {
+    "id": "metatarsophalangeal_joint_pain",
+    "overview": "Metatarsophalangeal joint pain is pain in the joint where a toe meets the long bone of the forefoot, at the ball of the foot. It can come from irritation of the joint lining, damage to the supporting plantar plate, arthritis or overload. The second joint is the most commonly affected. Pain usually increases when pushing off during walking or running.",
+    "pathophysiology": "These joints take a large share of body weight when the heel lifts. The plantar plate, a thick pad under the joint, and the joint capsule stabilise the toe. Repeated overload can inflame the joint lining or weaken and tear the plantar plate, so the toe becomes unstable and may drift out of line. Other causes include inflammatory arthritis, gout and wear of the cartilage.",
+    "symptoms": [
+      "Pain and tenderness at the base of one or more toes, on the underside of the ball of the foot",
+      "Swelling around the joint",
+      "Pain that increases when pushing off, standing on tiptoe or wearing flat thin-soled shoes",
+      "A feeling of walking on a pebble",
+      "Stiffness of the joint",
+      "A toe that drifts upward or sideways, or lies crossed over its neighbour"
+    ],
+    "causes": [
+      "Overload of the forefoot from sport or long periods of standing",
+      "Plantar plate strain or tear",
+      "A long second metatarsal or an unstable foot structure",
+      "Joint inflammation from conditions such as rheumatoid arthritis or gout",
+      "Joint wear (osteoarthritis), including a stiff big toe joint",
+      "Footwear with high heels or a thin, flexible sole"
+    ],
+    "risk_factors": [
+      "Middle age",
+      "Running and jumping sports",
+      "High heels or narrow shoes",
+      "Bunions, hammer toes or other deformities",
+      "Inflammatory joint disease or gout",
+      "Previous forefoot injury"
+    ],
+    "diagnosis": "The clinician locates the pain with firm pressure on the joint and checks for instability by gently moving the toe up and down. X-rays show joint wear or alignment problems. Ultrasound or MRI can show plantar plate damage or joint inflammation. Blood tests are used when an inflammatory condition or gout is suspected.",
+    "differential_diagnosis": [
+      "Morton neuroma",
+      "Stress fracture of a metatarsal",
+      "Freiberg disease",
+      "Gout",
+      "Inflammatory arthritis",
+      "Sesamoiditis"
+    ],
+    "treatment": [
+      "Reducing the activities that provoke the pain for a time",
+      "Shoes with a stiff or rocker sole and a roomy toe box",
+      "A metatarsal pad or custom orthoses to offload the joint",
+      "Taping the toe to hold it in a better position",
+      "Ice and, if suitable for the person, pain relief medicines as advised by a pharmacist or doctor",
+      "Treating the underlying condition, for example gout or rheumatoid arthritis",
+      "Injections are used with caution because they can weaken the plantar plate",
+      "Surgery for persistent instability, deformity or advanced arthritis"
+    ],
+    "when_to_see_a_doctor": "See a healthcare professional if pain at the base of a toe lasts more than a few weeks, if the toe is changing position, or if several joints are painful and swollen. Seek urgent care for a hot, red, very swollen joint, especially with fever, or for sudden severe pain after an injury."
+  }
+]
