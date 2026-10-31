@@ -3,13 +3,21 @@ from pathlib import Path
 import chromadb
 import os
 
-# Corpus version: "v1" (15 sheets, default) or "v2" (v1 + new sheets), chosen with PODAI_CORPUS
+# Corpus version, chosen with PODAI_CORPUS:
+#   "v1"  : 15 sheets (default)
+#   "v2"  : v1 + new sheets
+#   "own" : the 15 v1 sheets rewritten from own clinical knowledge
 CORPUS = os.getenv("PODAI_CORPUS", "v1")
-if CORPUS not in ("v1", "v2"):
-    raise ValueError(f"PODAI_CORPUS must be 'v1' or 'v2', got {CORPUS!r}")
+CORPORA = {
+    "v1": ("podiatry_dataset.json", "podiatry"),
+    "v2": ("podiatry_dataset_v2.json", "podiatry_v2"),
+    "own": ("rewritten/podiatry_dataset_own.json", "podiatry_own"),
+}
+if CORPUS not in CORPORA:
+    raise ValueError(f"PODAI_CORPUS must be one of {sorted(CORPORA)}, got {CORPUS!r}")
 DATA_DIR = Path(__file__).parent.parent / "data"
-DATASET_PATH = DATA_DIR / ("podiatry_dataset.json" if CORPUS == "v1" else "podiatry_dataset_v2.json")
-COLLECTION_NAME = "podiatry" if CORPUS == "v1" else "podiatry_v2"
+DATASET_PATH = DATA_DIR / CORPORA[CORPUS][0]
+COLLECTION_NAME = CORPORA[CORPUS][1]
 CHROMA_PATH = Path(__file__).parent.parent / "chroma_db"
 
 def load_conditions():
