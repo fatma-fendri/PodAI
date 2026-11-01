@@ -11,3 +11,5 @@ node_modules/
 # Divers
 .DS_Store
 chroma_db/
+backend/data/podiatry_dataset.json
+backend/data/podiatry_dataset_v2.json

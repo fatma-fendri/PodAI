@@ -71,8 +71,7 @@ PodAI/
 │   │   ├── agent.py       # tool-calling agent, citation guard, source handling
 │   │   └── web_search.py  # Tavily search limited to trusted domains
 │   ├── data/
-│   │   ├── podiatry_dataset.json   # corpus v1: 15 conditions
-│   │   ├── podiatry_dataset_v2.json   # corpus v2: v1 plus 14 sheets
+│   │   ├── rewritten/podiatry_dataset_own.json   # default corpus: 15 rewritten sheets
 │   │   └── search_hints.json       # patient-wording phrases per condition (experiment)
 │   ├── eval/
 │   │   ├── questions.json          # 36 evaluation questions
@@ -158,7 +157,7 @@ Open `http://localhost:3000`; the API is on `http://localhost:8000`. Tested loca
 
 - The backend image installs only what the application runs (`requirements-docker.txt`, without the PyTorch
   packages used by evaluation experiments). The ChromaDB knowledge base is built and the embedding and reranker
-  models are downloaded at build time, so the first start is fast. The corpus is v1 unless `PODAI_CORPUS=v2` is set.
+  models are downloaded at build time, so the first start is fast. The default corpus is `own` (the rewritten sheets).
 - The API address is written into the frontend at build time (the `NEXT_PUBLIC_API_URL` build argument in
   `docker-compose.yml`, `http://localhost:8000`). To use another host, change it there and rebuild.
 - API keys are read from `backend/.env` when the container starts and are never written into an image.
@@ -198,9 +197,9 @@ The response contains `answer`, `sources` (each with `title`, `url` and `origin`
 
 The current dataset contains 15 foot conditions (plantar fasciitis, hallux valgus, Achilles tendinopathy, Sever disease, tarsal tunnel syndrome and others), each with overview, symptoms, causes, diagnosis, treatment and a source reference.
 
-The content is written in English and rephrased from public medical references. **Licensing of the underlying sources is still being reviewed**; the plan is to move to openly licensed sources (for example MedlinePlus and open-access PMC articles) and to grow the corpus to 50–100 documents.
+The content is written in English. The default corpus (`own`) holds 15 sheets rewritten from clinical knowledge and reviewed by me as a podiatrist (see "Rewritten corpus and reranker (v9, v10)" below). Each sheet cites the reference page it replaces. The original corpora v1 and v2, which paraphrased MSD Manuals pages, are not distributed in this repository; the code still supports them (`PODAI_CORPUS=v1` or `v2`) if the files are present.
 
-**Corpus v2.** `data/podiatry_dataset_v2.json` adds 14 sheets (Morton's neuroma, fungal nail infection, ingrown toenail, plantar warts, athlete's foot, corn, callus, diabetic foot ulcer, diabetic neuropathy, gout, hallux rigidus, ankle sprain, metatarsal stress fracture, adult flat feet). Each is rewritten in my own words from a named page and reviewed by me as a podiatrist; some differential diagnoses and warning signs are my own additions. The MedlinePlus Medical Encyclopedia pages are provided by A.D.A.M. and are copyrighted, and the hallux rigidus source is an AAOS page, so rewriting does not remove the licensing question above.
+**Corpus v2.** `data/podiatry_dataset_v2.json` adds 14 sheets (Morton's neuroma, fungal nail infection, ingrown toenail, plantar warts, athlete's foot, corn, callus, diabetic foot ulcer, diabetic neuropathy, gout, hallux rigidus, ankle sprain, metatarsal stress fracture, adult flat feet). Each is rewritten in my own words from a named page and reviewed by me as a podiatrist; some differential diagnoses and warning signs are my own additions. The MedlinePlus Medical Encyclopedia pages are provided by A.D.A.M. and are copyrighted, and the hallux rigidus source is an AAOS page, so corpus v2 is not distributed: rewriting its 14 sheets from clinical knowledge is planned.
 
 ## Evaluation
 
@@ -239,6 +238,8 @@ What I learned:
 | v6 | Web queries translated to English, lazy Groq client; 3 questions replayed after a network error | 32/36 | q04, q09, q11, q31 |
 | v7 | Rule 11 added to the prompt (no facts beyond the sheets) | 32/36 | q09, q11, q14, q31 |
 | v8 | Clinical vocabulary added to knowledge-base queries | 33/36 (q36 run after rule 12 was added) | q11, q14, q31 |
+| v9 | Reranker on (`PODAI_RERANK=1`), corpus v1 | 34/36 | q11, q31 |
+| v10 | Corpus rewritten from clinical knowledge, reranker off | 33/36 | q11, q14, q35 |
 
 What I learned:
 
@@ -376,6 +377,27 @@ Real NO: 5 sentences in 5 answers out of 23 (22%).
 - After triage, the rate of answers with a real NO goes from 13% (v6) to 22% (v7). With 23 answers and a judge that changes about 2 sentences out of 7 between two runs, this difference is within the noise: rule 11 is neither shown to help nor to hurt on this measure.
 - What rule 11 did change: the exercises and activity advice invented in q10 disappeared. New leaks appeared elsewhere (q03, q05), and differential diagnoses from memory (q31) are outside the rule.
 
+### Rewritten corpus and reranker (v9, v10)
+
+**Reranker, end to end (v9).** With `PODAI_RERANK=1` on corpus v1 the agent scored 34/36 (v8: 33/36). The difference is one question (q14, a web-search decision unrelated to ranking) and q31 was not fixed, so it is within noise.
+
+**Retrieval only.** `eval/retrieval_rerank.py` ranks the expected sheet among the top 10 for the 16 English knowledge-base questions, using the raw question as the query (no translation or query enrichment), so it measures retrieval and reranker alone, not the whole pipeline.
+
+| Corpus | Reranker | Expected sheet first | In top 3 | In top 5 |
+| --- | --- | --- | --- | --- |
+| v1 (original) | off | 7/16 | 12/16 | 14/16 |
+| v1 (original) | on | 9/16 | 14/16 | 15/16 |
+| Rewritten | off | 14/16 | 15/16 | 15/16 |
+| Rewritten | on | 14/16 | 15/16 | 15/16 |
+
+On the original corpus the reranker improves 6 questions and worsens 1, but the agent reads 5 sheets, so only q09 moved from outside the top 5 into it. On the rewritten corpus it brings nothing, so it stays off by default.
+
+**Rewritten corpus (v10).** The 15 sheets of corpus v1 were rewritten from general clinical knowledge: drafted with an AI assistant, then reviewed sheet by sheet by me as a podiatrist. Each sheet keeps the name and URL of the reference page it replaces ("Reference: ..." in its source field). For each sheet I measured the share of words that fall in runs of six or more words shared with that page: it is between 0 % and 3.7 % (mean 1.5 %), and the shared runs are generic anatomical phrases such as "in the ball of the foot". This measures verbatim overlap only, not similarity of structure.
+
+The full agent evaluation gives 33/36, the same as v8. q31 now passes. q35 fails: retrieval ranks the plantar nerve entrapment sheet first, but the agent answers with plantar fasciitis and calcaneal bursitis. Quality is unchanged, with a corpus whose wording is my own.
+
+Limit of this comparison: the 16 questions were known while the sheets were written, so the retrieval gain may be optimistic. The held-out questions q37 to q72 will be the real test once the 14 sheets of corpus v2 are rewritten as well.
+
 ### Urgent situations (rule 12)
 
 Rule 12 covers messages that describe a possible emergency, for example a foot that is suddenly cold, pale or blue, a diabetic foot wound with spreading redness, pus or fever, a painful swollen calf with shortness of breath, or a hot red joint with fever. In that case the agent calls no tool and answers at once that the situation may be urgent and that the person should seek care now, without a diagnosis or home-care advice. It is a deliberate exception to rules 2, 8 and 11, which otherwise forbid any advice that is not in the sources.
@@ -384,7 +406,7 @@ I checked it on six new questions (`eval/questions_urgent_check.json`): three em
 
 ### Reranker in the agent
 
-Setting `PODAI_RERANK=1` makes the agent fetch 10 candidates, drop those beyond the distance threshold, rerank them against the English question and keep 5. The default is unchanged. While checking the control questions, two sheets (gout and metatarsal stress fracture) did not reach the agent. With the pipeline the agent really uses they were ranked between 3 and 10 depending on the query, and they came first in all four variants I tried (the agent's query and the original question, for each sheet) once reranked. That is four points from two questions, so a signal and not a result. The end-to-end evaluation on the 36 questions is still to be run. The reranker only reorders the 10 candidates, so a sheet ranked below 10 cannot be recovered.
+Setting `PODAI_RERANK=1` makes the agent fetch 10 candidates, drop those beyond the distance threshold, rerank them against the English question and keep 5. The default is unchanged. While checking the control questions, two sheets (gout and metatarsal stress fracture) did not reach the agent. With the pipeline the agent really uses they were ranked between 3 and 10 depending on the query, and they came first in all four variants I tried (the agent's query and the original question, for each sheet) once reranked. That is four points from two questions, so a signal and not a result. The end-to-end evaluation gave 34/36 against 33/36 (v9), a difference within noise, and the retrieval-only measure shows no gain on the rewritten corpus, so the default stays off (see below). The reranker only reorders the 10 candidates, so a sheet ranked below 10 cannot be recovered.
 
 ## Known limitations
 
@@ -395,7 +417,9 @@ Setting `PODAI_RERANK=1` makes the agent fetch 10 candidates, drop those beyond 
 - Answers are not fully deterministic, even at temperature 0, because of the model and live web search.
 - The agent does not always pick the right tool: with 5 documents returned, it can answer from the knowledge base when the question is not covered, instead of going to the web.
 - No relevance threshold: out-of-scope questions still return documents from the knowledge base (they are filtered by the agent, not by retrieval).
-- Small corpus (15 documents); licensing of the underlying sources is still being reviewed.
+- Small corpus (15 documents). The wording is my own, drafted with an AI assistant and reviewed by me as a podiatrist; it has not been reviewed by another clinician.
+- Question q35 fails in v10: the agent skips the plantar nerve entrapment sheet, ranked first, in favour of plantar fasciitis. The agent does not systematically use the differential diagnoses of the retrieved sheets.
+- Question q31 (Freiberg disease): in a retrieval-only run the sheet is not in the top 10, because the embedding model does not link the patient wording to it; the full pipeline finds it in v10. Hybrid search (keywords plus vectors) is future work.
 - The scope is strict (foot and ankle): related topics such as knee pain are refused.
 - The agent costs 2 to 4 LLM calls per question and depends on a free-tier quota.
 

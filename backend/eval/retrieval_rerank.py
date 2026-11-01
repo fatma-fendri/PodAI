@@ -2,7 +2,7 @@ import json
 from app.rag import search, rerank
 
 QUESTIONS = "eval/questions.json"
-DATASET = "data/podiatry_dataset_v2.json"  # sert seulement à relier un titre à un id
+DATASET = "data/rewritten/podiatry_dataset_own.json"  # sert seulement à relier un titre à un id
 
 title_to_id = {f["title"]: f["id"] for f in json.load(open(DATASET, encoding="utf-8"))}
 questions = [q for q in json.load(open(QUESTIONS, encoding="utf-8"))
@@ -18,7 +18,7 @@ def rank_of(expected, hits):
 
 
 def show(r):
-    return "-" if r is None else str(r)
+    return "-" DATASET = "data/podiatry_dataset_v2.json"  # sert seulement à relier un titre à un idif r is None else str(r)
 
 
 base_ranks, rr_ranks = [], []
