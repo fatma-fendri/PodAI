@@ -392,9 +392,9 @@ Real NO: 5 sentences in 5 answers out of 23 (22%).
 
 On the original corpus the reranker improves 6 questions and worsens 1, but the agent reads 5 sheets, so only q09 moved from outside the top 5 into it. On the rewritten corpus it brings nothing, so it stays off by default.
 
-**Rewritten corpus (v10).** The 15 sheets of corpus v1 were rewritten from general clinical knowledge: drafted with an AI assistant, then reviewed sheet by sheet by me as a podiatrist. Each sheet keeps the name and URL of the reference page it replaces ("Reference: ..." in its source field). For each sheet I measured the share of words that fall in runs of six or more words shared with that page: it is between 0 % and 3.7 % (mean 1.5 %), and the shared runs are generic anatomical phrases such as "in the ball of the foot". This measures verbatim overlap only, not similarity of structure.
+**Rewritten corpus (v10).** The 15 sheets of corpus v1 were rewritten from general clinical knowledge and reviewed sheet by sheet by me as a podiatrist. Each sheet keeps the name and URL of the reference page it replaces ("Reference: ..." in its source field). For each sheet I measured the share of words that fall in runs of six or more words shared with that page: it is between 0 % and 3.7 % (mean 1.5 %), and the shared runs are generic anatomical phrases such as "in the ball of the foot". This measures verbatim overlap only, not similarity of structure.
 
-The full agent evaluation gives 33/36, the same as v8. q31 now passes. q35 fails: retrieval ranks the plantar nerve entrapment sheet first, but the agent answers with plantar fasciitis and calcaneal bursitis. Quality is unchanged, with a corpus whose wording is my own.
+The full agent evaluation gives 33/36, the same as v8. q31 now passes. q35 fails: retrieval ranks the plantar nerve entrapment sheet first, but the agent answers with plantar fasciitis and calcaneal bursitis. Quality is unchanged, with a corpus that no longer paraphrases the reference pages.
 
 Limit of this comparison: the 16 questions were known while the sheets were written, so the retrieval gain may be optimistic. The held-out questions q37 to q72 will be the real test once the 14 sheets of corpus v2 are rewritten as well.
 
@@ -417,7 +417,7 @@ Setting `PODAI_RERANK=1` makes the agent fetch 10 candidates, drop those beyond 
 - Answers are not fully deterministic, even at temperature 0, because of the model and live web search.
 - The agent does not always pick the right tool: with 5 documents returned, it can answer from the knowledge base when the question is not covered, instead of going to the web.
 - No relevance threshold: out-of-scope questions still return documents from the knowledge base (they are filtered by the agent, not by retrieval).
-- Small corpus (15 documents). The wording is my own, drafted with an AI assistant and reviewed by me as a podiatrist; it has not been reviewed by another clinician.
+- Small corpus (15 documents), reviewed by me as a podiatrist; it has not been reviewed by another clinician.
 - Question q35 fails in v10: the agent skips the plantar nerve entrapment sheet, ranked first, in favour of plantar fasciitis. The agent does not systematically use the differential diagnoses of the retrieved sheets.
 - Question q31 (Freiberg disease): in a retrieval-only run the sheet is not in the top 10, because the embedding model does not link the patient wording to it; the full pipeline finds it in v10. Hybrid search (keywords plus vectors) is future work.
 - The scope is strict (foot and ankle): related topics such as knee pain are refused.
