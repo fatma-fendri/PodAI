@@ -4,10 +4,10 @@ import chromadb
 import os
 
 # Corpus version, chosen with PODAI_CORPUS:
-#   "v1"  : 15 sheets (default)
-#   "v2"  : v1 + new sheets
-#   "own" : the 15 v1 sheets rewritten from own clinical knowledge
-CORPUS = os.getenv("PODAI_CORPUS", "v1")
+#   "own" : the 15 sheets rewritten from own clinical knowledge (default)
+#   "v1"  : original 15 sheets (legacy, kept to reproduce earlier results)
+#   "v2"  : v1 + new sheets (legacy)
+CORPUS = os.getenv("PODAI_CORPUS", "own")
 CORPORA = {
     "v1": ("podiatry_dataset.json", "podiatry"),
     "v2": ("podiatry_dataset_v2.json", "podiatry_v2"),

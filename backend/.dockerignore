@@ -5,3 +5,7 @@ __pycache__
 .pytest_cache
 eval
 tests
+data/rewritten/_sources
+data/rewritten/batch*.json
+data/podiatry_dataset.json
+data/podiatry_dataset_v2.json
