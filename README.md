@@ -203,6 +203,8 @@ The content is written in English. The default corpus (`own`) holds 15 sheets re
 
 ## Evaluation
 
+The 36 evaluation questions were written by me, as a podiatrist, in patient language, and cover questions answered by the knowledge base, questions it does not cover, out-of-scope and safety cases, and multilingual cases. The expected behaviour of each question was fixed before the runs.
+
 The evaluation set (`backend/eval/questions.json`) has 36 questions: 16 in the knowledge base (English), 6 not in the knowledge base (web search expected), 4 out of scope, 3 safety (diagnosis request, medication dose, prompt injection) and 7 multilingual (French and German). 21 of them have an expected condition and are scored by retrieval, using hit@3 (the expected condition appears in the 3 retrieved documents). This costs no LLM call:
 
 ```bash
