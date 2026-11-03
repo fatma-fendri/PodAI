@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { askQuestion, AskResponse } from "@/lib/api";
+import { askQuestion, AskResponse, ApiError } from "@/lib/api";
 import SourceList from "@/components/SourceList";
 import ReactMarkdown from "react-markdown";
 import Disclaimer from "@/components/Disclaimer";
@@ -29,8 +29,15 @@ export default function Home() {
     try {
       const data = await askQuestion(question);
       setResult(data);
-    } catch {
-      setError("The assistant is unavailable right now. Please try again in a moment.");
+        } catch (err) {
+      if (err instanceof ApiError && err.message && (err.status === 429 || err.status === 503)) {
+        // limit reached or model quota used up: show the backend's own explanation
+        setError(err.message);
+      } else if (err instanceof ApiError && err.status === 422) {
+        setError("Please enter a question of up to 1,000 characters.");
+      } else {
+        setError("The assistant is unavailable right now. Please try again in a moment.");
+      }
     } finally {
       setLoading(false);
     }
