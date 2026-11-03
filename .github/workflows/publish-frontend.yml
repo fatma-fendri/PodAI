@@ -37,3 +37,24 @@ jobs:
           tags: |
             ${{ env.IMAGE }}:latest
             ${{ env.IMAGE }}:${{ github.sha }}
+
+  deploy:
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Update the container app
+        run: |
+          az config set extension.use_dynamic_install=yes_without_prompt
+          az containerapp update \
+            --name podai-frontend \
+            --resource-group rg-podai-demo \
+            --image ${{ env.IMAGE }}:${{ github.sha }}
