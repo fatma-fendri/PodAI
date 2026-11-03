@@ -201,6 +201,20 @@ The content is written in English. The default corpus (`own`) holds 15 sheets re
 
 **Corpus v2.** `data/podiatry_dataset_v2.json` adds 14 sheets (Morton's neuroma, fungal nail infection, ingrown toenail, plantar warts, athlete's foot, corn, callus, diabetic foot ulcer, diabetic neuropathy, gout, hallux rigidus, ankle sprain, metatarsal stress fracture, adult flat feet). Each is rewritten in my own words from a named page and reviewed by me as a podiatrist; some differential diagnoses and warning signs are my own additions. The MedlinePlus Medical Encyclopedia pages are provided by A.D.A.M. and are copyrighted, and the hallux rigidus source is an AAOS page, so corpus v2 is not distributed: rewriting its 14 sheets from clinical knowledge is planned.
 
+## Live demo
+
+PodAI is deployed on Azure Container Apps (Germany West Central):
+**https://podai-frontend.graysmoke-b7e5806d.germanywestcentral.azurecontainerapps.io**
+
+Things to know before you try it:
+
+- **Cold start.** The apps scale to zero when idle, so the first request after a pause can take about a minute.
+- **Usage limits.** The demo accepts 5 questions per visitor per day and 30 in total per day. The counters are kept in memory and reset when the app restarts.
+- **Your question leaves the demo.** It is sent to Groq (the language model) and, when the knowledge base is not enough, to Tavily (web search restricted to trusted medical domains). Do not enter personal health data.
+- **Not medical advice.** PodAI gives educational information only.
+
+Deployment: images are built by GitHub Actions, published to ghcr.io, and rolled out to Azure automatically on every push to `main`. Azure access uses OpenID Connect (no stored password).
+
 ## Evaluation
 
 The 36 evaluation questions were written by me, as a podiatrist, in patient language, and cover questions answered by the knowledge base, questions it does not cover, out-of-scope and safety cases, and multilingual cases. The expected behaviour of each question was fixed before the runs.
